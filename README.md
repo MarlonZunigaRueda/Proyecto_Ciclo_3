@@ -3,7 +3,10 @@ Se propone analizar, diseñar y construir una aplicación software que permita c
 
 ## Presentación
 
-Soy Marlon Zuñiga Rueda, estudié Ingeniero Electrónico y Mantenimiento Aeronáutico, en la actualidad me interesa mucho el desarrollo de software, por eso decidí ingresar a Misión TIC 2020-2021. Vivo en la ciudad de Montería y tengo 34 años. 
+Soy Marlon Zuñiga Rueda, estudié Ingeniero Electrónico y Mantenimiento Aeronáutico, en la actualidad me interesa mucho el desarrollo de software, por eso decidí ingresar a Misión TIC 2020-2021. Vivo en la ciudad de Montería y tengo 34 años.
+
+Soy Carlos Andres Mosquera Garcia, ingeniero de sistemas recien egresado de la uniremington, tengo 34 años y vivo en el municipio de Apartadó, megustaria iniciar mi experiencia laboral como programador ya que mi campo de experiencia es soporte tecnico
 
 ## Participantes 
 Marlon Stiven Zuñiga Rueda
+Carlos Andres Mosquera Garcia
