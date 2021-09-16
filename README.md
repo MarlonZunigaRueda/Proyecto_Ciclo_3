@@ -9,6 +9,8 @@ Soy Carlos Andres Mosquera Garcia, ingeniero de sistemas recien egresado de la u
 
 Soyy william Potes, estudiante de ingenieria de sistemas, tengo 34 años, de cali
 
+Soy Mateo Soto Arango, estudiante de matemáticas en la UdeA, tengo 22 años y vivo en Envigado.
+
 ## Participantes 
 Marlon Stiven Zuñiga Rueda
 Carlos Andres Mosquera Garcia
