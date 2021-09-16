@@ -7,6 +7,10 @@ Soy Marlon Zuñiga Rueda, estudié Ingeniero Electrónico y Mantenimiento Aeron�
 
 Soy Carlos Andres Mosquera Garcia, ingeniero de sistemas recien egresado de la uniremington, tengo 34 años y vivo en el municipio de Apartadó, megustaria iniciar mi experiencia laboral como programador ya que mi campo de experiencia es soporte tecnico
 
+Soyy william Potes, estudiante de ingenieria de sistemas, tengo 34 años, de cali
+
 ## Participantes 
 Marlon Stiven Zuñiga Rueda
 Carlos Andres Mosquera Garcia
+William Potes
+
