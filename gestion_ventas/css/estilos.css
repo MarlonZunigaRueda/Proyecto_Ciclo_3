@@ -1,3 +1,4 @@
+@charset "UTF-8";
 body {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
@@ -88,5 +89,28 @@ main .boton button {
   border-style: none;
   border-radius: 5px;
   cursor: pointer;
+}
+
+.contentImage {
+  width: 600px;
+  height: 400ṕx;
+  line-height: 400px;
+  margin: 0% auto;
+  text-align: center;
+}
+
+.contentImage img {
+  vertical-align: middle;
+  border-style: none;
+}
+
+.contentImage span {
+  color: #ffffff;
+  font-size: 20px;
+  line-height: 91px;
+  text-align: center;
+  position: absolute;
+  top: 420px;
+  left: 530px;
 }
 /*# sourceMappingURL=estilos.css.map */
