@@ -24,12 +24,29 @@
             <li><a href="#about">Gestionar usuarios</a></li>
         </ul>
     </header>
-    <section>
-        <div class="contentImage">
-            <img src="../images/imagen4.jpg" alt="Bienvenida">
-            <span>Bienvenido, este es su espacio de trabajo.</span>
-        </div>
-    </section>
+    <main>
+        <section>
+            <span>Consultar las ventas de un periodo</span>
+        </section>
+        <section>
+            <div class="fecha">
+                <div class="fecha-1">
+                    <input id="fecha_inicial" type="date" class="left" placeholder="Su fecha inicial aquí:" required />
+                </div>
+                <div class="fecha-1">
+                    <input id="fecha_final" type="date" class="left" placeholder="Su fecha final aquí:" required />
+                </div>
+                <section class="boton">
+                    <button id="consultar_ventas" onclick="consultarventas()">Generar consulta</button>
+                </section>
+            </div>
+        </section>
+        <section>
+            <div id="tabla" class="tabla">
+
+            </div>
+        </section>
+    </main>
     <script src="../js/gestor_ventas.js"></script>
 </body>
 
