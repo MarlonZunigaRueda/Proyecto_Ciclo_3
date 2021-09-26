@@ -48,27 +48,28 @@ main {
 main .caja {
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: 2fr 1fr;
-      grid-template-columns: 2fr 1fr;
+  -ms-grid-columns: auto auto auto 7%;
+      grid-template-columns: auto auto auto 7%;
   grid-gap: 5px;
   border: 1px solid gray;
-  padding: 5px;
-  margin-top: 20px;
+  border-radius: 10px;
+  text-align: center;
+  margin-bottom: 2%;
 }
 
 main .caja .item-1 {
-  -ms-grid-row: 1;
-  grid-row: 1;
+  grid-row: auto;
   -ms-grid-column: 1;
   -ms-grid-column-span: 3;
   grid-column: 1 / 4;
+  padding: 5px;
+  margin-bottom: 2%;
 }
 
 main .caja .item-2 {
-  -ms-grid-row: 1;
-  grid-row: 1;
-  -ms-grid-column: 4;
-  grid-column: 4;
+  grid-row: auto;
+  padding: 5px;
+  margin-bottom: 2%;
 }
 
 main .caja input {
@@ -77,8 +78,10 @@ main .caja input {
   border-style: none;
 }
 
-main .boton {
-  margin-top: 20px;
+main .caja input[type=text] {
+  width: 100%;
+  height: 100%;
+  border: none;
 }
 
 main .boton button {
@@ -89,6 +92,74 @@ main .boton button {
   border-style: none;
   border-radius: 5px;
   cursor: pointer;
+  font-weight: bolder;
+}
+
+main .fecha {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: auto auto auto;
+      grid-template-columns: auto auto auto;
+  grid-gap: 10px;
+  padding: 5px;
+}
+
+main .fecha .fecha-1 {
+  border: 1px solid gray;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+main .fecha input {
+  width: 100%;
+  height: 100%;
+  border-style: none;
+}
+
+main .fecha input[type=date] {
+  width: 100%;
+  height: 100%;
+  border: none;
+  border-bottom: 2px solid black;
+}
+
+main span {
+  font-size: 20px;
+  line-height: 50px;
+  text-align: center;
+  font-weight: bolder;
+}
+
+main .tabla {
+  display: -ms-grid;
+  display: grid;
+  padding: 5px;
+  margin-top: 2%;
+}
+
+main .tabla table {
+  border: 0px;
+  width: 100%;
+  height: 100%;
+  border-spacing: 0px 0px;
+  border-collapse: collapse;
+}
+
+main .tabla thead {
+  background-color: #EFF2F7;
+  border: 1px solid #C0CCDA;
+  border-spacing: 0px 10px;
+}
+
+main .tabla thead th {
+  padding: 10px;
+  margin-top: 2%;
+}
+
+main .tabla tbody tr {
+  border: 1px solid #C0CCDA;
+  padding: 5px;
+  margin-top: 2%;
 }
 
 .contentImage {
@@ -112,5 +183,6 @@ main .boton button {
   position: absolute;
   top: 420px;
   left: 530px;
+  font-weight: bolder;
 }
 /*# sourceMappingURL=estilos.css.map */

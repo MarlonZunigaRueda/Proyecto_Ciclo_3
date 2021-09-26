@@ -6,9 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Gestión de ventas</title>
-    <link rel="stylesheet" href="css/estilos.css" />
+    <link rel="stylesheet" href="../css/estilos.css" />
 </head>
-
 <body>
     <header>
         <img src="images/imagen1.png" alt="Logo" class="logo" />
@@ -19,23 +18,27 @@
         <p>ingrese sus datos abajo</p>
         <section>
             <div class="caja">
-                <div class="item-1"><input id="user"type="text" class="left" placeholder="Su usuario aquí:"
-                        required/></div>
-                <div class="item-2"><img src="images/imagen2.png" alt="" class="logo" /></div>
+                <div class="item-1">
+                    <input id="user" type="text" class="left" placeholder="Su usuario aquí:" required />
+                </div>
+                <div class="item-2">
+                    <img src="images/imagen2.png" alt="" class="logo" />
+                </div>
             </div>
             <div class="caja">
 
                 <div class="item-1"><input id="psd" type="password" class="left" placeholder="Su clave  aquí:"
-                        required/></div>
+                        required /></div>
                 <div class="item-2"><img src="images/imagen3.png" alt="" class="logo" /></div>
             </div>
         </section>
-        <section class="boton">
-            <button id="iniciar_sesion" onclick="iniciarsesion()">Iniciar sesión</button>
+        <section>
+            <div class="boton">
+                <button id="iniciar_sesion" onclick="iniciarsesion()">Iniciar sesión</button>
+            </div>
         </section>
     </main>
     <script src="js/gestor_ventas.js"></script>
 </body>
-<!-- <a href="html/bienvenida.html">Iniciar
-                    sesión</a>-->
+
 </html>
