@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gestión de ventas</title>
+    <link rel="stylesheet" href="../css/estilos.css" />
+</head>
+
+<body>
+    <header>
+        <section class="cerrarsesion">
+            <button id="cerrar_sesion" onclick="cerrarsesion()">Cerrar sesión</button>
+        </section>
+        <img src="../images/imagen1.png" alt="Logo" class="logo" />
+        <span>Gestión de ventas</span>
+
+        <ul>
+            <li><a class="active" href="../html/bienvenida.html">Inicio</a></li>
+            <li><a href="../html/consultar_ventas.html">Consultar ventas</a></li>
+            <li><a href="#contact">Gestionar vendedores</a></li>
+            <li><a href="#about">Gestionar usuarios</a></li>
+        </ul>
+    </header>
+    <main>
+        <section>
+            <span>Consultar las ventas de un periodo</span>
+        </section>
+        <section>
+            <div class="fecha">
+                <div class="fecha-1">
+                    <input id="fecha_inicial" type="date" class="left" placeholder="Su fecha inicial aquí:" required />
+                </div>
+                <div class="fecha-1">
+                    <input id="fecha_final" type="date" class="left" placeholder="Su fecha final aquí:" required />
+                </div>
+                <section class="boton">
+                    <button id="consultar_ventas" onclick="consultarventas()">Generar consulta</button>
+                </section>
+            </div>
+        </section>
+        <section>
+            <div id="tabla" class="tabla">
+
+            </div>
+        </section>
+    </main>
+    <script src="../js/gestor_ventas.js"></script>
+</body>
+
+</html>
