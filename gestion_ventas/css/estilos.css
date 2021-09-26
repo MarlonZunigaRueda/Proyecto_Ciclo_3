@@ -30,7 +30,8 @@ header .menu {
   width: 100%;
 }
 
-header .menu ul, header .menu ol {
+header .menu ul,
+header .menu ol {
   list-style-type: none;
   margin: 0%;
 }
@@ -75,6 +76,8 @@ header .menu .nav li ul li ul {
   width: 42px;
   height: 42px;
   vertical-align: middle;
+  padding: 0px;
+  margin: 3px;
 }
 
 header {
@@ -82,54 +85,79 @@ header {
 }
 
 main {
-  width: 50%;
+  width: 65%;
   margin: auto;
-  margin-top: 5%;
+  margin-top: 1%;
   padding: 20px;
   text-align: center;
 }
 
-main .caja {
+main .sesion {
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: auto auto auto 7%;
-      grid-template-columns: auto auto auto 7%;
+  -ms-grid-columns: auto;
+      grid-template-columns: auto;
   grid-gap: 5px;
-  border: 1px solid gray;
-  border-radius: 10px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   text-align: center;
-  margin-bottom: 2%;
 }
 
-main .caja .item-1 {
-  grid-row: auto;
-  -ms-grid-column: 1;
-  -ms-grid-column-span: 3;
-  grid-column: 1 / 4;
-  padding: 5px;
-  margin-bottom: 2%;
+main .sesion .box {
+  padding: 0px;
+  margin: 1%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border: 2px solid #ccc;
+  border-radius: 5px;
+  height: 50px;
+  width: 350px;
 }
 
-main .caja .item-2 {
-  grid-row: auto;
-  padding: 5px;
-  margin-bottom: 2%;
-}
-
-main .caja input {
+main .sesion .item-1 {
+  padding: 0px;
+  margin: 0px;
   width: 100%;
-  height: 100%;
-  border-style: none;
+  height: 45px;
+  display: inline-block;
 }
 
-main .caja input[type=text] {
+main .sesion .item-2 {
+  padding: 1px;
+  margin: 1px;
+  width: 45px;
+  display: inline-block;
+}
+
+main .sesion input {
   width: 100%;
   height: 100%;
   border: none;
+  border-style: none;
 }
 
-main .boton button {
+main .sesion input[type=text] {
   width: 100%;
+  height: 100%;
+  border: none;
+  border-style: none;
+}
+
+main .sesion .iniciar_sesion {
+  padding: 0px;
+  margin: 1%;
+}
+
+main .sesion .iniciar_sesion button {
+  width: 352px;
   height: 50px;
   background-color: #f95f62;
   color: white;
@@ -139,32 +167,68 @@ main .boton button {
   font-weight: bolder;
 }
 
-main .fecha {
+main .busqueda {
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: auto auto auto;
       grid-template-columns: auto auto auto;
-  grid-gap: 10px;
+  grid-gap: 5px;
+  border: 0px solid gray;
+  border-radius: 5px;
+  text-align: center;
+  margin-bottom: 2%;
   padding: 5px;
 }
 
-main .fecha .fecha-1 {
+main .busqueda .fecha-1 {
   border: 1px solid gray;
-  padding: 10px;
-  border-radius: 10px;
+  padding: 5px;
+  border-radius: 5px;
+  margin-bottom: 2%;
 }
 
-main .fecha input {
+main .busqueda .item-3 {
+  border: 1px solid gray;
+  padding: 5px;
+  border-radius: 5px;
+  margin-bottom: 2%;
+}
+
+main .busqueda input {
   width: 100%;
-  height: 100%;
+  border: none;
   border-style: none;
 }
 
-main .fecha input[type=date] {
+main .busqueda input[type=date] {
   width: 100%;
-  height: 100%;
+  height: 40px;
   border: none;
-  border-bottom: 2px solid black;
+  border-style: none;
+  border-bottom: 1px solid black;
+}
+
+main .busqueda input[type=text] {
+  width: 100%;
+  height: 40px;
+  border-style: none;
+  border: none;
+}
+
+main .busqueda .boton {
+  padding: 0px;
+  margin: 1%;
+}
+
+main .busqueda .boton button {
+  width: 100%;
+  height: 50px;
+  background-color: #f95f62;
+  color: white;
+  border-style: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bolder;
 }
 
 main span {
@@ -211,6 +275,7 @@ main .tabla tbody tr {
   height: 400ṕx;
   line-height: 400px;
   margin: 0% auto;
+  margin-top: 1%;
   text-align: center;
 }
 
@@ -222,10 +287,9 @@ main .tabla tbody tr {
 .contentImage span {
   color: #ffffff;
   font-size: 20px;
-  line-height: 91px;
   text-align: center;
   position: absolute;
-  top: 420px;
+  top: 46%;
   left: 530px;
   font-weight: bolder;
 }

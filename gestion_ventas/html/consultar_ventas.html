@@ -61,12 +61,22 @@
             <span>Consultar las ventas de un periodo</span>
         </section>
         <section>
-            <div class="fecha">
+            <div class="busqueda">
                 <div class="fecha-1">
                     <input id="fecha_inicial" type="date" class="left" placeholder="Su fecha inicial aquí:" required />
                 </div>
                 <div class="fecha-1">
                     <input id="fecha_final" type="date" class="left" placeholder="Su fecha final aquí:" required />
+                </div>
+                <div class="item-3">
+                    <input id="cod_venta" type="text" class="left" placeholder="El código de venta aquí:" required />
+                </div>
+                <div class="item-3">
+                    <input id="cod_cliente" type="text" class="left" placeholder="El documento del cliente aquí:"
+                        required />
+                </div>
+                <div class="item-3">
+                    <input id="nombre_cliente" type="text" class="left" placeholder="El nombre del cliente aquí:" required />
                 </div>
                 <section class="boton">
                     <button id="consultar_ventas" onclick="consultarventas()">Generar consulta</button>

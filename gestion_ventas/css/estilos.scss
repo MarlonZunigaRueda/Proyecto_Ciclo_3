@@ -8,6 +8,7 @@ header {
   grid-template-columns: auto auto auto;
   grid-gap: 10px;
   padding: 5px;
+
   .cerrarsesion {
 
     button {
@@ -21,60 +22,63 @@ header {
       border-radius: 5px;
       float: right;
       overflow: auto;
-      }
+    }
+  }
+
+  .menu {
+    padding: 0px;
+    width: 100%;
+
+    ul,
+    ol {
+      list-style-type: none;
+      margin: 0%;
     }
 
-    .menu {
-      padding:0px;
-      width:100%;
-
-      ul, ol {
-        list-style-type: none;
-        margin: 0%;
-      }
-
-      .nav>li {
-        float: left;
-      }
-
-      .nav li a {
-        background-color:rgb(255, 255, 255);
-        text-decoration:none;
-        color:#47525E;
-        text-align: center;
-        padding: 14px 16px;
-        display: block;
-      }
-
-      .nav li a:hover {
-        background-color: #E5E9F2;
-      }
-
-      .nav li ul {
-        display: none;
-        position: absolute;
-        min-width: 140px;
-      }
-
-      .nav li:hover>ul {
-        display: block;
-      }
-
-      .nav li ul li {
-        position: relative;
-      }
-
-      .nav li ul li ul {
-        right: -140px;
-        top: 0px;
-      }
+    .nav>li {
+      float: left;
     }
+
+    .nav li a {
+      background-color: rgb(255, 255, 255);
+      text-decoration: none;
+      color: #47525E;
+      text-align: center;
+      padding: 14px 16px;
+      display: block;
+    }
+
+    .nav li a:hover {
+      background-color: #E5E9F2;
+    }
+
+    .nav li ul {
+      display: none;
+      position: absolute;
+      min-width: 140px;
+    }
+
+    .nav li:hover>ul {
+      display: block;
+    }
+
+    .nav li ul li {
+      position: relative;
+    }
+
+    .nav li ul li ul {
+      right: -140px;
+      top: 0px;
+    }
+  }
 }
 
 .logo {
   width: 42px;
   height: 42px;
   vertical-align: middle;
+  padding: 0px;
+  margin: 3px;
 }
 
 header {
@@ -82,37 +86,50 @@ header {
 }
 
 main {
-  width: 50%;
+  width: 65%;
   margin: auto;
-  margin-top: 5%;
+  margin-top: 1%;
   padding: 20px;
   text-align: center;
 
-  .caja {
+  .sesion {
     display: grid;
-    grid-template-columns: auto auto auto 7%;
+    grid-template-columns: auto;
     grid-gap: 5px;
-    border: 1px solid gray;
-    border-radius: 10px;
+    align-items: center;
+    justify-content: center;
     text-align: center;
-    margin-bottom: 2%;
+
+    .box {
+      padding: 0px;
+      margin: 1%;
+      display: flex;
+      align-items: center;
+      border: 2px solid #ccc;
+      border-radius: 5px;
+      height: 50px;
+      width: 350px;
+    }
 
     .item-1 {
-      grid-row: auto;
-      grid-column: 1 / 4;
-      padding: 5px;
-      margin-bottom: 2%;
+      padding: 0px;
+      margin: 0px;
+      width: 100%;
+      height: 45px;
+      display: inline-block;
     }
 
     .item-2 {
-      grid-row: auto;
-      padding: 5px;
-      margin-bottom: 2%;
+      padding: 1px;
+      margin: 1px;
+      width: 45px;
+      display: inline-block;
     }
 
     input {
       width: 100%;
       height: 100%;
+      border: none;
       border-style: none;
 
     }
@@ -121,49 +138,85 @@ main {
       width: 100%;
       height: 100%;
       border: none;
-    }
-  }
-
-  .boton {
-    //margin-top: 2%;
-
-
-    button {
-      width: 100%;
-      height: 50px;
-      background-color: #f95f62;
-      color: white;
       border-style: none;
-      border-radius: 5px;
-      cursor: pointer;
-      font-weight: bolder;
+    }
+
+    .iniciar_sesion {
+      padding: 0px;
+      margin: 1%;
+
+      button {
+        width: 352px;
+        height: 50px;
+        background-color: #f95f62;
+        color: white;
+        border-style: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-weight: bolder;
+      }
     }
   }
 
-  .fecha {
+  .busqueda {
     display: grid;
     grid-template-columns: auto auto auto;
-    grid-gap: 10px;
+    grid-gap: 5px;
+    border: 0px solid gray;
+    border-radius: 5px;
+    text-align: center;
+    margin-bottom: 2%;
     padding: 5px;
-
 
     .fecha-1 {
       border: 1px solid gray;
-      padding: 10px;
-      border-radius: 10px;
+      padding: 5px;
+      border-radius: 5px;
+      margin-bottom: 2%;
+    }
+
+    .item-3 {
+      border: 1px solid gray;
+      padding: 5px;
+      border-radius: 5px;
+      margin-bottom: 2%;
     }
 
     input {
       width: 100%;
-      height: 100%;
+      border: none;
       border-style: none;
     }
 
     input[type=date] {
       width: 100%;
-      height: 100%;
+      height: 40px;
       border: none;
-      border-bottom: 2px solid rgb(0, 0, 0);
+      border-style: none;
+      border-bottom: 1px solid rgb(0, 0, 0);
+    }
+
+    input[type=text] {
+      width: 100%;
+      height: 40px;
+      border-style: none;
+      border: none;
+    }
+
+    .boton {
+      padding: 0px;
+      margin: 1%;
+
+      button {
+        width: 100%;
+        height: 50px;
+        background-color: #f95f62;
+        color: white;
+        border-style: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-weight: bolder;
+      }
     }
   }
 
@@ -216,6 +269,7 @@ main {
   height: 400ṕx;
   line-height: 400px;
   margin: 0% auto;
+  margin-top: 1%;
   text-align: center;
 
   img {
@@ -226,10 +280,9 @@ main {
   span {
     color: #ffffff;
     font-size: 20px;
-    line-height: 91px;
     text-align: center;
     position: absolute;
-    top: 420px;
+    top: 46%;
     left: 530px;
     font-weight: bolder;
   }
