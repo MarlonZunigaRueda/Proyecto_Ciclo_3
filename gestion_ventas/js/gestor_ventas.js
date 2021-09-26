@@ -12,6 +12,13 @@ const iniciarsesion = () => {
     }
 }
 
+const cerrarsesion = () => {
+    debugger;
+
+    window.location.href = '../index.html';
+   
+}
+
 const consultarventas = () => {
     
     fecha_inicial = document.getElementById("fecha_inicial");
