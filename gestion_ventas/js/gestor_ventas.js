@@ -1,4 +1,10 @@
 
+function cargue() {
+    creartabla();
+}
+
+window.onload = cargue;
+
 const iniciarsesion = () => {
     debugger;
     user = document.getElementById("user");
@@ -69,6 +75,7 @@ const creartabla = () => {
         }
         
     }
+    return myobj;
 }
 
 const crearencabezadotabla = (dato) => {

@@ -3,8 +3,17 @@ body {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
+header {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: auto auto auto;
+      grid-template-columns: auto auto auto;
+  grid-gap: 10px;
+  padding: 5px;
+}
+
 header .cerrarsesion button {
-  width: 12%;
+  width: auto;
   height: 50px;
   color: white;
   cursor: pointer;
@@ -16,34 +25,56 @@ header .cerrarsesion button {
   overflow: auto;
 }
 
+header .menu {
+  padding: 0px;
+  width: 100%;
+}
+
+header .menu ul, header .menu ol {
+  list-style-type: none;
+  margin: 0%;
+}
+
+header .menu .nav > li {
+  float: left;
+}
+
+header .menu .nav li a {
+  background-color: white;
+  text-decoration: none;
+  color: #47525E;
+  text-align: center;
+  padding: 14px 16px;
+  display: block;
+}
+
+header .menu .nav li a:hover {
+  background-color: #E5E9F2;
+}
+
+header .menu .nav li ul {
+  display: none;
+  position: absolute;
+  min-width: 140px;
+}
+
+header .menu .nav li:hover > ul {
+  display: block;
+}
+
+header .menu .nav li ul li {
+  position: relative;
+}
+
+header .menu .nav li ul li ul {
+  right: -140px;
+  top: 0px;
+}
+
 .logo {
   width: 42px;
   height: 42px;
   vertical-align: middle;
-}
-
-ul {
-  list-style-type: none;
-  float: right;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-}
-
-li {
-  float: left;
-}
-
-li a {
-  display: inline-block;
-  color: #47525E;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-}
-
-li a:hover {
-  background-color: #E5E9F2;
 }
 
 header {
