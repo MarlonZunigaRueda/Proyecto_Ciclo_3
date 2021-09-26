@@ -11,18 +11,50 @@
 
 <body>
     <header>
-        <section class="cerrarsesion">
-            <button id="cerrar_sesion" onclick="cerrarsesion()">Cerrar sesión</button>
+        <section>
+            <img src="../images/imagen1.png" alt="Logo" class="logo" />
+            <span>Gestión de ventas</span>
         </section>
-        <img src="../images/imagen1.png" alt="Logo" class="logo" />
-        <span>Gestión de ventas</span>
-
-        <ul>
-            <li><a class="active" href="../html/bienvenida.html">Inicio</a></li>
-            <li><a href="../html/consultar_ventas.html">Consultar ventas</a></li>
-            <li><a href="#contact">Gestionar vendedores</a></li>
-            <li><a href="#about">Gestionar usuarios</a></li>
-        </ul>
+        <section class="menu">
+            <ul class="nav">
+                <li>
+                    <a class="active" href="../html/bienvenida.html">Inicio</a>
+                </li>
+                <li><a href="#">Gestionar ventas</a>
+                    <ul>
+                        <li>
+                            <a href="#">Registrar venta</a>
+                        </li>
+                        <li>
+                            <a href="../html/consultar_ventas.html">
+                                Consultar ventas
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#contact">Gestionar productos</a>
+                    <ul>
+                        <li>
+                            <a href="#">Registrar producto</a>
+                        </li>
+                        <li>
+                            <a href="">
+                                Consultar productos
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#about">Gestionar usuarios</a>
+                </li>
+            </ul>
+        </section>
+        <section class="cerrarsesion">
+            <button id="cerrar_sesion" onclick="cerrarsesion()">
+                Cerrar sesión
+            </button>
+        </section>
     </header>
     <main>
         <section>
