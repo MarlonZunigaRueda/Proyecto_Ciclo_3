@@ -231,6 +231,97 @@ main .busqueda .boton button {
   font-weight: bolder;
 }
 
+main .registro {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 34% 34%;
+      grid-template-columns: 34% 34%;
+  grid-gap: 5px;
+  border: 0px solid gray;
+  border-radius: 5px;
+  text-align: center;
+  margin-bottom: 2%;
+  padding: 5px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  text-align: center;
+}
+
+main .registro .item-1 {
+  border: 1px solid gray;
+  padding: 5px;
+  border-radius: 5px;
+  margin-bottom: 2%;
+}
+
+main .registro .item-2 {
+  border: 1px solid gray;
+  padding: 5px;
+  border-radius: 5px;
+  margin-bottom: 2%;
+}
+
+main .registro input {
+  width: 100%;
+  border: none;
+  border-style: none;
+}
+
+main .registro input[type=date] {
+  width: 100%;
+  height: 40px;
+  border: none;
+  border-style: none;
+  border-bottom: 1px solid black;
+}
+
+main .registro input[type=number] {
+  width: 100%;
+  height: 40px;
+  border: none;
+  border-style: none;
+  border: none;
+}
+
+main .registro input[type=text] {
+  width: 100%;
+  height: 40px;
+  border-style: none;
+  border: none;
+}
+
+main .registro select {
+  width: 100%;
+  height: 40px;
+  border-style: none;
+  border: none;
+  background-color: white;
+  color: gray;
+}
+
+main .registro .boton {
+  padding: 0px;
+  margin: 1%;
+  -ms-grid-column: 2;
+      grid-column-start: 2;
+  grid-column-end: 2;
+}
+
+main .registro .boton button {
+  width: 100%;
+  height: 50px;
+  background-color: #f95f62;
+  color: white;
+  border-style: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bolder;
+}
+
 main span {
   font-size: 20px;
   line-height: 50px;

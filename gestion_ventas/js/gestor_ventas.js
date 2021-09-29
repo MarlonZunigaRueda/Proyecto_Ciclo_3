@@ -40,7 +40,7 @@ const consultarventas = () => {
 const creartabla = () => {
     var myobj = document.getElementById('tbventas');
     var divtabla = document.getElementById('tabla');
-    debugger;
+
     if (validarObj(myobj)) {
         myobj.remove();
     }
