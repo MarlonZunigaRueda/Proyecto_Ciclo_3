@@ -46,7 +46,8 @@
                     </ul>
                 </li>
                 <li>
-                    <a href="../html/lista_vendedores.html">Gestionar usuarios</a> <!--Cambio realizado por leonardo-->
+                    <a href="../html/lista_vendedores.html">Gestionar usuarios</a>
+                    <!--Cambio realizado por leonardo-->
                 </li>
             </ul>
         </section>
@@ -58,34 +59,38 @@
     </header>
     <main>
         <section>
-            <span>Consultar las ventas de un periodo</span>
+            <span>Ingrese los datos de la venta</span>
         </section>
         <section>
-            <div class="busqueda">
-                <div class="fecha-1">
-                    <input id="fecha_inicial" type="date" class="left" placeholder="Su fecha inicial aquí:" required />
-                </div>
-                <div class="fecha-1">
-                    <input id="fecha_final" type="date" class="left" placeholder="Su fecha final aquí:" required />
-                </div>
+            <div class="registro">
                 <div class="item-3">
-                    <input id="cod_venta" type="text" class="left" placeholder="El código de venta aquí:" required />
-                </div>
-                <div class="item-3">
-                    <input id="cod_cliente" type="text" class="left" placeholder="El documento del cliente aquí:"
+                    <input id="dsc_producto" type="text" class="left" placeholder="La descripción del producto aquí:"
                         required />
                 </div>
                 <div class="item-3">
-                    <input id="nombre_cliente" type="text" class="left" placeholder="El nombre del cliente aquí:" required />
+                    <input id="cantidad_producto" type="number" class="left"
+                        placeholder="La cantidad del producto aquí:" required />
                 </div>
+                <div class="item-3">
+                    <input id="valor_producto" type="text" class="left" placeholder="El valor unitario aquí:"
+                        required/>
+                </div>
+                <div class="item-3">
+                    <select id="id_clientes"  name="" required>
+                        <option value="">La identificación del cliente aquí:</option>
+                        <option value="1">1094899377</option>
+                        <option value="2">1094899375</option>
+                        <option value="3">1094899378</option>
+                        <option value="10">1094899379</option>
+                        <option value="11">1094899373</option>
+                        <option value="12">1094899370</option>
+                    </select>
+                    
+                </div>
+                
                 <section class="boton">
-                    <button id="consultar_ventas" onclick="consultarventas()">Generar consulta</button>
+                    <button id="registrar_venta" onclick="registrarventa()">Registrar venta</button>
                 </section>
-            </div>
-        </section>
-        <section>
-            <div id="tabla" class="tabla">
-
             </div>
         </section>
     </main>
