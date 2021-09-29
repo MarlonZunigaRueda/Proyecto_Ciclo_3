@@ -1,19 +1,20 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Gestión de ventas</title>
-    <link rel="stylesheet" href="../css/estilos.css" />
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Información de usuarios</title>
+    <link rel="stylesheet" href="../css/estilos.css">
+    <link rel="stylesheet" href="../css/estilos_usuarios.css">
 </head>
 
 <body>
     <header>
         <section>
             <img src="../images/imagen1.png" alt="Logo" class="logo" />
-            <span>Gestión de ventas</span>
+            <span>Información de usuarios</span>
         </section>
         <section class="menu">
             <ul class="nav">
@@ -46,7 +47,7 @@
                     </ul>
                 </li>
                 <li>
-                    <a href="../html/lista_vendedores.html">Gestionar usuarios</a> <!--Cambio realizado por leonardo-->>
+                    <a href="#about">Gestionar usuarios</a>
                 </li>
             </ul>
         </section>
@@ -58,38 +59,26 @@
     </header>
     <main>
         <section>
-            <span>Consultar las ventas de un periodo</span>
-        </section>
-        <section>
-            <div class="busqueda">
-                <div class="fecha-1">
-                    <input id="fecha_inicial" type="date" class="left" placeholder="Su fecha inicial aquí:" required />
-                </div>
-                <div class="fecha-1">
-                    <input id="fecha_final" type="date" class="left" placeholder="Su fecha final aquí:" required />
-                </div>
-                <div class="item-3">
-                    <input id="cod_venta" type="text" class="left" placeholder="El código de venta aquí:" required />
-                </div>
-                <div class="item-3">
-                    <input id="cod_cliente" type="text" class="left" placeholder="El documento del cliente aquí:"
-                        required />
-                </div>
-                <div class="item-3">
-                    <input id="nombre_cliente" type="text" class="left" placeholder="El nombre del cliente aquí:" required />
-                </div>
-                <section class="boton">
-                    <button id="consultar_ventas" onclick="consultarventas()">Generar consulta</button>
+            <div class="btn_lista_usuarios">
+                <section class="btn_lista_usuarios">
+                    <button id="consultar_ventas" onclick="lista_usuarios()">Lista de usuarios</button> <!--Falta por crear esta funcion-->
                 </section>
             </div>
         </section>
+
         <section>
             <div id="tabla" class="tabla">
 
             </div>
         </section>
+
+        <section class="btn_actualizar_info">
+            <button class="boton" onclick="actualizar_info()">Actualizar informacion</button> <!--Falta por crear esta funcion-->
+        </section>
+
     </main>
-    <script src="../js/gestor_ventas.js"></script>
+    <!-- <script src="../js/gestor_ventas.js"></script> -->
+    <script src="../js/lista_vendedores.js"></script>
 </body>
 
 </html>
