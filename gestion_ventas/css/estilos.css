@@ -170,8 +170,8 @@ main .sesion .iniciar_sesion button {
 main .busqueda {
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: auto auto auto;
-      grid-template-columns: auto auto auto;
+  -ms-grid-columns: auto auto 34%;
+      grid-template-columns: auto auto 34%;
   grid-gap: 5px;
   border: 0px solid gray;
   border-radius: 5px;
@@ -218,6 +218,9 @@ main .busqueda input[type=text] {
 main .busqueda .boton {
   padding: 0px;
   margin: 1%;
+  -ms-grid-column: 3;
+      grid-column-start: 3;
+  grid-column-end: 3;
 }
 
 main .busqueda .boton button {
