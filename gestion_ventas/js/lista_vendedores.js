@@ -5,74 +5,55 @@ function cargue() {
 
 window.onload = cargue;
 
-const iniciarsesion = () => {
-    user = document.getElementById("user");
-    psd = document.getElementById("psd");
-
-    if (validarDato(user) && validarDato(psd) && validarUsuario(user)) {
-        console.log("Tiene datos");
-        window.location.href = '../html/bienvenida.html';
-    } else {
-        window.alert("Las credenciales no son válidas, intente de nuevo.");
-    }
-}
-
 const cerrarsesion = () => {
     window.location.href = '../index.html';
 
 }
 
-const consultarventas = () => {
+const lista_usuarios = () => {
 
-    fecha_inicial = document.getElementById("fecha_inicial");
-    fecha_final = document.getElementById("fecha_final");
-    cod_venta = document.getElementById("cod_venta");
-    cod_cliente = document.getElementById("cod_cliente");
-    nombre_cliente = document.getElementById("nombre_cliente");
+    creartabla();
 
-    if (validarDato(fecha_inicial) || validarDato(fecha_final) || validarDato(cod_venta) || validarDato(cod_cliente) || validarDato(nombre_cliente)) {
-        creartabla();
-
-    } else {
-        window.alert("Los datos no son válidos, intente de nuevo.");
-    }
 }
 
 const creartabla = () => {
-    var myobj = document.getElementById('tbventas');
-
+    var myobj = document.getElementById('tbusuarios');
+    var divtabla = document.getElementById('tabla');
+    debugger;
     if (validarObj(myobj)) {
         myobj.remove();
-    }
+    } 
+    
+    if (validarObj(divtabla)) {
 
 
-    let table = document.createElement('table');
-    table.setAttribute("id", "tbventas");
-    let thead = document.createElement('thead');
-    let tbody = document.createElement('tbody');
+        let table = document.createElement('table');
+        table.setAttribute("id", "tbusuarios");
+        let thead = document.createElement('thead');
+        let tbody = document.createElement('tbody');
 
-    table.appendChild(thead);
-    table.appendChild(tbody);
-    document.getElementById('tabla').appendChild(table);
+        table.appendChild(thead);
+        table.appendChild(tbody);
+        document.getElementById('tabla').appendChild(table);
 
-    for (let i = 0; i < 11; i++) {
+        for (let i = 0; i < 11; i++) {
 
-        let row = document.createElement('tr');
+            let row = document.createElement('tr');
 
-        for (let j = 0; j < 6; j++) {
+            for (let j = 0; j < 6; j++) {
 
-            var elementohtml = i == 0 ? 'th' : 'td';
-            let elemento = document.createElement(elementohtml);
-            var contenido = i == 0 ? crearencabezadotabla(j) : creardataventastabla(j, i);
-            elemento.innerHTML = contenido;
-            row.appendChild(elemento);
+                var elementohtml = i == 0 ? 'th' : 'td';
+                let elemento = document.createElement(elementohtml);
+                var contenido = i == 0 ? crearencabezadotabla(j) : creardatausuariostabla(j, i);
+                elemento.innerHTML = contenido;
+                row.appendChild(elemento);
+            }
+            if (i == 0) {
+                thead.appendChild(row);
+            } else {
+                tbody.appendChild(row);
+            }
         }
-        if (i == 0) {
-            thead.appendChild(row);
-        } else {
-            tbody.appendChild(row);
-        }
-
     }
     return myobj;
 }
@@ -104,7 +85,7 @@ const crearencabezadotabla = (dato) => {
     return encabezado;
 }
 
-const creardataventastabla = (dato1, dato2) => {
+const creardatausuariostabla = (dato1, dato2) => {
     var info = "";
     switch (dato1) {
         case 0:

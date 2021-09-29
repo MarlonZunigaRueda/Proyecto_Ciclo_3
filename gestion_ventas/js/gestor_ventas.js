@@ -10,7 +10,6 @@ const iniciarsesion = () => {
     psd = document.getElementById("psd");
 
     if (validarDato(user) && validarDato(psd) && validarUsuario(user)) {
-        console.log("Tiene datos");
         window.location.href = '../html/bienvenida.html';
     } else {
         window.alert("Las credenciales no son válidas, intente de nuevo.");
@@ -40,39 +39,42 @@ const consultarventas = () => {
 
 const creartabla = () => {
     var myobj = document.getElementById('tbventas');
-
+    var divtabla = document.getElementById('tabla');
+    debugger;
     if (validarObj(myobj)) {
         myobj.remove();
     }
 
+    if (validarObj(divtabla)) {
 
-    let table = document.createElement('table');
-    table.setAttribute("id", "tbventas");
-    let thead = document.createElement('thead');
-    let tbody = document.createElement('tbody');
 
-    table.appendChild(thead);
-    table.appendChild(tbody);
-    document.getElementById('tabla').appendChild(table);
+        let table = document.createElement('table');
+        table.setAttribute("id", "tbventas");
+        let thead = document.createElement('thead');
+        let tbody = document.createElement('tbody');
 
-    for (let i = 0; i < 11; i++) {
+        table.appendChild(thead);
+        table.appendChild(tbody);
+        document.getElementById('tabla').appendChild(table);
 
-        let row = document.createElement('tr');
+        for (let i = 0; i < 11; i++) {
 
-        for (let j = 0; j < 8; j++) {
+            let row = document.createElement('tr');
 
-            var elementohtml = i == 0 ? 'th' : 'td';
-            let elemento = document.createElement(elementohtml);
-            var contenido = i == 0 ? crearencabezadotabla(j) : creardataventastabla(j, i);
-            elemento.innerHTML = contenido;
-            row.appendChild(elemento);
+            for (let j = 0; j < 8; j++) {
+
+                var elementohtml = i == 0 ? 'th' : 'td';
+                let elemento = document.createElement(elementohtml);
+                var contenido = i == 0 ? crearencabezadotabla(j) : creardataventastabla(j, i);
+                elemento.innerHTML = contenido;
+                row.appendChild(elemento);
+            }
+            if (i == 0) {
+                thead.appendChild(row);
+            } else {
+                tbody.appendChild(row);
+            }
         }
-        if (i == 0) {
-            thead.appendChild(row);
-        } else {
-            tbody.appendChild(row);
-        }
-
     }
     return myobj;
 }
