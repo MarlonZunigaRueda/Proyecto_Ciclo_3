@@ -19,7 +19,7 @@ const lista_usuarios = () => {
 const creartabla = () => {
     var myobj = document.getElementById('tbusuarios');
     var divtabla = document.getElementById('tabla');
-    debugger;
+
     if (validarObj(myobj)) {
         myobj.remove();
     } 
