@@ -1,4 +1,97 @@
+@charset "UTF-8";
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* header {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: auto auto auto;
+      grid-template-columns: auto auto auto;
+  grid-gap: 10px;
+  padding: 5px;
+} */
+
+header .cerrarsesion button {
+  width: auto;
+  height: 50px;
+  color: white;
+  cursor: pointer;
+  font-weight: bolder;
+  background-color: #5A6978;
+  border: 4px solid #8492A6;
+  border-radius: 5px;
+  float: right;
+  overflow: auto;
+}
+
+header .menu {
+  padding: 0px;
+  width: 100%;
+}
+
+header .menu ul,
+header .menu ol {
+  list-style-type: none;
+  margin: 0%;
+}
+
+header .menu .nav > li {
+  float: left;
+}
+
+header .menu .nav li a {
+  background-color: white;
+  text-decoration: none;
+  color: #47525E;
+  text-align: center;
+  padding: 14px 16px;
+  display: block;
+}
+
+header .menu .nav li a:hover {
+  background-color: #E5E9F2;
+}
+
+header .menu .nav li ul {
+  display: none;
+  position: absolute;
+  min-width: 140px;
+}
+
+header .menu .nav li:hover > ul {
+  display: block;
+}
+
+header .menu .nav li ul li {
+  position: relative;
+}
+
+header .menu .nav li ul li ul {
+  right: -140px;
+  top: 0px;
+}
+
+.logo {
+  width: 42px;
+  height: 42px;
+  vertical-align: middle;
+  padding: 0px;
+  margin: 3px;
+}
+
+header {
+  font-size: large;
+}
+
 main {
+  width: 65%;
+  margin: auto;
+  margin-top: 1%;
+  padding: 20px;
+}
+/* 
+main .sesion {
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: auto;
@@ -13,14 +106,98 @@ main {
   text-align: center;
 }
 
-main .boton {
+main .sesion .box {
   padding: 0px;
   margin: 1%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border: 2px solid #ccc;
+  border-radius: 5px;
+  height: 50px;
+  width: 350px;
 }
 
-main .boton button {
-  width: 35%;
+main .sesion .item-1 {
+  padding: 0px;
+  margin: 0px;
+  width: 100%;
+  height: 45px;
+  display: inline-block;
+}
+
+main .sesion .item-2 {
+  padding: 1px;
+  margin: 1px;
+  width: 45px;
+  display: inline-block;
+}
+
+main .sesion input {
+  width: 100%;
+  height: 100%;
+  border: none;
+  border-style: none;
+}
+
+main .sesion input[type=text] {
+  width: 100%;
+  height: 100%;
+  border: none;
+  border-style: none;
+} */
+
+/* main .sesion .iniciar_sesion {
+  padding: 0px;
+  margin: 1%;
+} */
+
+/* main .sesion .iniciar_sesion button {
+  width: 352px;
   height: 50px;
+  background-color: #f95f62;
+  color: white;
+  border-style: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bolder;
+} */
+
+main .busqueda {
+  /* display: -ms-grid; */
+  display: grid;
+  -ms-grid-columns: auto auto 34%;
+      grid-template-columns: 7fr 10fr 19fr;
+  grid-gap: 5px;
+  border: 0px solid gray;
+  border-radius: 5px;
+  margin-bottom: 2%;
+  padding: 5px;
+}
+
+
+main .busqueda .buscar_usuario {
+  border: 1px solid gray;
+  padding: 1px;
+  border-radius: 5px;
+}
+main .busqueda .boton_1 button{
+  width: 40%;
+  height: 42px;
+  background-color: #f95f62;
+  color: white;
+  border-style: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bolder;
+}
+
+main .busqueda .boton_2 button {
+  width: 50%;
+  height: 42px;
   background-color: #f95f62;
   color: white;
   border-style: none;
@@ -29,4 +206,279 @@ main .boton button {
   font-weight: bolder;
   float: right;
 }
+
+
+/* main .busqueda label {
+  color: gray;
+  -webkit-box-pack: left !important;
+      -ms-flex-pack: left !important;
+          justify-content: left !important;
+  text-align: left !important;
+  font-size: small;
+  position: -webkit-sticky;
+  position: sticky;
+  font-weight: bolder;
+} */
+
+main .busqueda input {
+  width: 100%;
+  border: none;
+  border-style: none;
+  outline: none;
+}
+
+/* main .busqueda input[type=date] {
+  width: 100%;
+  height: 15px;
+  border: none;
+  border-style: none;
+  border-bottom: 0px solid black;
+  cursor: pointer;
+} */
+
+main .busqueda input[type=text] {
+  width: 100%;
+  height: 15px;
+  border-style: none;
+  border: none;
+}
+
+/* main .busqueda .boton {
+  padding: 0px;
+  margin: 1%;
+  -ms-grid-column: 3;
+      grid-column-start: 3;
+  grid-column-end: 3;
+} */
+
+/* main .registro {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 34% 34%;
+      grid-template-columns: 34% 34%;
+  grid-gap: 5px;
+  border: 0px solid gray;
+  border-radius: 5px;
+  margin-bottom: 2%;
+  padding: 5px;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+} */
+
+/* main .registro .item-1 {
+  border: 1px solid gray;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+main .registro .item-2 {
+  border: 1px solid gray;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+main .registro input {
+  width: 100%;
+  border: none;
+  border-style: none;
+  outline: none;
+}
+
+main .registro input:-moz-read-only {
+  color: gray;
+}
+
+main .registro input:read-only {
+  color: gray;
+}
+
+main .registro label {
+  color: gray;
+  -webkit-box-pack: left !important;
+      -ms-flex-pack: left !important;
+          justify-content: left !important;
+  text-align: left !important;
+  font-size: small;
+  position: -webkit-sticky;
+  position: sticky;
+  font-weight: bolder;
+}
+
+main .registro input[type=date] {
+  width: 100%;
+  height: 15px;
+  border: none;
+  border-style: none;
+  border-bottom: 0px solid black;
+  color: gray;
+  outline: none;
+  cursor: pointer;
+}
+
+main .registro input[type=number] {
+  width: 100%;
+  height: 15px;
+  border: none;
+  border-style: none;
+  border: none;
+  outline: none;
+}
+
+main .registro input[type=text] {
+  width: 100%;
+  height: 15px;
+  border-style: none;
+  border: none;
+  padding: 1px;
+  outline: none;
+}
+
+main .registro select {
+  width: 100%;
+  height: 15px;
+  border-style: none;
+  border: none;
+  background-color: white;
+  outline: none;
+}
+
+main .registro .boton {
+  padding: 0px;
+  margin: 1%;
+  -ms-grid-column: 2;
+      grid-column-start: 2;
+  grid-column-end: 2;
+}
+
+main .registro .boton button {
+  width: 100%;
+  height: 50px;
+  background-color: #f95f62;
+  color: white;
+  border-style: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bolder;
+} */
+
+/* main span {
+  font-size: 20px;
+  line-height: 50px;
+  text-align: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-weight: bolder;
+} */
+
+/* main .tabla {
+  display: -ms-grid;
+  display: grid;
+  padding: 5px;
+  margin-top: 2%;
+  text-align: center;
+}
+
+main .tabla table {
+  border: 0px;
+  width: 100%;
+  height: 100%;
+  border-spacing: 0px 0px;
+  border-collapse: collapse;
+} */
+
+/* main .tabla thead {
+  background-color: #EFF2F7;
+  border: 1px solid #C0CCDA;
+  border-spacing: 0px 10px;
+}
+
+main .tabla thead th {
+  padding: 10px;
+  margin-top: 2%;
+}
+
+main .tabla tbody tr {
+  border: 1px solid #C0CCDA;
+  padding: 5px;
+  margin-top: 2%;
+}
+
+main .tabla tbody tr .boton {
+  padding: 0px;
+  margin: 1%;
+  width: 30px;
+  height: 30px;
+  background-color: white;
+  color: white;
+  border-style: none;
+  border-radius: 25px;
+  cursor: pointer;
+  font-weight: bolder;
+  background-image: url(../images/imagen6.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 35px 35px;
+} */
+
+/* .contentImage {
+  width: 600px;
+  height: 400ṕx;
+  line-height: 400px;
+  margin: 0% auto;
+  margin-top: 1%;
+  text-align: center;
+} */
+
+/* .contentImage img {
+  vertical-align: middle;
+  border-style: none;
+}
+
+.contentImage span {
+  color: #ffffff;
+  font-size: 20px;
+  text-align: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: absolute;
+  top: 46%;
+  left: 530px;
+  font-weight: bolder;
+} */
+
+header #titulo {
+  font-size: 20px;
+  line-height: 50px;
+  text-align: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-weight: bolder;
+}
+/* hr{
+  width: 90%;
+}
+
+h1{
+  text-align: center;
+}
+
+table {
+  margin-top: 70px;
+  border-collapse: collapse;
+}
+
+td, th {
+  border: 2px solid black;
+  padding-left: 50px;
+  padding-right: 50px;
+  padding-top: 8px;
+}
+
+th {
+  background-color: rgb(211, 211, 211);
+} */
 /*# sourceMappingURL=estilos_usuarios.css.map */

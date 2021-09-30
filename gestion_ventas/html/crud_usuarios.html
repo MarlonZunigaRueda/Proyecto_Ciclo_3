@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestion de usuarios</title>
+    <link rel="stylesheet" href="../css/estilos_usuarios.css">
+</head>
+
+<body>
+    <header>
+        <section>
+            <img src="../images/imagen1.png" alt="logo" class="logo">
+            <span>Gestion de ventas</span>
+        </section>
+        <section id="titulo">
+            <span>Gestion de usuarios</span>
+        </section>
+    </header>
+    <hr>
+
+    <main>
+        <section class="busqueda">
+            <div class="buscar_usuario">
+                <input type="text" placeholder="Ingrese ID" class="buscar_usuario" required>
+            </div>
+            <div class="boton_1">
+                <button>Buscar</button>
+            </div>
+            <div class="boton_2">
+                <button class="btn_buscar">Crear nuevo usuario</button>
+            </div>
+        </section>
+        <section>
+            <!-- <table class="tabla_usuario">
+                <thead>
+                    <th>ID</th>
+                    <th>Nombre</th>
+                    <th>Apellido</th>
+                    <th>Identificacion</th>
+                    <th>Rol</th>
+                    <th>Activado</th>
+                </thead>
+                <tr>
+                    <td>01</td>
+                    <td>Andres</td>
+                    <td>Prado</td>
+                    <td>123454657</td>
+                    <td>Vendedor</td>
+                    <td>Si</td>
+                </tr>
+            </table> -->
+            <div id="tabla" class="tabla">
+
+            </div>
+        </section>
+    </main>
+
+    <script src="../js/crud_usuarios.js"></script>
+</body>
+
+</html>
