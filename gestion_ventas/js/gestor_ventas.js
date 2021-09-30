@@ -47,7 +47,6 @@ const creartabla = () => {
 
     if (validarObj(divtabla)) {
 
-
         let table = document.createElement('table');
         table.setAttribute("id", "tbventas");
         let thead = document.createElement('thead');
@@ -145,20 +144,50 @@ const creardataventastabla = (dato1, dato2) => {
     return info;
 }
 
+const crearventa = () => {
+    
+    window.location.href = '../html/registrar_venta.html';
+}
+
+const registrarventa = () => {
+    dsc_producto = document.getElementById("dsc_producto");
+    cantidad_producto = document.getElementById("cantidad_producto");
+    valor_producto = document.getElementById("valor_producto");
+    id_clientes = document.getElementById("id_clientes");
+    id_cliente = obtenerValorSelect(id_clientes);
+
+    if (!!validarDato(dsc_producto) && !!validarDato(cantidad_producto) && !!validarDato(valor_producto) && !!validarDato(id_cliente)) {
+        window.location.href = '../html/consultar_ventas.html';
+    } else {
+        window.alert("Hay datos que no son válidos, intente de nuevo.");
+    }
+}
+
+function obtenerValorSelect(select) {
+ var item = {value:"", code:""};
+    if (!!validarObj(select) && !!validarNum(select.selectedIndex)) {
+        item.code = select.selectedIndex;
+        item.value = select.options[select.selectedIndex].text;
+    }
+return item;
+}
+
+
 function validarDato(dato) {
 
-    return (dato !== undefined && dato !== null && dato.value !== undefined && dato.value !== null && dato.value !== "")
+    return (!!validarObj(dato) && dato.value !== undefined && dato.value !== null && dato.value !== "")
 
 }
 
 function validarObj(dato) {
+    return (dato !== undefined && dato !== null && dato !== "");
+}
 
-    return (dato !== undefined && dato !== null && dato !== "")
-
+function validarNum(dato) {
+    return (!!validarObj(dato) && !!Number.isInteger(dato));
 }
 
 function validarUsuario(dato) {
-
     var validacion = false;
     switch (dato.value) {
         case 'leydy':

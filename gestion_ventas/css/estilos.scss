@@ -160,7 +160,7 @@ main {
 
   .busqueda {
     display: grid;
-    grid-template-columns: auto auto auto;
+    grid-template-columns: auto auto 34%;
     grid-gap: 5px;
     border: 0px solid gray;
     border-radius: 5px;
@@ -206,6 +206,8 @@ main {
     .boton {
       padding: 0px;
       margin: 1%;
+      grid-column-start: 3;
+      grid-column-end: 3;
 
       button {
         width: 100%;
