@@ -89,7 +89,6 @@ main {
   margin: auto;
   margin-top: 1%;
   padding: 20px;
-  text-align: center;
 }
 
 main .sesion {
@@ -175,7 +174,6 @@ main .busqueda {
   grid-gap: 5px;
   border: 0px solid gray;
   border-radius: 5px;
-  text-align: center;
   margin-bottom: 2%;
   padding: 5px;
 }
@@ -184,33 +182,45 @@ main .busqueda .fecha-1 {
   border: 1px solid gray;
   padding: 5px;
   border-radius: 5px;
-  margin-bottom: 2%;
 }
 
 main .busqueda .item-3 {
   border: 1px solid gray;
   padding: 5px;
   border-radius: 5px;
-  margin-bottom: 2%;
+}
+
+main .busqueda label {
+  color: gray;
+  -webkit-box-pack: left !important;
+      -ms-flex-pack: left !important;
+          justify-content: left !important;
+  text-align: left !important;
+  font-size: small;
+  position: -webkit-sticky;
+  position: sticky;
+  font-weight: bolder;
 }
 
 main .busqueda input {
   width: 100%;
   border: none;
   border-style: none;
+  outline: none;
 }
 
 main .busqueda input[type=date] {
   width: 100%;
-  height: 40px;
+  height: 15px;
   border: none;
   border-style: none;
-  border-bottom: 1px solid black;
+  border-bottom: 0px solid black;
+  cursor: pointer;
 }
 
 main .busqueda input[type=text] {
   width: 100%;
-  height: 40px;
+  height: 15px;
   border-style: none;
   border: none;
 }
@@ -225,7 +235,7 @@ main .busqueda .boton {
 
 main .busqueda .boton button {
   width: 100%;
-  height: 50px;
+  height: 42px;
   background-color: #f95f62;
   color: white;
   border-style: none;
@@ -242,68 +252,88 @@ main .registro {
   grid-gap: 5px;
   border: 0px solid gray;
   border-radius: 5px;
-  text-align: center;
   margin-bottom: 2%;
   padding: 5px;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  text-align: center;
 }
 
 main .registro .item-1 {
   border: 1px solid gray;
   padding: 5px;
   border-radius: 5px;
-  margin-bottom: 2%;
 }
 
 main .registro .item-2 {
   border: 1px solid gray;
   padding: 5px;
   border-radius: 5px;
-  margin-bottom: 2%;
 }
 
 main .registro input {
   width: 100%;
   border: none;
   border-style: none;
+  outline: none;
+}
+
+main .registro input:-moz-read-only {
+  color: gray;
+}
+
+main .registro input:read-only {
+  color: gray;
+}
+
+main .registro label {
+  color: gray;
+  -webkit-box-pack: left !important;
+      -ms-flex-pack: left !important;
+          justify-content: left !important;
+  text-align: left !important;
+  font-size: small;
+  position: -webkit-sticky;
+  position: sticky;
+  font-weight: bolder;
 }
 
 main .registro input[type=date] {
   width: 100%;
-  height: 40px;
+  height: 15px;
   border: none;
   border-style: none;
-  border-bottom: 1px solid black;
+  border-bottom: 0px solid black;
+  color: gray;
+  outline: none;
+  cursor: pointer;
 }
 
 main .registro input[type=number] {
   width: 100%;
-  height: 40px;
+  height: 15px;
   border: none;
   border-style: none;
   border: none;
+  outline: none;
 }
 
 main .registro input[type=text] {
   width: 100%;
-  height: 40px;
+  height: 15px;
   border-style: none;
   border: none;
+  padding: 1px;
+  outline: none;
 }
 
 main .registro select {
   width: 100%;
-  height: 40px;
+  height: 15px;
   border-style: none;
   border: none;
   background-color: white;
-  color: gray;
+  outline: none;
 }
 
 main .registro .boton {
@@ -329,6 +359,9 @@ main span {
   font-size: 20px;
   line-height: 50px;
   text-align: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   font-weight: bolder;
 }
 
@@ -337,6 +370,7 @@ main .tabla {
   display: grid;
   padding: 5px;
   margin-top: 2%;
+  text-align: center;
 }
 
 main .tabla table {
@@ -364,6 +398,23 @@ main .tabla tbody tr {
   margin-top: 2%;
 }
 
+main .tabla tbody tr .boton {
+  padding: 0px;
+  margin: 1%;
+  width: 30px;
+  height: 30px;
+  background-color: white;
+  color: white;
+  border-style: none;
+  border-radius: 25px;
+  cursor: pointer;
+  font-weight: bolder;
+  background-image: url(../images/imagen6.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 35px 35px;
+}
+
 .contentImage {
   width: 600px;
   height: 400ṕx;
@@ -382,9 +433,19 @@ main .tabla tbody tr {
   color: #ffffff;
   font-size: 20px;
   text-align: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   position: absolute;
   top: 46%;
   left: 530px;
   font-weight: bolder;
+}
+
+.titulo {
+  text-align: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 /*# sourceMappingURL=estilos.css.map */

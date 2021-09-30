@@ -66,26 +66,35 @@
     </header>
     <main>
         <section class="titulo">
-            <span>Ingrese los datos de la venta</span>
+            <span>Actualice los datos de la venta</span>
         </section>
         <section>
             <div class="registro">
                 <div class="item-1">
+                    <label for="id_venta">El código de la venta:</label>
+                    <input id="id_venta" type="text" class="left"
+                        readonly/>
+                </div>
+                <div class="item-2">
+                    <label for="fecha_venta">La fecha de la venta:</label>
+                    <input id="fecha_venta" type="date" class="left" readonly />
+                </div>
+                <div class="item-1">
                     <label for="dsc_venta">La descripción de la venta:</label>
-                    <input id="dsc_venta" type="text" class="left" required/>
+                    <input id="dsc_venta" type="text" class="left"
+                        required />
                 </div>
                 <div class="item-2">
                     <label for="cantidad_producto">La cantidad del producto:</label>
-                    <input id="cantidad_producto" type="number" class="left" required />
+                    <input id="cantidad_producto" type="number" class="left" required/>
                 </div>
                 <div class="item-1">
                     <label for="valor_producto">El valor unitario:</label>
-                    <input id="valor_producto" type="number" class="left" required />
+                    <input id="valor_producto" type="number" class="left" required/>
                 </div>
                 <div class="item-2">
                     <label for="id_clientes">La identificación del cliente:</label>
                     <select id="id_clientes"  name="" required>
-                        <option value=""></option>
                         <option value="1">1094899377</option>
                         <option value="2">1094899375</option>
                         <option value="3">1094899378</option>
@@ -95,8 +104,9 @@
                     </select>
                     
                 </div>
+                
                 <section class="boton">
-                    <button id="registrar_venta" onclick="registrarventa()">Registrar venta</button>
+                    <button id="registrar_venta" onclick="registrarventa()">Actualizar venta</button>
                 </section>
             </div>
         </section>
