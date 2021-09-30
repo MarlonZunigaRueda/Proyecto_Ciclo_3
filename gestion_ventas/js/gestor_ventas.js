@@ -1,6 +1,8 @@
+let operacion;
 
 function cargue() {
     creartabla();
+    cargardatosventa();
 }
 
 window.onload = cargue;
@@ -56,16 +58,20 @@ const creartabla = () => {
         table.appendChild(tbody);
         document.getElementById('tabla').appendChild(table);
 
-        for (let i = 0; i < 11; i++) {
+        for (let i = 0; i < 6; i++) {
 
             let row = document.createElement('tr');
 
-            for (let j = 0; j < 8; j++) {
-
+            for (let j = 0; j < 9; j++) {
+debugger;
                 var elementohtml = i == 0 ? 'th' : 'td';
                 let elemento = document.createElement(elementohtml);
                 var contenido = i == 0 ? crearencabezadotabla(j) : creardataventastabla(j, i);
+                if (i != 0 && j == 8) {
+                    elemento.appendChild(contenido);
+                }else{
                 elemento.innerHTML = contenido;
+                }
                 row.appendChild(elemento);
             }
             if (i == 0) {
@@ -105,6 +111,9 @@ const crearencabezadotabla = (dato) => {
         case 7:
             encabezado = "Nombre del cliente";
             break;
+        case 8:
+            encabezado = "Editar venta";
+            break;
         default:
             break;
     }
@@ -138,19 +147,39 @@ const creardataventastabla = (dato1, dato2) => {
         case 7:
             info = "Cliente " + Math.floor(Math.random() * (5 - 1) + 1);
             break;
+        case 8:
+            info = document.createElement('button');
+            info.setAttribute("id", "btneditarventa" + dato2 + dato1);
+            info.setAttribute("class", "boton");
+            info.setAttribute("onclick", "crearventa('editar_venta')");
+            info.innerText = '';
+            break;
         default:
             break;
     }
     return info;
 }
 
-const crearventa = () => {
+const crearventa = (o) => {
+    debugger;
+    switch (o) {
+        case 'crear_venta':
+            localStorage.setItem("operacion", o);
+            window.location.href = '../html/registrar_venta.html';
+            break;
+        case 'editar_venta':
+            localStorage.setItem("operacion", o);
+            window.location.href = '../html/editar_venta.html';
+            break;
+        default:
+            window.alert("Ha ocurrido un error, intente de nuevo.");
+            break;
+    }
     
-    window.location.href = '../html/registrar_venta.html';
 }
 
 const registrarventa = () => {
-    dsc_producto = document.getElementById("dsc_producto");
+    dsc_producto = document.getElementById("dsc_venta");
     cantidad_producto = document.getElementById("cantidad_producto");
     valor_producto = document.getElementById("valor_producto");
     id_clientes = document.getElementById("id_clientes");
@@ -163,6 +192,26 @@ const registrarventa = () => {
     }
 }
 
+const cargardatosventa = () => {
+    debugger;
+    ope = localStorage.getItem("operacion");
+    if (!!validarObj(ope) && ope == 'editar_venta') {
+        localStorage.removeItem("operacion");
+        var myobj = document.getElementById('id_venta');
+        myobj.value = "P-0123654479";
+        myobj = document.getElementById('fecha_venta');
+        myobj.value = "2019-08-10";
+        myobj = document.getElementById('dsc_venta');
+        myobj.value = "Venta de Nevera";
+        myobj = document.getElementById('cantidad_producto');
+        myobj.value = "50";
+        myobj = document.getElementById('valor_producto');
+        myobj.value = "50000000";
+        myobj = document.getElementById('id_clientes');
+        myobj.value = "2";
+    }
+}
+
 function obtenerValorSelect(select) {
  var item = {value:"", code:""};
     if (!!validarObj(select) && !!validarNum(select.selectedIndex)) {
@@ -170,6 +219,10 @@ function obtenerValorSelect(select) {
         item.value = select.options[select.selectedIndex].text;
     }
 return item;
+}
+
+function getObj(dato) {
+    return (dato !== undefined && dato !== null && dato !== "");
 }
 
 

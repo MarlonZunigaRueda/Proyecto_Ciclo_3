@@ -65,26 +65,30 @@
         </section>
     </header>
     <main>
-        <section>
+        <section class="titulo">
             <span>Consultar las ventas de un periodo</span>
         </section>
         <section>
             <div class="busqueda">
                 <div class="fecha-1">
+                    <label for="fecha_inicial">La fecha inicial:</label>
                     <input id="fecha_inicial" type="date" class="left" placeholder="Su fecha inicial aquí:" required />
                 </div>
                 <div class="fecha-1">
-                    <input id="fecha_final" type="date" class="left" placeholder="Su fecha final aquí:" required />
+                    <label for="fecha_final">La fecha final:</label>
+                    <input id="fecha_final" type="date" class="left" required />
                 </div>
                 <div class="item-3">
-                    <input id="cod_venta" type="text" class="left" placeholder="El código de venta aquí:" required />
+                    <label for="cod_venta">El código de venta:</label>
+                    <input id="cod_venta" type="text" class="left"  required />
                 </div>
                 <div class="item-3">
-                    <input id="cod_cliente" type="text" class="left" placeholder="El documento del cliente aquí:"
-                        required />
+                    <label for="cod_cliente">El documento del cliente:</label>
+                    <input id="cod_cliente" type="text" class="left" required />
                 </div>
                 <div class="item-3">
-                    <input id="nombre_cliente" type="text" class="left" placeholder="El nombre del cliente aquí:" required />
+                    <label for="cod_cliente">El nombre del cliente:</label>
+                    <input id="nombre_cliente" type="text" class="left" required />
                 </div>
                 <section class="boton">
                     <button id="consultar_ventas" onclick="consultarventas()">Generar consulta</button>
@@ -98,7 +102,7 @@
         </section>
         <div class="busqueda">
         <section class="boton">
-            <button id="registrar_venta" onclick="crearventa()">Registrar venta</button>
+            <button id="registrar_venta" onclick="crearventa('crear_venta')">Registrar venta</button>
         </section>
         </div>
     </main>

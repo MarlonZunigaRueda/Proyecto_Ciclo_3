@@ -1,5 +1,6 @@
 body {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+
 }
 
 header {
@@ -90,7 +91,7 @@ main {
   margin: auto;
   margin-top: 1%;
   padding: 20px;
-  text-align: center;
+  //text-align: center;
 
   .sesion {
     display: grid;
@@ -164,7 +165,6 @@ main {
     grid-gap: 5px;
     border: 0px solid gray;
     border-radius: 5px;
-    text-align: center;
     margin-bottom: 2%;
     padding: 5px;
 
@@ -172,33 +172,43 @@ main {
       border: 1px solid gray;
       padding: 5px;
       border-radius: 5px;
-      margin-bottom: 2%;
     }
 
     .item-3 {
       border: 1px solid gray;
       padding: 5px;
       border-radius: 5px;
-      margin-bottom: 2%;
+    }
+
+    label {
+      color: gray;
+      justify-content: left !important;
+      text-align: left !important;
+      font-size: small;
+      position: sticky;
+      font-weight: bolder;
     }
 
     input {
       width: 100%;
       border: none;
       border-style: none;
+      outline: none;
     }
 
     input[type=date] {
       width: 100%;
-      height: 40px;
+      height: 15px;
       border: none;
       border-style: none;
-      border-bottom: 1px solid rgb(0, 0, 0);
+      border-bottom: 0px solid rgb(0, 0, 0);
+      //color: gray;
+      cursor: pointer;
     }
 
     input[type=text] {
       width: 100%;
-      height: 40px;
+      height: 15px;
       border-style: none;
       border: none;
     }
@@ -211,7 +221,7 @@ main {
 
       button {
         width: 100%;
-        height: 50px;
+        height: 42px;
         background-color: #f95f62;
         color: white;
         border-style: none;
@@ -228,66 +238,82 @@ main {
     grid-gap: 5px;
     border: 0px solid gray;
     border-radius: 5px;
-    text-align: center;
     margin-bottom: 2%;
     padding: 5px;
-    align-items: center;
     justify-content: center;
-    text-align: center;
+
 
     .item-1 {
       border: 1px solid gray;
       padding: 5px;
       border-radius: 5px;
-      margin-bottom: 2%;
     }
 
     .item-2 {
       border: 1px solid gray;
       padding: 5px;
       border-radius: 5px;
-      margin-bottom: 2%;
     }
 
     input {
       width: 100%;
       border: none;
       border-style: none;
+      outline: none;
+      
+    }
+    
+    input:read-only {
+      color: gray;
+    }
+
+    label {
+      color: gray;
+      justify-content: left !important;
+      text-align: left !important;
+      font-size: small;
+      position: sticky;
+      font-weight: bolder;
     }
 
     input[type=date] {
       width: 100%;
-      height: 40px;
+      height: 15px;
       border: none;
       border-style: none;
-      border-bottom: 1px solid rgb(0, 0, 0);
+      border-bottom: 0px solid rgb(0, 0, 0);
+      color: gray;
+      outline: none;
+      cursor: pointer;
     }
 
     input[type=number] {
       width: 100%;
-      height: 40px;
+      height: 15px;
       border: none;
       border-style: none;
       border: none;
+      outline: none;
     }
 
     input[type=text] {
       width: 100%;
-      height: 40px;
+      height: 15px;
       border-style: none;
       border: none;
+      padding: 1px;
+      outline: none;
     }
 
     select {
       width: 100%;
-      height: 40px;
+      height: 15px;
       border-style: none;
       border: none;
       background-color: rgb(255, 255, 255);
-      color: gray;
+
+      outline: none;
     }
-
-
 
     .boton {
       padding: 0px;
@@ -312,6 +338,7 @@ main {
     font-size: 20px;
     line-height: 50px;
     text-align: center;
+    align-items: center;
     font-weight: bolder;
   }
 
@@ -319,6 +346,7 @@ main {
     display: grid;
     padding: 5px;
     margin-top: 2%;
+    text-align: center;
 
     table {
       border: 0px;
@@ -333,7 +361,6 @@ main {
       border: 1px solid #C0CCDA;
       border-spacing: 0px 10px;
 
-
       th {
         padding: 10px;
         margin-top: 2%;
@@ -347,6 +374,23 @@ main {
         border: 1px solid #C0CCDA;
         padding: 5px;
         margin-top: 2%;
+
+        .boton {
+          padding: 0px;
+          margin: 1%;
+          width: 30px;
+          height: 30px;
+          background-color: white;
+          color: white;
+          border-style: none;
+          border-radius: 25px;
+          cursor: pointer;
+          font-weight: bolder;
+          background-image: url(../images/imagen6.png);
+          background-repeat: no-repeat;
+          background-position: center;
+          background-size: 35px 35px;
+        }
       }
     }
   }
@@ -369,9 +413,16 @@ main {
     color: #ffffff;
     font-size: 20px;
     text-align: center;
+    align-items: center;
     position: absolute;
     top: 46%;
     left: 530px;
     font-weight: bolder;
   }
+}
+
+.titulo {
+  text-align: center;
+  align-items: center;
+
 }
