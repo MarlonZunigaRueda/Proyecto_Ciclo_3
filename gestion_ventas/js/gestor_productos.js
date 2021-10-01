@@ -59,7 +59,7 @@ const creartabla = () => {
 
         let row = document.createElement('tr');
 
-        for (let j = 0; j < 5; j++) {
+        for (let j = 0; j < 6; j++) {
 
             var elementohtml = i == 0 ? 'th' : 'td';
             let elemento = document.createElement(elementohtml);
@@ -95,6 +95,9 @@ const crearencabezadotabla = (dato) => {
         case 4:
             encabezado = "Valor Unidad";
             break;
+        case 5:
+            encabezado = "Editar Producto";
+            break;    
         
     }
     return encabezado;
@@ -118,11 +121,21 @@ const creardataventastabla = (dato1, dato2) => {
         case 4:
             info = "$" + Math.floor(Math.random() * (50000 - 10000) + 10000);
             break;
-        
+        case 5:
+               info= "Producto" + (dato2); // falta crear interfaz          
+           break;
+        default:
     }
     return info;
 }
 
+//
+
+//
+
+//
+
+//
 function validarDato(dato) {
 
     return (dato !== undefined && dato !== null && dato.value !== undefined && dato.value !== null && dato.value !== "")
