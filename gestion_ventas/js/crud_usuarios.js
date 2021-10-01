@@ -125,6 +125,7 @@ const creardataventastabla = (dato1, dato2) => {
             break;
         case 5:
             info = "Si";
+            break;
         case 6:
             info = document.createElement('button');
             info.setAttribute("id", "btneditarventa" + dato2 + dato1);
