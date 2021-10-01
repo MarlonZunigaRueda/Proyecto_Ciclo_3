@@ -40,7 +40,7 @@
                             <a href="#">Registrar producto</a>
                         </li>
                         <li>
-                            <a href="">
+                            <a href="../html/consultar_productor.html">
                                 Consultar productos
                             </a>
                         </li>
@@ -50,10 +50,10 @@
                     <a href="#">Gestionar usuarios</a>
                     <ul>
                         <li>
-                            <a href="#">Mostrar usuarios</a>
+                            <a href="../html/lista_usuarios.html">Mostrar usuarios</a>
                         </li>
                         <li>
-                            <a href="#">Administrar usuarios</a>
+                            <a href="../html/crud_usuarios.html">Administrar usuarios</a>
                         </li>
                     </ul>
                 </li>
@@ -66,12 +66,9 @@
         </section>
     </header>
     <main>
-        <section>
-            <div>
-                <section class="boton">
-                    <button id="listar_usuarios" onclick="lista_usuarios()">Listar usuarios</button> <!--Falta por crear esta funcion-->
-                </section>
-            </div>
+        <section class="boton">
+            <button  onclick="lista_usuarios()">Lista de usuarios</button>
+            <!--Falta por crear esta funcion-->
         </section>
 
         <section>
@@ -79,13 +76,7 @@
 
             </div>
         </section>
-
-        <section class="boton">
-            <button class="boton" onclick="actualizar_info()">Actualizar informacion</button> <!--Falta por crear esta funcion-->
-        </section>
-
     </main>
-    <!-- <script src="../js/gestor_ventas.js"></script> -->
     <script src="../js/lista_vendedores.js"></script>
 </body>
 
