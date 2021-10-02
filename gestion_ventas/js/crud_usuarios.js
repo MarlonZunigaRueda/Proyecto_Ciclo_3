@@ -2,6 +2,7 @@
 
 function cargue() {
     creartabla();
+    cargardatosventa();
 }
 
 window.onload = cargue;
@@ -96,7 +97,7 @@ const crearencabezadotabla = (dato) => {
             encabezado = "Rol";
             break;
         case 5:
-            encabezado = "Activado";
+            encabezado = "Estado";
             break
         case 6:
             encabezado = "Editar usuaario"
@@ -124,7 +125,7 @@ const creardataventastabla = (dato1, dato2) => {
             info = "Vendedor";
             break;
         case 5:
-            info = "Si";
+            info = "Pendiente";
             break;
         case 6:
             info = document.createElement('button');
@@ -140,6 +141,67 @@ const creardataventastabla = (dato1, dato2) => {
     return info;
 }
 
+const crearventa = (o) => {
+    debugger;
+    switch (o) {
+        case 'crear_venta':
+            localStorage.setItem("operacion", o);
+            window.location.href = '../html/registrar_venta.html';
+            break;
+        case 'editar_venta':
+            localStorage.setItem("operacion", o);
+            window.location.href = '../html/editar_venta.html';
+            break;
+        default:
+            window.alert("Ha ocurrido un error, intente de nuevo.");
+            break;
+    }
+    
+}
+
+const registrarventa = () => {
+    dsc_producto = document.getElementById("dsc_venta");
+    cantidad_producto = document.getElementById("cantidad_producto");
+    valor_producto = document.getElementById("valor_producto");
+    id_clientes = document.getElementById("id_clientes");
+    id_cliente = obtenerValorSelect(id_clientes);
+
+    if (!!validarDato(dsc_producto) && !!validarDato(cantidad_producto) && !!validarDato(valor_producto) && !!validarDato(id_cliente)) {
+        window.location.href = '../html/consultar_ventas.html';
+    } else {
+        window.alert("Hay datos que no son válidos, intente de nuevo.");
+    }
+}
+
+const cargardatosventa = () => {
+    debugger;
+    ope = localStorage.getItem("operacion");
+    if (!!validarObj(ope) && ope == 'editar_venta') {
+        localStorage.removeItem("operacion");
+        var myobj = document.getElementById('id_venta');
+        myobj.value = "P-0123654479";
+        myobj = document.getElementById('fecha_venta');
+        myobj.value = "2019-08-10";
+        myobj = document.getElementById('dsc_venta');
+        myobj.value = "Venta de Nevera";
+        myobj = document.getElementById('cantidad_producto');
+        myobj.value = "50";
+        myobj = document.getElementById('valor_producto');
+        myobj.value = "50000000";
+        myobj = document.getElementById('id_clientes');
+        myobj.value = "2";
+    }
+}
+
+function obtenerValorSelect(select) {
+ var item = {value:"", code:""};
+    if (!!validarObj(select) && !!validarNum(select.selectedIndex)) {
+        item.code = select.selectedIndex;
+        item.value = select.options[select.selectedIndex].text;
+    }
+return item;
+}
+
 function validarDato(dato) {
 
     return (dato !== undefined && dato !== null && dato.value !== undefined && dato.value !== null && dato.value !== "")
@@ -150,4 +212,8 @@ function validarObj(dato) {
 
     return (dato !== undefined && dato !== null && dato !== "")
 
+}
+
+function actualizar_usuario(){
+    window.alert("Se actualizo el Rol y Estado con exito")
 }
