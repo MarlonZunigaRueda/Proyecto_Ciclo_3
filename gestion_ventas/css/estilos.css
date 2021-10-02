@@ -448,4 +448,50 @@ main .tabla tbody tr .boton {
       -ms-flex-align: center;
           align-items: center;
 }
+
+.reg_exitoso{
+  display:block;
+  margin-left: auto;
+  margin-right: auto;
+
+}
+.txt_registro{
+  text-align: center;
+  font: bold ;
+  font-size: 20px;
+  color: #f95f62;
+}
+.txt{
+  text-align: center;
+  font: bold;
+
+}
+
+#aceptar{
+  display:block;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: #f95f62;
+  color: #E5E9F2;
+  width: 150px;
+  height: 50px;
+  margin: auto;
+  border-color: #f95f62;
+  font: bold;
+  font-size: 16px;
+  font-weight: 600;
+
+ 
+}
+
+#otro_registro{
+  display:block;
+  margin-left: auto;
+  margin-right: auto;
+  
+}
+
+#regs{
+  font-size: 30px;
+}
 /*# sourceMappingURL=estilos.css.map */
