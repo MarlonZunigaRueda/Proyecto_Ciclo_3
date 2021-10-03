@@ -77,7 +77,7 @@ const crearencabezadotabla = (dato) => {
             encabezado = "Rol";
             break;
         case 5:
-            encabezado = "Activado";
+            encabezado = "Estado";
             break;
         default:
             break;
@@ -101,10 +101,10 @@ const creardatausuariostabla = (dato1, dato2) => {
             info = Math.floor(Math.random() * (90000000 - 100000) + 10000);
             break;
         case 4:
-            info = "Vendedor/operario";
+            info = "Vendedor/Administrador";
             break;
         case 5:
-            info = "si/no";
+            info = "Pendiente";
             break;
         default:
             break;
