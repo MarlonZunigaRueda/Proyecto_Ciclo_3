@@ -66,7 +66,7 @@ const creartabla = () => {
 debugger;
                 var elementohtml = i == 0 ? 'th' : 'td';
                 let elemento = document.createElement(elementohtml);
-                var contenido = i == 0 ? crearencabezadotabla(j) : creardatausuariostabla(j, i);
+                var contenido = i == 0 ? crearencabezadotabla(j) : creardataventastabla(j, i);
                 if (i != 0 && j == 8) {
                     elemento.appendChild(contenido);
                 }else{
