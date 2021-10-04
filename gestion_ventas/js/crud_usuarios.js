@@ -157,6 +157,7 @@ const crearusuario = (o) => {
             break;
     }
 
+    
 }
 
 const registrarventa = () => {
