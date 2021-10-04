@@ -460,6 +460,7 @@ main .tabla tbody tr .boton {
   font: bold ;
   font-size: 20px;
   color: #f95f62;
+ 
 }
 .txt{
   text-align: center;
@@ -480,6 +481,7 @@ main .tabla tbody tr .boton {
   font: bold;
   font-size: 16px;
   font-weight: 600;
+  border-radius: 5px
 
  
 }
