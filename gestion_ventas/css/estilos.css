@@ -448,4 +448,11 @@ main .tabla tbody tr .boton {
       -ms-flex-align: center;
           align-items: center;
 }
+
+.footer-text p{
+  font-size: 20px;
+  text-align: center;
+  color: rgb(17, 17, 17);
+  padding: 60px ;
+}
 /*# sourceMappingURL=estilos.css.map */
