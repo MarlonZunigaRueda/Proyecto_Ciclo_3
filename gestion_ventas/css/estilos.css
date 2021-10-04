@@ -462,6 +462,17 @@ main .tabla tbody tr .boton {
   margin-right: auto;
 }
 
+.txt_actua{
+  text-align: center;
+}
+.txt1{
+  text-align: center;
+}
+
+.boton_otro1{
+  text-align: center;
+  padding: 40px;
+}
 
 
 
