@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/estilos.css">
+    <title>Actualización exitosa</title>
+</head>
+<body>
+    <header>
+        <section>
+            <img src="../images/imagen1.png" alt="Logo" class="logo" />
+            <span>Gestión de ventas</span>
+        </section>
+        <section class="menu">
+            <ul class="nav">
+                <li>
+                    <a class="active" href="../html/bienvenida.html">Inicio</a>
+                </li>
+                <li><a href="#">Gestionar ventas</a>
+                    <ul>
+                        <li>
+                            <a href="../html/registrar_venta.html">Registrar venta</a>
+                        </li>
+                        <li>
+                            <a href="../html/consultar_ventas.html">
+                                Consultar ventas
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#contact">Gestionar productos</a>
+                    <ul>
+                        <li>
+                            <a href="registrar_producto.html">Registrar producto</a>
+                        </li>
+                        <li>
+                            <a href="../html/consultar_productor.html">
+                                Consultar productos
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">Gestionar usuarios</a> <!--Cambio realizado por leonardo-->
+                    <ul>
+                        <li>
+                            <a href="../html/lista_usuarios.html">Mostrar usuarios</a>
+                        </li>
+                        <li>
+                            <a href="../html/crud_usuarios.html">Administrar usuarios</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </section>
+        <section class="cerrarsesion">
+            <button id="cerrar_sesion" onclick="cerrarsesion()">
+                Cerrar sesión
+            </button>
+        </section>
+    </header>
+    <section>
+    
+            <img src="../images/imagen7.png" alt="exito" class="Exito">
+      
+    </section>
+    <main>  
+        <section class="txt_actua">
+            <span id="actua">¡SE HA ACTUALIZADO EXITOSAMENTE!</span>
+
+        </section>
+        <section class="txt1">
+            <span>El producto fue actualizado con éxito y ahora se encuentra disponible en nuestra base de datos.</span>
+        </section>
+        <section class="boton">
+            <button id="aceptar" onclick="location.href='../html/bienvenida.html'">Aceptar</button>
+        
+        </section>
+        <section class="boton_otro1">
+            <span id="otra_actua">Para actualizar otro producto, de click aquí: 
+                <a style="color:rgb(248, 80, 80)" href="../html/registrar_producto.html"> Actualizar producto 
+                </a>
+            </span>
+        </section>
+
+    </main>
+
+
+
+
+
+
+
+
+    </main>
+    
+</body>
+</html>

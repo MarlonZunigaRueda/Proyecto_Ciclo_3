@@ -455,4 +455,14 @@ main .tabla tbody tr .boton {
   color: rgb(17, 17, 17);
   padding: 60px ;
 }
+
+.Exito{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+
+
 /*# sourceMappingURL=estilos.css.map */
