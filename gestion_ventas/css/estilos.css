@@ -469,11 +469,11 @@ main .tabla tbody tr .boton {
   text-align: center;
 }
 
-.boton_otro1{
-  text-align: center;
-  padding: 40px;
-}
-
+#otra_actua{
+  display:block;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 20px;
 
 
 /*# sourceMappingURL=estilos.css.map */
