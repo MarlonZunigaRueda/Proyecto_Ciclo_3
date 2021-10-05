@@ -1,19 +1,17 @@
 <!DOCTYPE html>
-<html lang="es">
-
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gestion de usuarios</title>
-    <link rel="stylesheet" href="../css/estilos_usuarios.css">
+    <title>Registrar Productos</title>
+    <link rel="stylesheet" href="../css/estilos.css">
 </head>
-
 <body>
     <header>
         <section>
-            <img src="../images/imagen1.png" alt="logo" class="logo">
-            <span>Gestion de ventas</span>
+            <img src="../images/imagen1.png" alt="Logo" class="logo" />
+            <span>Gestión de productos</span>
         </section>
         <section class="menu">
             <ul class="nav">
@@ -25,6 +23,7 @@
                         <li>
                             <a href="../html/registrar_venta.html">Registrar venta</a>
                         </li>
+
                         <li>
                             <a href="../html/consultar_ventas.html">
                                 Consultar ventas
@@ -39,7 +38,7 @@
                             <a href="#">Registrar producto</a>
                         </li>
                         <li>
-                            <a href="../html/consultar_productor.html">
+                            <a href="">
                                 Consultar productos
                             </a>
                         </li>
@@ -49,10 +48,10 @@
                     <a href="#">Gestionar usuarios</a>
                     <ul>
                         <li>
-                            <a href="../html/lista_usuarios.html">Mostrar usuarios</a>
+                            <a href="lista_usuarios.html">Gestionar usuarios</a>
                         </li>
                         <li>
-                            <a href="../html/crud_usuarios.html">Administrar usuarios</a>
+                            <a href="#">Administrar usuarios</a>
                         </li>
                     </ul>
                 </li>
@@ -64,28 +63,37 @@
             </button>
         </section>
     </header>
-    <hr>
-
     <main>
-        <section class="titulo">
-            <span>Gestion de usuarios</span>
-        </section>
-        <section class="busqueda">
-            <div class="buscar_usuario">
-                <input type="text" placeholder="Ingrese ID" class="buscar_usuario" required>
-            </div>
-            <div class="boton_1">
-                <button>Buscar</button>
+        <section>
+            <section class="titulo">
+                <span>Ingrese los datos del producto</span>  
         </section>
         <section>
-            <div id="tabla" class="tabla">
-
-            </div>
-        </section>
-    
+            <div class="registro">
+                <div class="item-1">
+                    <label for="dsc_venta">Código del producto:</label>
+                    <input id="dsc_venta" type="text" class="left" required/>
+                </div>
+                <div class="item-2">
+                    <label for="cantidad_producto">Descripción del producto:</label>
+                    <input id="cantidad_producto" type="number" class="left" required />
+                </div>
+                <div class="item-1">
+                    <label for="valor_producto">El valor unitario:</label>
+                    <input id="valor_producto" type="number" class="left" required />
+                </div>
+                <div class="item-2">
+                    <label for="id_clientes">Cantidad del producto:</label>
+                    <input id="dsc_producto" type="text" class="left" required/>
+                    
+                </div>
+                <section class="boton">
+                    <button id="registrar_producto" onclick="registrarproducto()">Registrar producto</button>
+                </section>
+                
     </main>
-
-    <script src="../js/crud_usuarios.js"></script>
+    <script src="../js/gestor_ventas.js"></script> 
+    <!-- Terminar archivo js, donde permita registrar -->
 </body>
 
 </html>

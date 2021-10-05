@@ -22,11 +22,11 @@ const cerrarsesion = () => {
     window.location.href = '../index.html';
 
 }
-const consultarventas = () => {
+const consultarProductos = () => {
 
     fecha_inicial = document.getElementById("fecha_inicial");
     fecha_final = document.getElementById("fecha_final");
-    cod_venta = document.getElementById("cod_venta");
+    cod_venta = document.getElementById("cod_producto");
     cod_cliente = document.getElementById("cod_cliente");
     nombre_cliente = document.getElementById("nombre_cliente");
 
@@ -39,7 +39,7 @@ const consultarventas = () => {
 }
 
 const creartabla = () => {
-    var myobj = document.getElementById('tbventas');
+    var myobj = document.getElementById('tbproductos');
 
     if (validarObj(myobj)) {
         myobj.remove();
@@ -47,7 +47,7 @@ const creartabla = () => {
 
 
     let table = document.createElement('table');
-    table.setAttribute("id", "tbventas");
+    table.setAttribute("id", "tbproductos");
     let thead = document.createElement('thead');
     let tbody = document.createElement('tbody');
 
@@ -59,11 +59,11 @@ const creartabla = () => {
 
         let row = document.createElement('tr');
 
-        for (let j = 0; j < 5; j++) {
+        for (let j = 0; j < 6; j++) {
 
             var elementohtml = i == 0 ? 'th' : 'td';
             let elemento = document.createElement(elementohtml);
-            var contenido = i == 0 ? crearencabezadotabla(j) : creardataventastabla(j, i);
+            var contenido = i == 0 ? crearencabezadotabla(j) : creardataproductotabla(j, i);
             elemento.innerHTML = contenido;
             row.appendChild(elemento);
         }
@@ -95,12 +95,15 @@ const crearencabezadotabla = (dato) => {
         case 4:
             encabezado = "Valor Unidad";
             break;
+        case 5:
+            encabezado = "Editar Producto";
+            break;    
         
     }
     return encabezado;
 }
 
-const creardataventastabla = (dato1, dato2) => {
+const creardataproductotabla = (dato1, dato2) => {
     var info = "";
     switch (dato1) {
         case 0:
@@ -118,11 +121,21 @@ const creardataventastabla = (dato1, dato2) => {
         case 4:
             info = "$" + Math.floor(Math.random() * (50000 - 10000) + 10000);
             break;
-        
+        case 5:
+               info= "Producto" + (dato2); // falta crear interfaz          
+           break;
+        default:
     }
     return info;
 }
 
+//
+
+//
+
+//
+
+//
 function validarDato(dato) {
 
     return (dato !== undefined && dato !== null && dato.value !== undefined && dato.value !== null && dato.value !== "")
@@ -135,27 +148,3 @@ function validarObj(dato) {
 
 }
 
-function validarUsuario(dato) {
-
-    var validacion = false;
-    switch (dato.value) {
-        case 'leydy':
-            validacion = true;
-            break;
-        case 'mateo':
-            validacion = true;
-            break;
-        case 'marlon':
-            validacion = true;
-            break;
-        case 'leonardo':
-            validacion = true;
-            break;
-        case 'carlos':
-            validacion = true;
-            break;
-        default:
-            break;
-    }
-    return validacion;
-}
