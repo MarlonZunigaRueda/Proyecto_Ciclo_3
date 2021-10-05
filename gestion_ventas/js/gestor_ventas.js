@@ -63,7 +63,7 @@ const creartabla = () => {
             let row = document.createElement('tr');
 
             for (let j = 0; j < 9; j++) {
-debugger;
+
                 var elementohtml = i == 0 ? 'th' : 'td';
                 let elemento = document.createElement(elementohtml);
                 var contenido = i == 0 ? crearencabezadotabla(j) : creardataventastabla(j, i);
@@ -161,7 +161,6 @@ const creardataventastabla = (dato1, dato2) => {
 }
 
 const crearventa = (o) => {
-    debugger;
     switch (o) {
         case 'crear_venta':
             localStorage.setItem("operacion", o);
@@ -193,7 +192,6 @@ const registrarventa = () => {
 }
 
 const cargardatosventa = () => {
-    debugger;
     ope = localStorage.getItem("operacion");
     if (!!validarObj(ope) && ope == 'editar_venta') {
         localStorage.removeItem("operacion");
@@ -221,15 +219,8 @@ function obtenerValorSelect(select) {
 return item;
 }
 
-function getObj(dato) {
-    return (dato !== undefined && dato !== null && dato !== "");
-}
-
-
 function validarDato(dato) {
-
     return (!!validarObj(dato) && dato.value !== undefined && dato.value !== null && dato.value !== "")
-
 }
 
 function validarObj(dato) {

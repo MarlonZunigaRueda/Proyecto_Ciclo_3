@@ -1,83 +1,75 @@
-
-
 function cargue() {
-    creartabla();
+    crearTabla();
+    cargarDatosProducto();
 }
 
 window.onload = cargue;
 
-const iniciarsesion = () => {
-    user = document.getElementById("user");
-    psd = document.getElementById("psd");
-
-    if (validarDato(user) && validarDato(psd) && validarUsuario(user)) {
-        console.log("Tiene datos");
-        window.location.href = '../html/bienvenida.html';
-    } else {
-        window.alert("Las credenciales no son válidas, intente de nuevo.");
-    }
-}
-
-const cerrarsesion = () => {
+const cerrarSesion = () => {
     window.location.href = '../index.html';
 
 }
 const consultarProductos = () => {
 
-    fecha_inicial = document.getElementById("fecha_inicial");
-    fecha_final = document.getElementById("fecha_final");
-    cod_venta = document.getElementById("cod_producto");
-    cod_cliente = document.getElementById("cod_cliente");
-    nombre_cliente = document.getElementById("nombre_cliente");
+    cod_producto = document.getElementById("cod_producto");
+    nbr_producto = document.getElementById("nbr_producto");
 
-    if (validarDato(fecha_inicial) || validarDato(fecha_final) || validarDato(cod_venta) || validarDato(cod_cliente) || validarDato(nombre_cliente)) {
-        creartabla();
+
+    if (validarDato(cod_producto) || validarDato(nbr_producto)) {
+        crearTabla();
 
     } else {
         window.alert("Los datos no son válidos, intente de nuevo.");
     }
 }
 
-const creartabla = () => {
+const crearTabla = () => {
     var myobj = document.getElementById('tbproductos');
+    var divtabla = document.getElementById('tabla');
 
     if (validarObj(myobj)) {
         myobj.remove();
     }
 
+    if (validarObj(divtabla)) {
 
-    let table = document.createElement('table');
-    table.setAttribute("id", "tbproductos");
-    let thead = document.createElement('thead');
-    let tbody = document.createElement('tbody');
+        let table = document.createElement('table');
+        table.setAttribute("id", "tbproductos");
+        let thead = document.createElement('thead');
+        let tbody = document.createElement('tbody');
 
-    table.appendChild(thead);
-    table.appendChild(tbody);
-    document.getElementById('tabla').appendChild(table);
+        table.appendChild(thead);
+        table.appendChild(tbody);
+        document.getElementById('tabla').appendChild(table);
 
-    for (let i = 0; i < 11; i++) {
+        for (let i = 0; i < 11; i++) {
 
-        let row = document.createElement('tr');
+            let row = document.createElement('tr');
 
-        for (let j = 0; j < 6; j++) {
+            for (let j = 0; j < 6; j++) {
 
-            var elementohtml = i == 0 ? 'th' : 'td';
-            let elemento = document.createElement(elementohtml);
-            var contenido = i == 0 ? crearencabezadotabla(j) : creardataproductotabla(j, i);
-            elemento.innerHTML = contenido;
-            row.appendChild(elemento);
+                var elementohtml = i == 0 ? 'th' : 'td';
+                let elemento = document.createElement(elementohtml);
+                var contenido = i == 0 ? crearEncabezadoTabla(j) : crearDataProductoTabla(j, i);
+                if (i != 0 && j == 5) {
+                    elemento.appendChild(contenido);
+                } else {
+                    elemento.innerHTML = contenido;
+                }
+                row.appendChild(elemento);
+            }
+            if (i == 0) {
+                thead.appendChild(row);
+            } else {
+                tbody.appendChild(row);
+            }
+
         }
-        if (i == 0) {
-            thead.appendChild(row);
-        } else {
-            tbody.appendChild(row);
-        }
-
     }
     return myobj;
 }
 
-const crearencabezadotabla = (dato) => {
+const crearEncabezadoTabla = (dato) => {
     var encabezado = "";
     switch (dato) {
         case 0:
@@ -97,13 +89,13 @@ const crearencabezadotabla = (dato) => {
             break;
         case 5:
             encabezado = "Editar Producto";
-            break;    
-        
+            break;
+
     }
     return encabezado;
 }
 
-const creardataproductotabla = (dato1, dato2) => {
+const crearDataProductoTabla = (dato1, dato2) => {
     var info = "";
     switch (dato1) {
         case 0:
@@ -116,35 +108,77 @@ const creardataproductotabla = (dato1, dato2) => {
             info = "Genérico";
             break;
         case 3:
-            info = Math.floor(Math.random() * (5000 - 1000) + 10000);
+            info = Math.floor(Math.random() * (500 - 100) + 100);
             break;
         case 4:
             info = "$" + Math.floor(Math.random() * (50000 - 10000) + 10000);
             break;
         case 5:
-               info= "Producto" + (dato2); // falta crear interfaz          
-           break;
+            info = document.createElement('button');
+            info.setAttribute("id", "btneditarventa" + dato2 + dato1);
+            info.setAttribute("class", "boton");
+            info.setAttribute("onclick", "crearProducto('editar_producto')");
+            info.innerText = '';
+            break;
         default:
     }
     return info;
 }
 
-//
+const crearProducto = (o) => {
+    switch (o) {
+        case 'crear_producto':
+            localStorage.setItem("operacion", o);
+            window.location.href = '../html/registrar_producto.html';
+            break;
+        case 'editar_producto':
+            localStorage.setItem("operacion", o);
+            window.location.href = '../html/editar_producto.html';
+            break;
+        default:
+            window.alert("Ha ocurrido un error, intente de nuevo.");
+            break;
+    }
 
-//
+}
 
-//
+const registrarProducto = () => {
+    debugger;
+    cod_producto = document.getElementById("cod_producto");
+    dsc_producto = document.getElementById("dsc_producto");
+    valor_producto = document.getElementById("valor_producto");
+    cantidad_producto = document.getElementById("cantidad_producto");
 
-//
+    if (!!validarDato(cod_producto) && !!validarDato(dsc_producto) && !!validarDato(valor_producto) && !!validarDato(cantidad_producto)) {
+        window.location.href = '../html/consultar_productos.html';
+    } else {
+        window.alert("Hay datos que no son válidos, intente de nuevo.");
+    }
+}
+
+const cargarDatosProducto = () => {
+    ope = localStorage.getItem("operacion");
+    if (!!validarObj(ope) && ope == 'editar_producto') {
+        localStorage.removeItem("operacion");
+        var myobj = document.getElementById('cod_producto');
+        myobj.value = "P-0123654479";
+        myobj = document.getElementById('dsc_producto');
+        myobj.value = "Nevera";
+        myobj = document.getElementById('valor_producto');
+        myobj.value = "50000000";
+        myobj = document.getElementById('cantidad_producto');
+        myobj.value = "510";
+    }
+}
+
 function validarDato(dato) {
-
-    return (dato !== undefined && dato !== null && dato.value !== undefined && dato.value !== null && dato.value !== "")
-
+    return (!!validarObj(dato) && dato.value !== undefined && dato.value !== null && dato.value !== "")
 }
 
 function validarObj(dato) {
-
-    return (dato !== undefined && dato !== null && dato !== "")
-
+    return (dato !== undefined && dato !== null && dato !== "");
 }
 
+function validarNum(dato) {
+    return (!!validarObj(dato) && !!Number.isInteger(dato));
+}
