@@ -36,7 +36,7 @@
                     <a href="#contact">Gestionar productos</a>
                     <ul>
                         <li>
-                            <a href="#">Registrar producto</a>
+                            <a href="registrar_producto.html">Registrar producto</a>
                         </li>
                         <li>
                             <a href="../html/consultar_productor.html">
@@ -46,13 +46,14 @@
                     </ul>
                 </li>
                 <li>
-                    <a href="../html/lista_vendedores.html">Gestionar usuarios</a> <!--Cambio realizado por leonardo-->
+                    <a href="#">Gestionar usuarios</a>
+                    <!--Cambio realizado por leonardo-->
                     <ul>
                         <li>
-                            <a href="lista_usuarios.html">Mostrar usuarios</a>
+                            <a href="../html/lista_usuarios.html">Mostrar usuarios</a>
                         </li>
                         <li>
-                            <a href="crud_usuarios.html">Gestionar usuarios</a>
+                            <a href="../html/crud_usuarios.html">Administrar usuarios</a>
                         </li>
                     </ul>
                 </li>
@@ -64,6 +65,7 @@
             </button>
         </section>
     </header>
+    <hr>
     <main>
         <section class="titulo">
             <span>Consultar las ventas de un periodo</span>
@@ -80,7 +82,7 @@
                 </div>
                 <div class="item-3">
                     <label for="cod_venta">El código de venta:</label>
-                    <input id="cod_venta" type="text" class="left"  required />
+                    <input id="cod_venta" type="text" class="left" required />
                 </div>
                 <div class="item-3">
                     <label for="cod_cliente">El documento del cliente:</label>
@@ -97,13 +99,13 @@
         </section>
         <section>
             <div id="tabla" class="tabla">
-                
+
             </div>
         </section>
         <div class="busqueda">
-        <section class="boton">
-            <button id="registrar_venta" onclick="crearventa('crear_venta')">Registrar venta</button>
-        </section>
+            <section class="boton">
+                <button id="registrar_venta" onclick="crearventa('crear_venta')">Registrar venta</button>
+            </section>
         </div>
     </main>
     <script src="../js/gestor_ventas.js"></script>

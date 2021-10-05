@@ -437,8 +437,8 @@ main .tabla tbody tr .boton {
       -ms-flex-align: center;
           align-items: center;
   position: absolute;
-  top: 46%;
-  left: 530px;
+  top: 49%;
+  left: 500px;
   font-weight: bolder;
 }
 
@@ -456,11 +456,33 @@ main .tabla tbody tr .boton {
   padding: 60px ;
 }
 
+
 .Exito{
   display: block;
   margin-left: auto;
   margin-right: auto;
 }
+
+.reg_exitoso{
+  display:block;
+  margin-left: auto;
+  margin-right: auto;
+
+}
+.txt_registro{
+  text-align: center;
+  font: bold ;
+  font-size: 20px;
+  color: #f95f62;
+ 
+}
+.txt{
+  text-align: center;
+  font: bold;
+
+}
+
+
 #aceptar{
   display:block;
   margin-left: auto;
@@ -479,6 +501,7 @@ main .tabla tbody tr .boton {
  
 }
 
+
 .txt_actua{
   text-align: center;
 }
@@ -491,8 +514,22 @@ main .tabla tbody tr .boton {
   margin-left: auto;
   margin-right: auto;
   padding: 20px;
+}
 
 
 
 /*# sourceMappingURL=estilos.css.map */
+
+#otro_registro{
+  display:block;
+  margin-left: auto;
+  margin-right: auto;
+  
 }
+
+#regs{
+  font-size: 30px;
+
+}
+
+
