@@ -1,14 +1,12 @@
 <!DOCTYPE html>
-<html lang="es">
-
+<html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Gestión de ventas</title>
-    <link rel="stylesheet" href="../css/estilos.css" />
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/estilos.css">
+    <title>Actualización exitosa</title>
 </head>
-
 <body>
     <header>
         <section>
@@ -36,18 +34,17 @@
                     <a href="#contact">Gestionar productos</a>
                     <ul>
                         <li>
-                            <a href="../html/registrar_producto.html">Registrar producto</a>
+                            <a href="registrar_producto.html">Registrar producto</a>
                         </li>
                         <li>
-                            <a href="../html/consultar_productos.html">
+                            <a href="../html/consultar_productor.html">
                                 Consultar productos
                             </a>
                         </li>
                     </ul>
                 </li>
                 <li>
-                    <a href="#">Gestionar usuarios</a>
-                    <!--Cambio realizado por leonardo-->
+                    <a href="#">Gestionar usuarios</a> <!--Cambio realizado por leonardo-->
                     <ul>
                         <li>
                             <a href="../html/lista_usuarios.html">Mostrar usuarios</a>
@@ -65,22 +62,40 @@
             </button>
         </section>
     </header>
-    <hr>
     <section>
-        <div class="contentImage">
-            <img src="../images/imagen4.jpg" alt="Bienvenida">
-            <span>Bienvenido, este es su espacio de trabajo.</span>
-        </div>
+    
+            <img src="../images/imagen7.png" alt="exito" class="Exito">
+      
     </section>
-    <script src="../js/gestor_ventas.js"></script>
+    <main>  
+        <section class="txt_actua">
+            <span id="actua">¡SE HA ACTUALIZADO EXITOSAMENTE!</span>
 
-    <!--Footer-->
-    <footer>
-        <div class="footer-text">
-            <p>&copy; Misión TIC | Ciclo 3 Grupos 52,53,54 | Equipo 14 Octubre 2021 | Todos los derechos reservados </p>
-        </div>
+        </section>
+        <section class="txt1">
+            <span>El producto fue actualizado con éxito y ahora se encuentra disponible en nuestra base de datos.</span>
+        </section>
+        <section class="boton">
+            <button id="aceptar" onclick="location.href='../html/bienvenida.html'">Aceptar</button>
+        
+        </section>
+        <section class="boton_otro1">
+            <span id="otra_actua">Para actualizar otro producto, de click aquí: 
+                <a style="color:rgb(248, 80, 80)" href="../html/registrar_producto.html"> Actualizar producto 
+                </a>
+            </span>
+        </section>
 
-    </footer>
+    </main>
+
+
+
+
+
+
+
+
+    </main>
+    
 </body>
-
 </html>

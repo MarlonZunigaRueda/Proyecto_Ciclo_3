@@ -1,18 +1,19 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Gestión de ventas</title>
-    <link rel="stylesheet" href="../css/estilos.css" />
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Información de usuarios</title>
+    <link rel="stylesheet" href="../css/estilos.css">
+    <link rel="stylesheet" href="../css/estilos_usuarios.css">
 </head>
 
 <body>
     <header>
         <section>
-            <img src="../images/imagen1.png" alt="Logo" class="logo" />
+            <img src="../images/imagen1.png" alt="logo" class="logo">
             <span>Gestión de ventas</span>
         </section>
         <section class="menu">
@@ -66,21 +67,19 @@
         </section>
     </header>
     <hr>
-    <section>
-        <div class="contentImage">
-            <img src="../images/imagen4.jpg" alt="Bienvenida">
-            <span>Bienvenido, este es su espacio de trabajo.</span>
-        </div>
-    </section>
-    <script src="../js/gestor_ventas.js"></script>
+    <main>
+        <section class="boton">
+            <button onclick="lista_usuarios()">Lista de usuarios</button>
+            <!--Falta por crear esta funcion-->
+        </section>
 
-    <!--Footer-->
-    <footer>
-        <div class="footer-text">
-            <p>&copy; Misión TIC | Ciclo 3 Grupos 52,53,54 | Equipo 14 Octubre 2021 | Todos los derechos reservados </p>
-        </div>
+        <section>
+            <div id="tabla" class="tabla">
 
-    </footer>
+            </div>
+        </section>
+    </main>
+    <script src="../js/lista_vendedores.js"></script>
 </body>
 
 </html>

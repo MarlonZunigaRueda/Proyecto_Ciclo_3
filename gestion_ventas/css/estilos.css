@@ -3,8 +3,17 @@ body {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
+header {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: auto auto auto;
+      grid-template-columns: auto auto auto;
+  grid-gap: 10px;
+  padding: 5px;
+}
+
 header .cerrarsesion button {
-  width: 12%;
+  width: auto;
   height: 50px;
   color: white;
   cursor: pointer;
@@ -16,34 +25,59 @@ header .cerrarsesion button {
   overflow: auto;
 }
 
+header .menu {
+  padding: 0px;
+  width: 100%;
+}
+
+header .menu ul,
+header .menu ol {
+  list-style-type: none;
+  margin: 0%;
+}
+
+header .menu .nav > li {
+  float: left;
+}
+
+header .menu .nav li a {
+  background-color: white;
+  text-decoration: none;
+  color: #47525E;
+  text-align: center;
+  padding: 14px 16px;
+  display: block;
+}
+
+header .menu .nav li a:hover {
+  background-color: #E5E9F2;
+}
+
+header .menu .nav li ul {
+  display: none;
+  position: absolute;
+  min-width: 140px;
+}
+
+header .menu .nav li:hover > ul {
+  display: block;
+}
+
+header .menu .nav li ul li {
+  position: relative;
+}
+
+header .menu .nav li ul li ul {
+  right: -140px;
+  top: 0px;
+}
+
 .logo {
   width: 42px;
   height: 42px;
   vertical-align: middle;
-}
-
-ul {
-  list-style-type: none;
-  float: right;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-}
-
-li {
-  float: left;
-}
-
-li a {
-  display: inline-block;
-  color: #47525E;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-}
-
-li a:hover {
-  background-color: #E5E9F2;
+  padding: 0px;
+  margin: 3px;
 }
 
 header {
@@ -51,53 +85,266 @@ header {
 }
 
 main {
-  width: 50%;
+  width: 65%;
   margin: auto;
-  margin-top: 5%;
+  margin-top: 1%;
   padding: 20px;
-  text-align: center;
 }
 
-main .caja {
+main .sesion {
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: auto auto auto 7%;
-      grid-template-columns: auto auto auto 7%;
+  -ms-grid-columns: auto;
+      grid-template-columns: auto;
   grid-gap: 5px;
-  border: 1px solid gray;
-  border-radius: 10px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   text-align: center;
-  margin-bottom: 2%;
 }
 
-main .caja .item-1 {
-  grid-row: auto;
-  -ms-grid-column: 1;
-  -ms-grid-column-span: 3;
-  grid-column: 1 / 4;
-  padding: 5px;
-  margin-bottom: 2%;
+main .sesion .box {
+  padding: 0px;
+  margin: 1%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border: 2px solid #ccc;
+  border-radius: 5px;
+  height: 50px;
+  width: 350px;
 }
 
-main .caja .item-2 {
-  grid-row: auto;
-  padding: 5px;
-  margin-bottom: 2%;
-}
-
-main .caja input {
+main .sesion .item-1 {
+  padding: 0px;
+  margin: 0px;
   width: 100%;
-  height: 100%;
-  border-style: none;
+  height: 45px;
+  display: inline-block;
 }
 
-main .caja input[type=text] {
+main .sesion .item-2 {
+  padding: 1px;
+  margin: 1px;
+  width: 45px;
+  display: inline-block;
+}
+
+main .sesion input {
   width: 100%;
   height: 100%;
   border: none;
+  border-style: none;
 }
 
-main .boton button {
+main .sesion input[type=text] {
+  width: 100%;
+  height: 100%;
+  border: none;
+  border-style: none;
+}
+
+main .sesion .iniciar_sesion {
+  padding: 0px;
+  margin: 1%;
+}
+
+main .sesion .iniciar_sesion button {
+  width: 352px;
+  height: 50px;
+  background-color: #f95f62;
+  color: white;
+  border-style: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bolder;
+}
+
+main .busqueda {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: auto auto 34%;
+      grid-template-columns: auto auto 34%;
+  grid-gap: 5px;
+  border: 0px solid gray;
+  border-radius: 5px;
+  margin-bottom: 2%;
+  padding: 5px;
+}
+
+main .busqueda .fecha-1 {
+  border: 1px solid gray;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+main .busqueda .item-3 {
+  border: 1px solid gray;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+main .busqueda label {
+  color: gray;
+  -webkit-box-pack: left !important;
+      -ms-flex-pack: left !important;
+          justify-content: left !important;
+  text-align: left !important;
+  font-size: small;
+  position: -webkit-sticky;
+  position: sticky;
+  font-weight: bolder;
+}
+
+main .busqueda input {
+  width: 100%;
+  border: none;
+  border-style: none;
+  outline: none;
+}
+
+main .busqueda input[type=date] {
+  width: 100%;
+  height: 15px;
+  border: none;
+  border-style: none;
+  border-bottom: 0px solid black;
+  cursor: pointer;
+}
+
+main .busqueda input[type=text] {
+  width: 100%;
+  height: 15px;
+  border-style: none;
+  border: none;
+}
+
+main .busqueda .boton {
+  padding: 0px;
+  margin: 1%;
+  -ms-grid-column: 3;
+      grid-column-start: 3;
+  grid-column-end: 3;
+}
+
+main .busqueda .boton button {
+  width: 100%;
+  height: 42px;
+  background-color: #f95f62;
+  color: white;
+  border-style: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bolder;
+}
+
+main .registro {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 34% 34%;
+      grid-template-columns: 34% 34%;
+  grid-gap: 5px;
+  border: 0px solid gray;
+  border-radius: 5px;
+  margin-bottom: 2%;
+  padding: 5px;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+main .registro .item-1 {
+  border: 1px solid gray;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+main .registro .item-2 {
+  border: 1px solid gray;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+main .registro input {
+  width: 100%;
+  border: none;
+  border-style: none;
+  outline: none;
+}
+
+main .registro input:-moz-read-only {
+  color: gray;
+}
+
+main .registro input:read-only {
+  color: gray;
+}
+
+main .registro label {
+  color: gray;
+  -webkit-box-pack: left !important;
+      -ms-flex-pack: left !important;
+          justify-content: left !important;
+  text-align: left !important;
+  font-size: small;
+  position: -webkit-sticky;
+  position: sticky;
+  font-weight: bolder;
+}
+
+main .registro input[type=date] {
+  width: 100%;
+  height: 15px;
+  border: none;
+  border-style: none;
+  border-bottom: 0px solid black;
+  color: gray;
+  outline: none;
+  cursor: pointer;
+}
+
+main .registro input[type=number] {
+  width: 100%;
+  height: 15px;
+  border: none;
+  border-style: none;
+  border: none;
+  outline: none;
+}
+
+main .registro input[type=text] {
+  width: 100%;
+  height: 15px;
+  border-style: none;
+  border: none;
+  padding: 1px;
+  outline: none;
+}
+
+main .registro select {
+  width: 100%;
+  height: 15px;
+  border-style: none;
+  border: none;
+  background-color: white;
+  outline: none;
+}
+
+main .registro .boton {
+  padding: 0px;
+  margin: 1%;
+  -ms-grid-column: 2;
+      grid-column-start: 2;
+  grid-column-end: 2;
+}
+
+main .registro .boton button {
   width: 100%;
   height: 50px;
   background-color: #f95f62;
@@ -108,38 +355,13 @@ main .boton button {
   font-weight: bolder;
 }
 
-main .fecha {
-  display: -ms-grid;
-  display: grid;
-  -ms-grid-columns: auto auto auto;
-      grid-template-columns: auto auto auto;
-  grid-gap: 10px;
-  padding: 5px;
-}
-
-main .fecha .fecha-1 {
-  border: 1px solid gray;
-  padding: 10px;
-  border-radius: 10px;
-}
-
-main .fecha input {
-  width: 100%;
-  height: 100%;
-  border-style: none;
-}
-
-main .fecha input[type=date] {
-  width: 100%;
-  height: 100%;
-  border: none;
-  border-bottom: 2px solid black;
-}
-
 main span {
   font-size: 20px;
   line-height: 50px;
   text-align: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   font-weight: bolder;
 }
 
@@ -148,6 +370,7 @@ main .tabla {
   display: grid;
   padding: 5px;
   margin-top: 2%;
+  text-align: center;
 }
 
 main .tabla table {
@@ -175,11 +398,29 @@ main .tabla tbody tr {
   margin-top: 2%;
 }
 
+main .tabla tbody tr .boton {
+  padding: 0px;
+  margin: 1%;
+  width: 30px;
+  height: 30px;
+  background-color: white;
+  color: white;
+  border-style: none;
+  border-radius: 25px;
+  cursor: pointer;
+  font-weight: bolder;
+  background-image: url(../images/imagen6.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 35px 35px;
+}
+
 .contentImage {
   width: 600px;
   height: 400ṕx;
   line-height: 400px;
   margin: 0% auto;
+  margin-top: 1%;
   text-align: center;
 }
 
@@ -191,11 +432,104 @@ main .tabla tbody tr {
 .contentImage span {
   color: #ffffff;
   font-size: 20px;
-  line-height: 91px;
   text-align: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   position: absolute;
-  top: 420px;
-  left: 530px;
+  top: 49%;
+  left: 500px;
   font-weight: bolder;
 }
+
+.titulo {
+  text-align: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.footer-text p{
+  font-size: 20px;
+  text-align: center;
+  color: rgb(17, 17, 17);
+  padding: 60px ;
+}
+
+
+.Exito{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.reg_exitoso{
+  display:block;
+  margin-left: auto;
+  margin-right: auto;
+
+}
+.txt_registro{
+  text-align: center;
+  font: bold ;
+  font-size: 20px;
+  color: #f95f62;
+ 
+}
+.txt{
+  text-align: center;
+  font: bold;
+
+}
+
+
+#aceptar{
+  display:block;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: #f95f62;
+  color: #E5E9F2;
+  width: 150px;
+  height: 50px;
+  margin: auto;
+  border-color: #f95f62;
+  font: bold;
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 5px
+
+ 
+}
+
+
+.txt_actua{
+  text-align: center;
+}
+.txt1{
+  text-align: center;
+}
+
+#otra_actua{
+  display:block;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 20px;
+}
+
+
+
 /*# sourceMappingURL=estilos.css.map */
+
+#otro_registro{
+  display:block;
+  margin-left: auto;
+  margin-right: auto;
+  
+}
+
+#regs{
+  font-size: 30px;
+
+}
+
+

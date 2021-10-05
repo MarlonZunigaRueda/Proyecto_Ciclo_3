@@ -1,18 +1,16 @@
 <!DOCTYPE html>
-<html lang="es">
-
+<html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Gestión de ventas</title>
-    <link rel="stylesheet" href="../css/estilos.css" />
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registrar Productos</title>
+    <link rel="stylesheet" href="../css/estilos.css">
 </head>
-
 <body>
     <header>
         <section>
-            <img src="../images/imagen1.png" alt="Logo" class="logo" />
+            <img src="../images/imagen1.png" alt="logo" class="logo">
             <span>Gestión de ventas</span>
         </section>
         <section class="menu">
@@ -66,21 +64,36 @@
         </section>
     </header>
     <hr>
-    <section>
-        <div class="contentImage">
-            <img src="../images/imagen4.jpg" alt="Bienvenida">
-            <span>Bienvenido, este es su espacio de trabajo.</span>
-        </div>
-    </section>
-    <script src="../js/gestor_ventas.js"></script>
-
-    <!--Footer-->
-    <footer>
-        <div class="footer-text">
-            <p>&copy; Misión TIC | Ciclo 3 Grupos 52,53,54 | Equipo 14 Octubre 2021 | Todos los derechos reservados </p>
-        </div>
-
-    </footer>
+    <main>
+        <section>
+            <section class="titulo">
+                <span>Ingrese los datos del producto</span>  
+        </section>
+        <section>
+            <div class="registro">
+                <div class="item-1">
+                    <label for="cod_producto">Código del producto:</label>
+                    <input id="cod_producto" type="text" class="left" required/>
+                </div>
+                <div class="item-2">
+                    <label for="dsc_producto">Descripción del producto:</label>
+                    <input id="dsc_producto" type="text" class="left" required />
+                </div>
+                <div class="item-1">
+                    <label for="valor_producto">El valor unitario:</label>
+                    <input id="valor_producto" type="number" class="left" required />
+                </div>
+                <div class="item-2">
+                    <label for="cantidad_producto">Cantidad del producto:</label>
+                    <input id="cantidad_producto" type="number" class="left" required/>
+                </div>
+                <section class="boton">
+                    <button id="registrar_producto" onclick="registrarProducto()">Registrar producto</button>
+                </section>
+                
+    </main>
+    <script src="../js/gestor_productos.js"></script> 
+    <!-- Terminar archivo js, donde permita registrar -->
 </body>
 
 </html>

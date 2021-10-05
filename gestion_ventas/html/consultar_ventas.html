@@ -11,30 +11,86 @@
 
 <body>
     <header>
-        <section class="cerrarsesion">
-            <button id="cerrar_sesion" onclick="cerrarsesion()">Cerrar sesión</button>
-        </section>
-        <img src="../images/imagen1.png" alt="Logo" class="logo" />
-        <span>Gestión de ventas</span>
-
-        <ul>
-            <li><a class="active" href="../html/bienvenida.html">Inicio</a></li>
-            <li><a href="../html/consultar_ventas.html">Consultar ventas</a></li>
-            <li><a href="#contact">Gestionar vendedores</a></li>
-            <li><a href="#about">Gestionar usuarios</a></li>
-        </ul>
-    </header>
-    <main>
         <section>
+            <img src="../images/imagen1.png" alt="Logo" class="logo" />
+            <span>Gestión de ventas</span>
+        </section>
+        <section class="menu">
+            <ul class="nav">
+                <li>
+                    <a class="active" href="../html/bienvenida.html">Inicio</a>
+                </li>
+                <li><a href="#">Gestionar ventas</a>
+                    <ul>
+                        <li>
+                            <a href="../html/registrar_venta.html">Registrar venta</a>
+                        </li>
+                        <li>
+                            <a href="../html/consultar_ventas.html">
+                                Consultar ventas
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#contact">Gestionar productos</a>
+                    <ul>
+                        <li>
+                            <a href="registrar_producto.html">Registrar producto</a>
+                        </li>
+                        <li>
+                            <a href="../html/consultar_productos.html">
+                                Consultar productos
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">Gestionar usuarios</a>
+                    <!--Cambio realizado por leonardo-->
+                    <ul>
+                        <li>
+                            <a href="../html/lista_usuarios.html">Mostrar usuarios</a>
+                        </li>
+                        <li>
+                            <a href="../html/crud_usuarios.html">Administrar usuarios</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </section>
+        <section class="cerrarsesion">
+            <button id="cerrar_sesion" onclick="cerrarsesion()">
+                Cerrar sesión
+            </button>
+        </section>
+    </header>
+    <hr>
+    <main>
+        <section class="titulo">
             <span>Consultar las ventas de un periodo</span>
         </section>
         <section>
-            <div class="fecha">
+            <div class="busqueda">
                 <div class="fecha-1">
+                    <label for="fecha_inicial">La fecha inicial:</label>
                     <input id="fecha_inicial" type="date" class="left" placeholder="Su fecha inicial aquí:" required />
                 </div>
                 <div class="fecha-1">
-                    <input id="fecha_final" type="date" class="left" placeholder="Su fecha final aquí:" required />
+                    <label for="fecha_final">La fecha final:</label>
+                    <input id="fecha_final" type="date" class="left" required />
+                </div>
+                <div class="item-3">
+                    <label for="cod_venta">El código de venta:</label>
+                    <input id="cod_venta" type="text" class="left" required />
+                </div>
+                <div class="item-3">
+                    <label for="cod_cliente">El documento del cliente:</label>
+                    <input id="cod_cliente" type="text" class="left" required />
+                </div>
+                <div class="item-3">
+                    <label for="cod_cliente">El nombre del cliente:</label>
+                    <input id="nombre_cliente" type="text" class="left" required />
                 </div>
                 <section class="boton">
                     <button id="consultar_ventas" onclick="consultarventas()">Generar consulta</button>
@@ -46,6 +102,11 @@
 
             </div>
         </section>
+        <div class="busqueda">
+            <section class="boton">
+                <button id="registrar_venta" onclick="crearventa('crear_venta')">Registrar venta</button>
+            </section>
+        </div>
     </main>
     <script src="../js/gestor_ventas.js"></script>
 </body>

@@ -46,8 +46,7 @@
                     </ul>
                 </li>
                 <li>
-                    <a href="#">Gestionar usuarios</a>
-                    <!--Cambio realizado por leonardo-->
+                    <a href="#">Gestionar usuarios</a> <!--Cambio realizado por leonardo-->
                     <ul>
                         <li>
                             <a href="../html/lista_usuarios.html">Mostrar usuarios</a>
@@ -66,21 +65,42 @@
         </section>
     </header>
     <hr>
-    <section>
-        <div class="contentImage">
-            <img src="../images/imagen4.jpg" alt="Bienvenida">
-            <span>Bienvenido, este es su espacio de trabajo.</span>
-        </div>
+    <main>
+        <section>
+            <span>Gestionar Producto</span>
+        </section>
+        <section>
+            <div class="busqueda">
+               
+                <div class="item-3">
+                    <label for="cod_producto">Código del producto:</label>
+                    <input id="cod_producto" type="text" class="left" required />
+                </div>
+                <div class="item-3">
+                    <label for="nbr_producto">Nombre del producto:</label>
+                    <input id="nbr_producto" type="text" class="left" required />
+                </div>
+                
+                <section class="boton">
+                    <button id="consultar_producto" onclick="consultarProductos()">Buscar producto</button>
+                </section>
+            </div>
+        </section>
+        <section>
+            <div id="tabla" class="tabla">
+
+            </div>
+        </section>
     </section>
-    <script src="../js/gestor_ventas.js"></script>
-
-    <!--Footer-->
-    <footer>
-        <div class="footer-text">
-            <p>&copy; Misión TIC | Ciclo 3 Grupos 52,53,54 | Equipo 14 Octubre 2021 | Todos los derechos reservados </p>
-        </div>
-
-    </footer>
+    <div class="busqueda">
+    <section class="boton">
+        <button id="Registrar_Producto" onclick="crearProducto('crear_producto')">Registrar producto</button>
+    </section>
+    </div>
+    </main>
+       <script src="../js/gestor_productos.js"></script>
+    </main>
+    
 </body>
 
 </html>
