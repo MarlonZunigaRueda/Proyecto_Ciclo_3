@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,UAAU,CAAC;EACT,WAAW,EAAE,MAAM;EACnB,eAAe,EAAE,MAAM;EACvB,UAAU,EAAE,MAAM;EAClB,cAAc,EAAE,MAAM;EACtB,OAAO,EAAE,IAAI;CAOd;;AAZD,AAOE,UAPQ,CAOR,CAAC,CAAA;EACC,SAAS,EAAE,IAAI;EACf,KAAK,EAAE,OAAe;EACtB,OAAO,EAAE,IAAK;CACf",
+    "sources": [
+        "Piepagina.scss"
+    ],
+    "names": [],
+    "file": "Piepagina.css"
+}

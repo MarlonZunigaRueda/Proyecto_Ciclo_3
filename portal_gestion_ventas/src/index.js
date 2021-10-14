@@ -3,13 +3,20 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import Menu from './componentes/header/Menu';
+import Inicio from './componentes/index/Inicio';
+import Piepagina from './componentes/footer/Piepagina';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css'; // Archivo CSS de Bootstrap
 import '../node_modules/bootstrap/dist/js/bootstrap.min.js'; // Archivo Javascript de Bootstrap
 import reportWebVitals from './reportWebVitals';
 
+
 ReactDOM.render(
   <React.StrictMode>
-    <Menu />
+    <div>
+      <Menu/>
+      <main></main>
+      <Piepagina></Piepagina>
+    </div>
   </React.StrictMode>,
   document.getElementById('root')
 );
