@@ -1,14 +1,14 @@
 import React from 'react';
 import '../css/Menu.css';
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { BrowserRouter as Switch, Link } from "react-router-dom";
 import logo from '../images/imagen1.png';
 
 class MenuIndex extends React.Component{
     render(){
         return (
             <nav className="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-                <img src={logo} className="menu-img" />
-                <a className="navbar-brand">Gestión de ventas</a>
+                <img src={logo} className="menu-img" rounded/>
+                <Link className="navbar-brand" to={"/"}>Gestión de ventas</Link>
                 <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"></span>
                 </button>
@@ -26,7 +26,6 @@ class MenuIndex extends React.Component{
                     </ul>
                 </div>
             </nav>
-
             )
     }
 }

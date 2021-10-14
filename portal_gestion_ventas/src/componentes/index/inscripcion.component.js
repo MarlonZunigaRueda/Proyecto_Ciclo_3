@@ -1,6 +1,19 @@
 import React from 'react';
 
 class Inscripcion extends React.Component{
+
+    constructor(props, context) {
+		super(props, context);
+		
+		this.handleClick = this.handleClick.bind(this);
+  	}
+
+	handleClick(){
+		console.log("algo");
+		//this.props
+		//console.log(this.refs.name);
+  	}
+
     render(){
         return (
 			<form>

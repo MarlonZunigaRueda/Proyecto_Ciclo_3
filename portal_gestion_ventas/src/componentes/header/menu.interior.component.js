@@ -1,8 +1,20 @@
 import React from 'react';
-import './Menu.css';
-import logo from './imagen1.png';
+import '../css/Menu.css';
+import logo from '../images/imagen1.png';
 
-class Menu extends React.Component{
+class MenuInterior extends React.Component{
+
+	constructor(props, context) {
+		super(props, context);
+		
+		this.handleClick = this.handleClick.bind(this);
+  	}
+
+	handleClick(){
+		console.log("algo");
+		
+  	}
+
     render(){
         return (
         <nav className="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
@@ -59,11 +71,11 @@ class Menu extends React.Component{
 		    </div>
 			<div className="collapse navbar-collapse" id="navbarCollapse">
 				<form className="form-inline mt-2 mt-md-0">
-			        <button className="menu-button my-sm-0" type="submit">Cerrar sesión</button>
+			        <button className="menu-button my-sm-0" type="submit" onClick={this.handleClick} >Cerrar sesión</button>
 			    </form>
 			</div>
 		</nav>
         )
     }
 }
-export default Menu;
+export default MenuInterior;
