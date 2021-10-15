@@ -7,8 +7,8 @@ class MenuIndex extends React.Component{
     render(){
         return (
             <nav className="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-                <img src={logo} className="menu-img" rounded/>
-                <Link className="navbar-brand" to={"/"}>Gestión de ventas</Link>
+                <img src={logo} className="menu-img" alt="logo"/>
+                <Link className="navbar-brand" to={"/sign-in"}>Gestión de ventas</Link>
                 <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"></span>
                 </button>

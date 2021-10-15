@@ -1,46 +1,80 @@
 import React from 'react';
-import Interior from '../../componentes/welcome/interior.component';
-import { BrowserRouter as Router, Switch, Route, Redirect } from "react-router-dom";
-
+import { Redirect } from "react-router-dom";
 class Inicio extends React.Component{
 
-    constructor(props, context) {
-		super(props, context);
+    constructor(props) {
+		super(props);
 		
-		this.handleClick = this.handleClick.bind(this);
+        this.state = {
+            islogged: false,
+            loginParams: {
+                email_user: "",
+                psd_user: ""
+            }
+          };
+
+         this.handleFormChange = this.handleFormChange.bind(this);
   	}
 
-	handleClick(){
-        debugger;
-		console.log("algo");
-		var user = document.getElementById("email_user");
-		var psd = document.getElementById("psd_user");
+    handleFormChange = event => { debugger;
+        let loginParamsNew = { ...this.state.loginParams };
+        let val = event.target.value;
+        loginParamsNew[event.target.name] = val;
+        this.setState({
+            loginParams: loginParamsNew
+        });
+    };
 
-		if (user && psd) {
-			return <Redirect to="/home" />
-		} else {
-			window.alert("Las credenciales no son válidas, intente de nuevo.");
-		}
-  	}
+    login = event => { debugger;
+        let email_user = this.state.loginParams.email_user;
+        let psd_user = this.state.loginParams.psd_user;
+        if (email_user === "admin@gmail.com" && psd_user === "123") {
+          localStorage.setItem("token", "T");
+          this.setState({
+            islogged: true
+          });
+        }
+        event.preventDefault();
+      };
 
     render(){
+        debugger;
+        if (localStorage.getItem("token")) {
+            return <Redirect to="/" />;
+          }
+
         return (
-			<form>
+			<form onSubmit={this.login}>
                 <h3>Inicie sesión</h3>
 
                 <div className="form-group">
                     <label>Correo electrónico:</label>
-                    <input id="email_user" type="email" className="form-control" placeholder="Ingrese su corrreo" />
+                    <input 
+                        id="email_user" 
+                        name="email_user"
+                        type="email" 
+                        className="form-control" 
+                        placeholder="Ingrese su corrreo"
+                        onChange={this.handleFormChange} 
+                    />
                 </div>
                 <p/>
                 <div className="form-group">
                     <label>Contraseña:</label>
-                    <input id="psd_user" type="password" className="form-control" placeholder="Ingrese su contraseña" />
+                    <input 
+                        id="psd_user"
+                        name="psd_user"
+                        type="password" 
+                        className="form-control" 
+                        placeholder="Ingrese su contraseña"
+                        onChange={this.handleFormChange} 
+                    />
                 </div>
                 <p/>
                 <div className="sign-in">
-                    <button type="submit" onClick={this.handleClick} >Iniciar sesión</button>
+                    <button type="submit" value="Inicio" >Iniciar sesión</button>
                 </div>
+                <p>email_user === "admin@gmail.com" && psd_user === "123"</p>
             </form>
         )
     }

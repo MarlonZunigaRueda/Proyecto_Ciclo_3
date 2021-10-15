@@ -1,6 +1,6 @@
 import React from 'react';
 
-class Bienvenido extends React.Component{
+class Usuarios extends React.Component{
 
     constructor(props, context) {
 		super(props, context);
@@ -17,8 +17,8 @@ class Bienvenido extends React.Component{
 
     render(){
         return (
-			 <h3>Bienvenido</h3>
+			 <h3>Usuarios</h3>
         )
     }
 }
-export default Bienvenido;
+export default Usuarios;

@@ -108,3 +108,15 @@ body, html, .App, #root, .auth-wrapper {
 .sign-in button:hover {
   background-color: #212529;
 }
+
+.no-found {
+
+  text-align: center;
+
+}
+.no-found img{
+
+  width: 100px;
+  height: 100px;
+
+}
