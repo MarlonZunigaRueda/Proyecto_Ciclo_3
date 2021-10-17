@@ -1,0 +1,30 @@
+{
+  "name": "api_gestion_ventas",
+  "version": "1.0.0",
+  "description": "API de Node.js Restful CRUD con Node.js, Express y MongoDB",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "gestion",
+    "ventas",
+    "nodejs",
+    "express",
+    "mongodb",
+    "rest",
+    "api",
+    "mintic",
+    "2021",
+    "equipo",
+    "14"
+  ],
+  "author": "equipo 14",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "mongoose": "^6.0.11"
+  }
+}

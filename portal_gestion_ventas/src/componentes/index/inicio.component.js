@@ -38,7 +38,7 @@ class Inicio extends React.Component{
       };
 
     render(){
-        debugger;
+
         if (localStorage.getItem("token")) {
             return <Redirect to="/" />;
           }
