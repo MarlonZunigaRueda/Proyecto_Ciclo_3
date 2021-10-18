@@ -8,6 +8,10 @@ import Ventas from '../../componentes/gestor_ventas/ventas.component';
 import Productos from '../../componentes/gestor_productos/productos.component';
 import Usuarios from '../../componentes/gestor_usuarios/usuarios.component';
 import NotFound from "../../componentes/error/not.found.component";
+import RegistrarProducto from '../gestor_productos/registrar.producto.component';
+import ConsultarProducto from '../gestor_productos/consultar.productos';
+import RegistrarVenta from '../gestor_ventas/registrar.venta.component';
+import ConsultarVenta from '../gestor_ventas/consultar.productos';
 
 
 class Interior extends Component {
@@ -42,10 +46,10 @@ class Interior extends Component {
                       <a className="nav-link" >Gestionar ventas</a>
                       <ul>
                         <li>
-                          <Link className="nav-link" to={`${match.path}/manage_sales`} >Registrar venta</Link>
+                          <Link className="nav-link" to={`${match.path}/register_sale`} >Registrar venta</Link>
                         </li>
                         <li>
-                          <Link className="nav-link" to={`${match.path}/manage_sales`} >Consultar ventas</Link>
+                          <Link className="nav-link" to={`${match.path}/search_sale`} >Consultar ventas</Link>
                         </li>
                       </ul>
                   </li>
@@ -53,10 +57,10 @@ class Interior extends Component {
                       <a className="nav-link" >Gestionar productos</a>
                       <ul>
                           <li>
-                            <Link className="nav-link" to={`${match.path}/manage_products`} >Registrar producto</Link>
+                            <Link className="nav-link" to={`${match.path}/register_product`} >Registrar producto</Link>
                           </li>
                           <li>
-                            <Link className="nav-link" to={`${match.path}/manage_products`} >Consultar productos</Link>
+                            <Link className="nav-link" to={`${match.path}/search_product`} >Consultar productos</Link>
                           </li>
                       </ul>
                   </li>
@@ -78,7 +82,11 @@ class Interior extends Component {
               <Route exact path={`${match.path}/`} component={Bienvenido} />
               <Route path={`${match.path}/welcome`} component={Bienvenido} />
               <Route path={`${match.path}/manage_sales`} component={Ventas} />
+              <Route path={`${match.path}/register_sale`} component={RegistrarVenta} />
+              <Route path={`${match.path}/search_sale`} component={ConsultarVenta} />
               <Route path={`${match.path}/manage_products`} component={Productos} />
+              <Route path={`${match.path}/register_product`} component={RegistrarProducto} />
+              <Route path={`${match.path}/search_product`} component={ConsultarProducto} />
               <Route path={`${match.path}/manage_users`} component={Usuarios} />
               <Route path="*" component={NotFound} />
             </Switch>
