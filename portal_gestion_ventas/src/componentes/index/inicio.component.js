@@ -5,21 +5,24 @@ import { Form, Button, Row, Col} from 'react-bootstrap'
 class Inicio extends React.Component{
 
     constructor(props) {
-		super(props);
-		
+        super(props);
+
         this.state = {
             islogged: false,
             loginParams: {
                 email_user: "",
                 psd_user: ""
             }
-          };
+        };
 
-         this.handleFormChange = this.handleFormChange.bind(this);
-  	}
+        this.handleFormChange = this.handleFormChange.bind(this);
+    }
 
-    handleFormChange = event => { debugger;
-        let loginParamsNew = { ...this.state.loginParams };
+    handleFormChange = event => {
+        debugger;
+        let loginParamsNew = {
+            ...this.state.loginParams
+        };
         let val = event.target.value;
         loginParamsNew[event.target.name] = val;
         this.setState({
@@ -27,23 +30,24 @@ class Inicio extends React.Component{
         });
     };
 
-    login = event => { debugger;
+    login = event => {
+        debugger;
         let email_user = this.state.loginParams.email_user;
         let psd_user = this.state.loginParams.psd_user;
         if (email_user === "admin@gmail.com" && psd_user === "123") {
-          localStorage.setItem("token", "T");
-          this.setState({
-            islogged: true
-          });
+            localStorage.setItem("token", "T");
+            this.setState({
+                islogged: true
+            });
         }
         event.preventDefault();
-      };
+    };
 
     render(){
 
         if (localStorage.getItem("token")) {
-            return <Redirect to="/" />;
-          }
+            return <Redirect to = "/" / > ;
+        }
 
         return (
 			<form onSubmit={this.login}>
@@ -51,25 +55,25 @@ class Inicio extends React.Component{
 
                 <div className="form-group">
                     <label>Correo electrónico:</label>
-                    <input 
-                        id="email_user" 
+                    <input
+                        id="email_user"
                         name="email_user"
-                        type="email" 
-                        className="form-control" 
+                        type="email"
+                        className="form-control"
                         placeholder="Ingrese su corrreo"
-                        onChange={this.handleFormChange} 
+                        onChange={this.handleFormChange}
                     />
                 </div>
                 <p/>
                 <div className="form-group">
                     <label>Contraseña:</label>
-                    <input 
+                    <input
                         id="psd_user"
                         name="psd_user"
-                        type="password" 
-                        className="form-control" 
+                        type="password"
+                        className="form-control"
                         placeholder="Ingrese su contraseña"
-                        onChange={this.handleFormChange} 
+                        onChange={this.handleFormChange}
                     />
                 </div>
                 <p/>
