@@ -1,8 +1,9 @@
 import React from 'react';
+import { Table } from 'react-bootstrap';
 
 
 
-class Productos extends React.Component{
+class ConsultarVenta extends React.Component{
 
     constructor(props, context) {
 		super(props, context);
@@ -20,8 +21,16 @@ class Productos extends React.Component{
 
     render(){
         return (
-			 <h3>Productos</h3>
+			 <>
+           
+
+
+
+
+
+
+             </>
         )
     }
 }
-export default Productos;
+export default ConsultarVenta;

@@ -1,5 +1,7 @@
 import React from 'react';
-import { Redirect } from "react-router-dom";
+import { Redirect} from "react-router-dom";
+import { Form, Button, Row, Col} from 'react-bootstrap'
+
 class Inicio extends React.Component{
 
     constructor(props) {
@@ -71,10 +73,30 @@ class Inicio extends React.Component{
                     />
                 </div>
                 <p/>
+               
                 <div className="sign-in">
                     <button type="submit" value="Inicio" >Iniciar sesión</button>
                 </div>
+                <p>
+
+                </p>
+
+                <div class='text-center'>
+                    <h6>
+                         O inicie sesión con
+                    </h6>
+                </div>
+
+               <div className='text-center'>
+
+                <Button variant="outline-primary">Log in with Google
+                <img src = "https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/512px-Google_%22G%22_Logo.svg.png" width="20" ></img>
+                </Button>{' '}
+                <p>
+
+                </p>
                 <p>email_user === "admin@gmail.com" && psd_user === "123"</p>
+               </div>
             </form>
         )
     }
