@@ -1,5 +1,5 @@
 import React from 'react';
-import ProductsDataService from '../../services/gestor_productos/product.services'
+import ProductDataService from '../../services/gestor_productos/product.services'
 import { Form, Button, Row, Col} from 'react-bootstrap'
 
 
@@ -10,16 +10,16 @@ class RegistrarProducto extends React.Component{
 
     this.state = {
       product: {
-        description: String,
+        description: "",
         status: {
-          name: String,
-          value: String
+          name: "",
+          value: ""
         },
-        amount: Number,
-        unitValue: Number,
+        amount: 0,
+        unitValue: 0,
         registeredBy: {
-          nameEmployee: String,
-          idEmployee: String
+          nameEmployee: "",
+          idEmployee: ""
         }
       }
   };
@@ -34,7 +34,7 @@ class RegistrarProducto extends React.Component{
           ...this.state.product
       };
       let val = event.target.value;
-      if (event.target.name === "role") {
+      if (event.target.name === "status") {
           productNew[event.target.name] = {name: val, value : val};
       }else{
           productNew[event.target.name] = val;
@@ -44,18 +44,21 @@ class RegistrarProducto extends React.Component{
       });
   };
 
-  createproduct = event => {
-      let products = this.state.products;
-      ProductsDataService.create(products)
+  createProduct = event => {
+    debugger;
+      let product = this.state.product;
+      ProductDataService.create(product)
           .then(response => {
               this.setState({
-                  name: response.products.name,
-                  status: response.products.status,
-                  description: response.product.description,
-                  role: response.product.role,
-                  email: response.product.email,
-                  password: response.product.password,
 
+                  status: response.product.status,
+                  description: response.product.description,
+                  amount: response.product.amount,
+                  unitValue: response.product.unitValue,
+                  registeredBy: {
+                    nameEmployee: "Leo",
+                    idEmployee: "2386"
+                  },
                   submitted: true
               });
               console.log(response.product);
@@ -67,16 +70,16 @@ class RegistrarProducto extends React.Component{
   };
   newProduct() {
       this.setState({
-        description: String,
+        description: "",
         status: {
-          name: String,
-          value: String
+          name: "",
+          value:""
         },
-        amount: Number,
-        unitValue: Number,
+        amount: 0,
+        unitValue: 0,
         registeredBy: {
-          nameEmployee: String,
-          idEmployee: String
+          nameEmployee:"",
+          idEmployee: ""
         },
 
           submitted: false
@@ -94,7 +97,7 @@ class RegistrarProducto extends React.Component{
                    </h3>
                </div>
             </section>
-            <Form onSubmit={this.newProduct}>
+            <Form onSubmit={this.createProduct}>
   <Row className="mb-3">
     <Form.Group as={Col} controlId="formGridID">
       <Form.Label>Estado del producto</Form.Label>
@@ -111,8 +114,8 @@ class RegistrarProducto extends React.Component{
     <Form.Group as={Col} controlId="formGridDescripcion">
       <Form.Label>Descripción</Form.Label>
       <Form.Control 
-        id="name"
-        name="name"
+        id="description"
+        name="description"
         type="text"
         className="form-control"
         onChange={this.handleFormChange}
@@ -154,7 +157,7 @@ class RegistrarProducto extends React.Component{
 
  <div class="text-center">
 
-  <Button href="#" variant="outline-danger">Registrar</Button> 
+  <Button type="submit" variant="outline-danger" value="RegistrarProducto">Registrar</Button> 
   
 </div> 
 
