@@ -363,6 +363,183 @@
 					"response": []
 				}
 			]
+		},
+		{
+			"name": "Sale",
+			"item": [
+				{
+					"name": "Create new sale",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"description\":\"Nevera LG\",\n    \"status\":{\"name\":\"Disponible\",\"value\":\"D\"},\n    \"amount\": 5,\n    \"unitValue\": 3000000,\n    \"registeredBy\":{\"nameEmployee\":\"Maria Paz\",\"idEmployee\":\"616e0884938ee4f9e4d5b0f6\"}\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/products/create",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"products",
+								"create"
+							]
+						},
+						"description": "Create new sale"
+					},
+					"response": []
+				},
+				{
+					"name": "Retrieve all Sales",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/sales/retrieve",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"sales",
+								"retrieve"
+							]
+						},
+						"description": "Retrieve all Sales"
+					},
+					"response": []
+				},
+				{
+					"name": "Retrieve all Sales for contain text",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/users/retrieve",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"users",
+								"retrieve"
+							]
+						},
+						"description": "Retrieve all Sales for contain text"
+					},
+					"response": []
+				},
+				{
+					"name": "Retrieve a single Sale by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/users/retrieve/616cb3267662a37e3c4a97b8",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"users",
+								"retrieve",
+								"616cb3267662a37e3c4a97b8"
+							]
+						},
+						"description": "Retrieve a single Sale by id"
+					},
+					"response": []
+				},
+				{
+					"name": "Update a Sale with id",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\":\"Alberto Morales\",\n    \"status\":{\"name\":\"Inactivo\",\"value\":\"I\"},\n    \"role\":{\"name\":\"Vendedor\",\"value\":\"VEND\"},\n    \"email\":\"crpr1988@gmail.com\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/users/update/616d0fabe0e69b6698edf12d",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"users",
+								"update",
+								"616d0fabe0e69b6698edf12d"
+							]
+						},
+						"description": "Update a Sale with id"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete all Sales",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/users/delete",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"users",
+								"delete"
+							]
+						},
+						"description": "Delete all Sales"
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
 		}
 	]
 }
