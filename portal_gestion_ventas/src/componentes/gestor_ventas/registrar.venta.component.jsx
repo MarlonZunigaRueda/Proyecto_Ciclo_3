@@ -126,8 +126,6 @@ class RegistrarVenta extends React.Component {
 
           <Row className="mb-3">
 
-
-
             <Form.Group as={Col} controlId="formGridCantidad">
               <Form.Label>Cantidad</Form.Label>
               <Form.Control
@@ -147,9 +145,6 @@ class RegistrarVenta extends React.Component {
           </div>
 
         </Form>
-
-
-
       </>
     )
   }
