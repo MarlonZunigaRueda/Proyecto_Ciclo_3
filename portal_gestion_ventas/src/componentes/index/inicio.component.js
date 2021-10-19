@@ -93,9 +93,6 @@ class Inicio extends React.Component{
 
                <div className='text-center'>
 
-                <Button variant="outline-primary">Log in with Google
-                <img src = "https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/512px-Google_%22G%22_Logo.svg.png" width="20" ></img>
-                </Button>{' '}
                 <p>
 
                 </p>
