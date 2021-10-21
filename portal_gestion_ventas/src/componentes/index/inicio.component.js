@@ -1,6 +1,8 @@
 import React from 'react';
 import { Redirect} from "react-router-dom";
 import { Form, Button, Row, Col} from 'react-bootstrap'
+import GoogleLogin from 'react-google-login';
+import UserDataService from '../../services/gestor_usuarios/user.service';
 
 class Inicio extends React.Component{
 
@@ -17,6 +19,11 @@ class Inicio extends React.Component{
 
         this.handleFormChange = this.handleFormChange.bind(this);
     }
+
+     responseGoogle (resp) {
+        console.log(resp)
+        console.log('Aquí entró google')
+      };
 
     handleFormChange = event => {
         debugger;
@@ -50,56 +57,57 @@ class Inicio extends React.Component{
         }
 
         return (
-			<form onSubmit={this.login}>
-                <h3>Inicie sesión</h3>
+          <form onSubmit={this.login}>
+            <h3>Inicie sesión</h3>
 
-                <div className="form-group">
-                    <label>Correo electrónico:</label>
-                    <input
-                        id="email_user"
-                        name="email_user"
-                        type="email"
-                        className="form-control"
-                        placeholder="Ingrese su corrreo"
-                        onChange={this.handleFormChange}
-                    />
-                </div>
-                <p/>
-                <div className="form-group">
-                    <label>Contraseña:</label>
-                    <input
-                        id="psd_user"
-                        name="psd_user"
-                        type="password"
-                        className="form-control"
-                        placeholder="Ingrese su contraseña"
-                        onChange={this.handleFormChange}
-                    />
-                </div>
-                <p/>
-               
-                <div className="sign-in">
-                    <button type="submit" value="Inicio" >Iniciar sesión</button>
-                </div>
-                <p>
+            <div className="form-group">
+              <label>Correo electrónico:</label>
+              <input
+                id="email_user"
+                name="email_user"
+                type="email"
+                className="form-control"
+                placeholder="Ingrese su corrreo"
+                onChange={this.handleFormChange}
+              />
+            </div>
+            <p />
+            <div className="form-group">
+              <label>Contraseña:</label>
+              <input
+                id="psd_user"
+                name="psd_user"
+                type="password"
+                className="form-control"
+                placeholder="Ingrese su contraseña"
+                onChange={this.handleFormChange}
+              />
+            </div>
+            <p />
 
-                </p>
-
-                <div class='text-center'>
-                    <h6>
-                         O inicie sesión con
-                    </h6>
-                </div>
-
-               <div className='text-center'>
-
-                <p>
-
-                </p>
-                <p>email_user === "admin@gmail.com" && psd_user === "123"</p>
-               </div>
-            </form>
-        )
+            <div className="sign-in">
+              <button type="submit" value="Inicio">
+                Iniciar sesión
+              </button>
+            </div>
+            <p />
+            <div class="text-center">
+              <h6>O inicie sesión con</h6>
+            </div>
+            <p />
+            <div className="text-center">
+              <GoogleLogin
+                clientId="555580086588-h1b8s5bst3f3vmh6ore3l6ddn222ge59.apps.googleusercontent.com"
+                buttonText="Login with Google"
+                onSuccess={this.responseGoogle}
+                onFailure={this.responseGoogle}
+                cookiePolicy={"single_host_origin"}
+              />
+              <p />
+              <p>email_user === "admin@gmail.com" && psd_user === "123"</p>
+            </div>
+          </form>
+        );
     }
 }
 export default Inicio;

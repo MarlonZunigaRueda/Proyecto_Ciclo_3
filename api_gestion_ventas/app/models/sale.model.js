@@ -21,6 +21,7 @@ module.exports = mongoose => {
       idClient: String
     },
     productsBox: [selectedItem],
+    amount: Number,
     total: Number
   }, {
     timestamps: true
