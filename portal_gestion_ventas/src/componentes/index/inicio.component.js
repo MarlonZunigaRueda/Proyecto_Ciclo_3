@@ -90,12 +90,11 @@ class Inicio extends React.Component{
                 Iniciar sesión
               </button>
             </div>
-            <p></p>
-
+            <p />
             <div class="text-center">
               <h6>O inicie sesión con</h6>
             </div>
-
+            <p />
             <div className="text-center">
               <GoogleLogin
                 clientId="555580086588-h1b8s5bst3f3vmh6ore3l6ddn222ge59.apps.googleusercontent.com"
@@ -104,7 +103,7 @@ class Inicio extends React.Component{
                 onFailure={this.responseGoogle}
                 cookiePolicy={"single_host_origin"}
               />
-              <p></p>
+              <p />
               <p>email_user === "admin@gmail.com" && psd_user === "123"</p>
             </div>
           </form>
