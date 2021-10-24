@@ -1,12 +1,12 @@
 module.exports = mongoose => {
   var schema = mongoose.Schema({
     description: String,
-    status: {
-      name: String,
-      value: String
-    },
     amount: Number,
     unitValue: Number,
+    state: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "ProductState"
+    },
     registeredBy: {
       nameEmployee: String,
       idEmployee: String

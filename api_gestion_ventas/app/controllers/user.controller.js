@@ -1,10 +1,11 @@
 const db = require("../models");
 const User = db.users;
+const Role = db.role;
 
 // Create and Save a new User
 exports.create = (req, res) => {
   // Validate request
-  if (!req.body.name || !req.body.email) {
+  if (!req.body.password || !req.body.email) {
     res.status(400).send({
       message: "Content can not be empty!"
     });
@@ -13,7 +14,7 @@ exports.create = (req, res) => {
 
   // Create a User
   const user = new User({
-    name: req.body.name,
+    fullname: req.body.fullname,
     status: req.body.status,
     role: req.body.role,
     email: req.body.email,
@@ -202,19 +203,13 @@ exports.findForContains = (req, res) => {
     });
 };
 
-function concatRegexp(reg, exp) {
-  let flags = reg.flags + exp.flags;
-  flags = Array.from(new Set(flags.split(''))).join();
-  return new RegExp(reg.source + exp.source, flags);
-};
-
 // Find a single User with an id
 exports.verify = (req, res) => {
   const token = req.params.token;
 
   const email = token.email;
 
-  User.findById(email)
+  User.findOne(email)
     .then(data => {
       if (!data)
         res.status(404).send({
@@ -229,4 +224,40 @@ exports.verify = (req, res) => {
           message: "Error retrieving User with email=" + email
         });
     });
+};
+
+exports.getRole = (req, res) => {
+
+  Role.findById({
+    _id: req.params.role
+  }, (err, role) => {
+    if (err) {
+      res.status(500).send({
+        message: err,
+        successful: false
+      });
+      return;
+    }
+
+    if (!role) {
+      return res.status(404).send({
+        message: "Rol no encontrado.",
+        successful: false
+      });
+    }
+
+    res.send({
+      role: {
+        name: role.name,
+        value: role.value
+      },
+      message: "Rol encontrado.",
+      successful: true
+    })
+    return;
+  });
+};
+
+exports.allAccess = (req, res) => {
+  res.status(200).send("Public Content.");
 };

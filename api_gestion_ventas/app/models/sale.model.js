@@ -1,16 +1,11 @@
 module.exports = mongoose => {
-  
-  var selectedItem = mongoose.Schema({
-    item: {
-      nameProduct: String,
-      idProduct: String
-    }
-  });
 
   var schema = mongoose.Schema({
-    status: {
-      name: String,
-      value: String
+    amount: Number,
+    total: Number,
+    state: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "SaleState"
     },
     registeredBy: {
       nameEmployee: String,
@@ -20,9 +15,10 @@ module.exports = mongoose => {
       nameClient: String,
       idClient: String
     },
-    productsBox: [selectedItem],
-    amount: Number,
-    total: Number
+    productsBox: [{
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Product"
+    }]
   }, {
     timestamps: true
   });
