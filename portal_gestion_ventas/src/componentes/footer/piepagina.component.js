@@ -1,4 +1,5 @@
 import React from 'react';
+import './Piepagina.css'
 
 class Piepagina extends React.Component{
     render(){

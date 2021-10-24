@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { Component } from "react";
 
-class Contacto extends React.Component{
+class Contacto extends Component{
     render(){
         return (
+        <div className="auth-inner">
 			<form>
                 <h3>Equipo 14</h3>
 
@@ -39,6 +40,7 @@ class Contacto extends React.Component{
                 </div>
                 
             </form>
+        </div>
         )
     }
 }

@@ -1,28 +1,62 @@
-import React from 'react';
-import UserDataService from '../../services/gestor_usuarios/user.service';
+import React, { Component } from "react";
+import Form from "react-validation/build/form";
+import Input from "react-validation/build/input";
+import Select from "react-validation/build/select";
+import CheckButton from "react-validation/build/button";
+import { isEmail } from "validator";
+import AuthDataService from '../../services/gestor_autenticacion/auth.service';
 
-class Inscripcion extends React.Component{
+const required = value => {
+    if (!value) {
+        return (
+        <div className="alert alert-danger" role="alert">
+            This field is required!
+        </div>
+        );
+    }
+};
+
+const vemail = value => {
+    if (!isEmail(value)) {
+        return (
+        <div className="alert alert-danger" role="alert">
+            This is not a valid email.
+        </div>
+        );
+    }
+};
+
+const vpassword = value => {
+    if (value.length < 6 || value.length > 10) {
+        return (
+        <div className="alert alert-danger" role="alert">
+            The password must be between 6 and 10 characters.
+        </div>
+        );
+    }
+};
+export default class Inscripcion extends Component{
 
     constructor(props) {
         super(props);
 
         this.state = {
             user: {
-                name: "",
+                fullname: "",
                 status: {
                     name: "",
                     value: ""
                 },
-                role: {
-                    name: "",
-                    value: ""
-                },
+                role: "",
                 email: "",
                 password: ""
-            }
+            },
+            successful: false,
+            message: ""
         };
 
         this.handleFormChange = this.handleFormChange.bind(this);
+        this.newUser = this.newUser.bind(this);
     }
 
     handleFormChange = event => {
@@ -30,38 +64,57 @@ class Inscripcion extends React.Component{
         let userNew = {
             ...this.state.user
         };
-        let val = event.target.value;
-        if (event.target.name === "role") {
-            userNew[event.target.name] = {name: val, value : val};
-        }else{
-            userNew[event.target.name] = val;
-        }
+
+        userNew[event.target.name] = event.target.value;
+
         this.setState({
             user: userNew
         });
     };
 
     createUser = event => {
+        debugger;
+        event.preventDefault();
+
+        this.setState({
+            message: "",
+            successful: false
+            });
+
+        this.form.validateAll();
+
+    if (this.checkBtn.context._errors.length === 0) {
+
         let user = this.state.user;
-        UserDataService.create(user)
+        user.status = {name:"INACTIVO",value:"02"};
+        AuthDataService.register(user)
             .then(response => {
                 this.setState({
-                    name: response.user.name,
-                    status: response.user.status,
-                    description: response.user.description,
-                    role: response.user.role,
-                    email: response.user.email,
-                    password: response.user.password,
-
-                    submitted: true
+                    message: response.data.message,
+                    successful: true
                 });
-                console.log(response.user);
+                console.log("<------register-------->");
+                console.log(response.data);
+            }, error => {
+                const resMessage =
+                    (error.response &&
+                        error.response.data &&
+                        error.response.data.message) ||
+                    error.message ||
+                    error.toString();
+
+                this.setState({
+                    successful: false,
+                    message: resMessage
+                });
+                this.newUser();
             })
             .catch(e => {
                 console.log(e);
-            });debugger;
-            //event.preventDefault();
+            });
+        }
     };
+
     newUser() {
         this.setState({
             name: "",
@@ -70,10 +123,7 @@ class Inscripcion extends React.Component{
                 value: ""
             },
             description: "",
-            role: {
-                name: "",
-                value: ""
-            },
+            role: "",
             email: "",
             password: "",
 
@@ -83,68 +133,101 @@ class Inscripcion extends React.Component{
 
     render(){
         return (
-            <div>
-                {this.state.submitted ? (
-                    <form onSubmit={this.newUser}>
-                        <h4>¡El usuario se ha creado exitosamente!</h4>
-                        <div className="sign-in">
-                            <button type="submit" value="Inscripcion" >Nuevo usuario</button>
-                        </div>
-                    </form>
-                ): (
-                    <form onSubmit={this.createUser}>
+            <div className="auth-inner">
+                <Form
+                        onSubmit = {this.state.successful ? this.newUser:this.createUser}
+                        ref = {c => {this.form = c;}} >
+                    {!this.state.successful && (
+                        <div>
                         <h3>Registre sus datos</h3>
                         <div className="form-group">
                             <label>Nombre completo:</label>
-                            <input
-                                id="name"
-                                name="name"
+                            <Input
+                                id="fullname"
+                                name="fullname"
                                 type="text"
                                 className="form-control"
                                 placeholder="Ingrese su nombre"
-                                onChange={this.handleFormChange} />
+                                value={this.state.user.fullname}
+                                onChange={this.handleFormChange}
+                                validations={[required]}
+                                />
                         </div>
                         <p/>
                         <div className="form-group">
                             <label>Correo electrónico:</label>
-                            <input
+                            <Input
                                 id="email"
                                 name="email"
                                 type="email"
                                 className="form-control"
                                 placeholder="Ingrese su corrreo"
-                                onChange={this.handleFormChange} />
+                                value={this.state.user.email}
+                                onChange={this.handleFormChange}
+                                validations={[required, vemail]}
+                                />
                         </div>
                         <p/>
                         <div className="form-group">
                             <label>Contraseña:</label>
-                            <input
+                            <Input
                                 id="password"
                                 name="password"
                                 type="password"
                                 className="form-control"
                                 placeholder="Ingrese su contraseña"
-                                onChange={this.handleFormChange} />
+                                value={this.state.user.password}
+                                onChange={this.handleFormChange}
+                                validations={[required, vpassword]}
+                                />
                         </div>
                         <p/>
                         <div className="form-group">
                             <label>Rol:</label>
-                            <input
+                            <Select
                                 id="role"
                                 name="role"
                                 type="text"
                                 className="form-control"
                                 placeholder="Ingrese su rol"
-                                onChange={this.handleFormChange}/>
+                                value={this.state.user.role}
+                                onChange={this.handleFormChange}
+                                validations={[required]}
+                                >
+                                <option value = "" ></option>
+                                <option value = "01" > ADMINISTRADOR </option>
+                                <option value = "02" > VENDEDOR </option>
+                                <option value = "03" > CLIENTE </option>
+                            </Select>
                         </div>
-                        <p/>
+                        <br/>
                         <div className="sign-in">
                             <button type="submit" value="Inscripcion" >Registrar datos</button>
                         </div>
-                    </form>
-        )}
+                    </div>
+                    )} {this.state.message && (
+                        <div className = "form-group" >
+                            <div
+                            className={
+                                this.state.successful
+                                ? "form-group alert alert-success"
+                                : "form-group alert alert-danger"
+                            }
+                            role="alert"
+                            >
+                            {this.state.message}
+                            <div className="sign-in">
+                            <br/>
+                            <button
+                                type="submit" value="Inscripcion"
+                                style={this.state.successful ? { display: "block" } : { display: "none" }}
+                            >Inscribir usuario</button>
+                            </div>
+                            </div>
+                        </div>)}
+                    <CheckButton style={{ display: "none" }} ref={c => { this.checkBtn = c;}} />
+                </Form>
             </div>
         )
     }
 }
-export default Inscripcion;

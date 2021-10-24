@@ -13,9 +13,16 @@ app.use(cors(corsOptions));
 app.use(express.json());
 
 // parse requests of content-type - application/x-www-form-urlencoded
-app.use(express.urlencoded({ extended: true })); 
+app.use(express.urlencoded({
+  extended: true
+}));
 
 const db = require("./app/models");
+const Role = db.role;
+const UserStatus = db.user_status;
+const ProductStatus = db.product_status;
+const SaleStatus = db.sale_status;
+
 db.mongoose
   .connect(db.url, {
     useNewUrlParser: true,
@@ -23,6 +30,7 @@ db.mongoose
   })
   .then(() => {
     console.log("Connected to the database!");
+    initial();
   })
   .catch(err => {
     console.log("Cannot connect to the database!", err);
@@ -31,15 +39,147 @@ db.mongoose
 
 // simple route
 app.get("/", (req, res) => {
-  res.json({ message: "Bienvenido a la API Gestión de Ventas." });
+  res.json({
+    message: "Bienvenido a la API Gestión de Ventas."
+  });
 });
 
 require("./app/routes/user.routes")(app);
 require("./app/routes/sale.routes")(app);
 require("./app/routes/product.routes")(app);
+require("./app/routes/auth.routes")(app);
 
 // set port, listen for requests
 const PORT = process.env.PORT || 8080;
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}.`);
 });
+
+
+function initial() {
+  Role.estimatedDocumentCount((err, count) => {
+    if (!err && count === 0) {
+      new Role({
+        value: "01",
+        name: "ADMINISTRADOR"
+      }).save(err => {
+        if (err) {
+          console.log("error", err);
+        }
+
+        console.log("added 'ADMINISTRADOR' to roles collection");
+      });
+
+      new Role({
+        value: "02",
+        name: "VENDEDOR"
+      }).save(err => {
+        if (err) {
+          console.log("error", err);
+        }
+
+        console.log("added 'VENDEDOR' to roles collection");
+      });
+
+      new Role({
+        value: "03",
+        name: "CLIENTE"
+      }).save(err => {
+        if (err) {
+          console.log("error", err);
+        }
+        console.log("added 'CLIENTE' to roles collection");
+      });
+    }
+  });
+
+  UserStatus.estimatedDocumentCount((err, count) => {
+    if (!err && count === 0) {
+      new UserStatus({
+        value: "01",
+        name: "ACTIVO"
+      }).save(err => {
+        if (err) {
+          console.log("error", err);
+        }
+
+        console.log("added 'ACTIVO' to status collection");
+      });
+
+      new UserStatus({
+        value: "02",
+        name: "INACTIVO"
+      }).save(err => {
+        if (err) {
+          console.log("error", err);
+        }
+
+        console.log("added 'INACTIVO' to status collection");
+      });
+
+    }
+  });
+
+  ProductStatus.estimatedDocumentCount((err, count) => {
+    if (!err && count === 0) {
+      new ProductStatus({
+        value: "01",
+        name: "DISPONIBLE"
+      }).save(err => {
+        if (err) {
+          console.log("error", err);
+        }
+
+        console.log("added 'DISPONIBLE' to status collection");
+      });
+
+      new ProductStatus({
+        value: "02",
+        name: "NO DISPONIBLE"
+      }).save(err => {
+        if (err) {
+          console.log("error", err);
+        }
+
+        console.log("added 'NO DISPONIBLE' to status collection");
+      });
+
+    }
+  });
+
+  SaleStatus.estimatedDocumentCount((err, count) => {
+    if (!err && count === 0) {
+      new SaleStatus({
+        value: "01",
+        name: "EN PROCESO"
+      }).save(err => {
+        if (err) {
+          console.log("error", err);
+        }
+
+        console.log("added 'EN PROCESO' to status collection");
+      });
+
+      new SaleStatus({
+        value: "02",
+        name: "CANCELADA"
+      }).save(err => {
+        if (err) {
+          console.log("error", err);
+        }
+
+        console.log("added 'CANCELADA' to status collection");
+      });
+
+      new SaleStatus({
+        value: "03",
+        name: "FINALIZADA"
+      }).save(err => {
+        if (err) {
+          console.log("error", err);
+        }
+        console.log("added 'FINALIZADA' to status collection");
+      });
+    }
+  });
+}
