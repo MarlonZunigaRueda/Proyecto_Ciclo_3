@@ -65,7 +65,11 @@ exports.findOne = (req, res) => {
         res.status(404).send({
           message: "Not found User with id " + id
         });
-      else res.send(data);
+      else res.send({
+        user: data,
+        message: "¡Usuario encontrado!",
+        successful: true
+      });
     })
     .catch(err => {
       res
@@ -80,7 +84,8 @@ exports.findOne = (req, res) => {
 exports.update = (req, res) => {
   if (!req.body) {
     return res.status(400).send({
-      message: "Data to update can not be empty!"
+      message: "¡Los datos para actualizar no pueden estar vacíos!",
+      successful: false
     });
   }
 
@@ -90,19 +95,26 @@ exports.update = (req, res) => {
       useFindAndModify: false
     })
     .then(data => {
+
+
+
       if (!data) {
         res.status(404).send({
-          message: `Cannot update User with id=${id}. Maybe User was not found!`
+          message: `No se puede actualizar el usuario con id=${id}. ¡Quizás no existe el usuario!`,
+          successful: false
         });
       } else res.send({
-        message: "User was updated successfully."
+        message: "¡El usuario se actualizó correctamente!",
+        successful: true
       });
     })
     .catch(err => {
       res.status(500).send({
-        message: "Error updating User with id=" + id
+        message: "Error al actualizar el usuario con id=" + id,
+        successful: false
       });
     });
+
 };
 
 // Delete a User with the specified id in the request
@@ -147,39 +159,107 @@ exports.deleteAll = (req, res) => {
 
 // Find all Clients
 exports.findAllClients = (req, res) => {
-  User.find({
-      role: {
-        name: "Cliente",
-        value: "CLIE"
+
+  Role.findOne({
+      value: "03"
+    },
+    (error, role) => {
+      if (error) {
+        res.status(500).send({
+          message: err,
+          successful: false
+        });
+        return;
       }
-    })
-    .then(data => {
-      res.send(data);
-    })
-    .catch(err => {
-      res.status(500).send({
-        message: err.message || "Some error occurred while retrieving Clients."
-      });
+
+      if (!role) {
+        return res.status(404).send({
+          message: "¡Clientes no encontrados!",
+          successful: false
+        });
+      }
+
+      User.find({
+        role: role._id
+      }, (error, clients) => {
+        if (error) {
+          res.status(500).send({
+            message: err,
+            successful: false
+          });
+          return;
+        }
+
+        if (!clients) {
+          return res.status(404).send({
+            message: "¡Clientes no encontrados!",
+            successful: false
+          });
+        }
+
+        res.send({
+          clients: clients,
+          message: "¡Clientes encontrados!",
+          successful: true
+        });
+      })
+
     });
 };
 
-// Find all Sellers
-exports.findAllSellers = (req, res) => {
-  User.find({
-      role: {
-        name: "Vendedor",
-        value: "VEND"
+// Find all Employees
+exports.findAllEmployees = (req, res) => {
+  Role.find({
+      value: {
+        $in: ["02", "01"]
       }
-    })
-    .then(data => {
-      res.send(data);
-    })
-    .catch(err => {
-      res.status(500).send({
-        message: err.message || "Some error occurred while retrieving Sellers."
+    },
+    (error, roles) => {
+      if (error) {
+        res.status(500).send({
+          message: err,
+          successful: false
+        });
+        return;
+      }
+
+      if (!roles) {
+        return res.status(404).send({
+          message: "Empleados no encontrados!",
+          successful: false
+        });
+      }
+
+      User.find({
+        role: {
+          $in: roles
+        }
+      }).exec((err, employees) => {
+        if (error) {
+          res.status(500).send({
+            message: err,
+            successful: false
+          });
+          return;
+        }
+
+        if (!employees) {
+          return res.status(404).send({
+            message: "¡Empleados no encontrados!",
+            successful: false
+          });
+        }
+
+        res.send({
+          employees: employees,
+          message: "¡¡Empleados encontrados!",
+          successful: true
+        });
       });
+
     });
 };
+
 
 // Retrieve all Users from the database.
 exports.findForContains = (req, res) => {
@@ -200,29 +280,6 @@ exports.findForContains = (req, res) => {
       res.status(500).send({
         message: err.message || "Some error occurred while retrieving Users."
       });
-    });
-};
-
-// Find a single User with an id
-exports.verify = (req, res) => {
-  const token = req.params.token;
-
-  const email = token.email;
-
-  User.findOne(email)
-    .then(data => {
-      if (!data)
-        res.status(404).send({
-          message: "Not found User with email " + email
-        });
-      else res.send(data);
-    })
-    .catch(err => {
-      res
-        .status(500)
-        .send({
-          message: "Error retrieving User with email=" + email
-        });
     });
 };
 
