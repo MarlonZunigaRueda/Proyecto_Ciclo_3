@@ -1,12 +1,7 @@
 import http from "../http_client/http-common";
-import axios from 'axios';
 import authHeader from '../gestor_autenticacion/headers.service';
 
 class UserDataService {
-
-    create(data) {
-        return http.post("/users/create", { headers: authHeader() }, data);
-    }
 
     getAll() {
         return http.get("/users/retrieve", { headers: authHeader() });
@@ -17,8 +12,8 @@ class UserDataService {
         return http.get("/users/clients", { headers: authHeader() });
     }
 
-    getAllSellers() {
-        return http.get("/users/sellers", { headers: authHeader() });
+    getAllEmployees() {
+        return http.get("/users/employees", { headers: authHeader() });
     }
 
 
@@ -27,7 +22,8 @@ class UserDataService {
     }
 
     update(id, data) {
-        return http.put(`/users/update/${id}`, { headers: authHeader() }, data);
+        var req =http.put(`/users/update/${id}`,data ,{ headers: authHeader() } )
+        return req;
     }
 
     findByName(name) {

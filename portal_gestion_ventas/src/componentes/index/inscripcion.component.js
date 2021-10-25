@@ -43,7 +43,7 @@ export default class Inscripcion extends Component{
         this.state = {
             user: {
                 fullname: "",
-                status: {
+                state: {
                     name: "",
                     value: ""
                 },
@@ -86,7 +86,7 @@ export default class Inscripcion extends Component{
     if (this.checkBtn.context._errors.length === 0) {
 
         let user = this.state.user;
-        user.status = {name:"INACTIVO",value:"02"};
+        user.state = {name:"INACTIVO",value:"02"};
         AuthDataService.register(user)
             .then(response => {
                 this.setState({
@@ -118,7 +118,7 @@ export default class Inscripcion extends Component{
     newUser() {
         this.setState({
             name: "",
-            status: {
+            state: {
                 name: "",
                 value: ""
             },
@@ -134,9 +134,8 @@ export default class Inscripcion extends Component{
     render(){
         return (
             <div className="auth-inner">
-                <Form
-                        onSubmit = {this.state.successful ? this.newUser:this.createUser}
-                        ref = {c => {this.form = c;}} >
+                <Form onSubmit = {this.state.successful ? this.newUser:this.createUser}
+                    ref = {c => {this.form = c;}} >
                     {!this.state.successful && (
                         <div>
                         <h3>Registre sus datos</h3>

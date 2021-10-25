@@ -20,8 +20,8 @@ module.exports = function (app) {
   // Retrieve all the users who are Clients
   router.get("/clients", [authJwt.verifyToken], controller.findAllClients);
 
-  // Retrieve all the users who are Sellers
-  router.get("/sellers", [authJwt.verifyToken], controller.findAllSellers);
+    // Retrieve all the users who are Employees
+    router.get("/employees", [authJwt.verifyToken], controller.findAllEmployees);
 
   // Retrieve a single User with id
   router.get("/retrieve/:id", [authJwt.verifyToken], controller.findOne);

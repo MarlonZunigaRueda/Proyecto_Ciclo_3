@@ -1,13 +1,9 @@
 import http from "../http_client/http-common";
-import axios from "axios";
-
-const API_URL = "http://localhost:8080/api/auth/";
-
 class AuthDataService {
 
     login(email, password) {
-        return axios
-            .post(API_URL + "signin", {
+        return http
+            .post("/auth/signin", {
                 email,
                 password
             })
@@ -15,7 +11,6 @@ class AuthDataService {
                 if (response.data.user && response.data.user.isEmployee && response.data.user.accessToken) {
                     localStorage.setItem("user", JSON.stringify(response.data.user));
                 }
-
                 return response.data;
             });
     }
@@ -25,7 +20,7 @@ class AuthDataService {
     }
 
     register(data) {
-        return axios.post(API_URL + "signup", data);
+        return http.post("/auth/signup", data);
     }
 
     getCurrentUser() {

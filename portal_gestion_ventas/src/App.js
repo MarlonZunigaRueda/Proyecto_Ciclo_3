@@ -8,24 +8,20 @@ import Logo from './componentes/images/imagen1.png';
 import AuthDataService from './services/gestor_autenticacion/auth.service';
 import UserDataService from './services/gestor_usuarios/user.service';
 
-import ProtectedRoute from "./componentes/welcome/protected.route.component";
-
 import Inicio from './componentes/index/inicio.component';
 import Inscripcion from './componentes/index/inscripcion.component';
 import Contacto from './componentes/index/contacto.component';
 import Ventas from './componentes/gestor_ventas/ventas.component';
 import Productos from './componentes/gestor_productos/productos.component';
-import Usuarios from './componentes/gestor_usuarios/usuarios.component';
+import Clientes from './componentes/gestor_usuarios/clientes.component';
+import Empleados from './componentes/gestor_usuarios/empleados.component';
 import NotFound from "./componentes/error/not.found.component";
 import RegistrarProducto from './componentes/gestor_productos/registrar.producto.component';
 import ConsultarProducto from './componentes/gestor_productos/consultar.productos';
 import RegistrarVenta from './componentes/gestor_ventas/registrar.venta.component';
 import ConsultarVenta from './componentes/gestor_ventas/consultar.productos';
-
 import Bienvenido from './componentes/welcome/bienvenido.component';
-
 import Piepagina from './componentes/footer/piepagina.component';
-
 import EventBus from "./common/event.bus.common";
 
 
@@ -161,7 +157,15 @@ class App extends Component {
                 </ul>
                 </li>
                 <li className="nav-item active">
-                  <Link className="nav-link" to={"/manage_users"} >Gestionar usuarios</Link>
+                  <a className="nav-link" >Gestionar usuarios</a>
+                <ul>
+                  <li>
+                    <Link className="nav-link" to={"/consult_clients"} >Consultar clientes</Link>
+                  </li>
+                  <li>
+                    <Link className="nav-link" to={"/consult_employees"} >Consultar empleados</Link>
+                  </li>
+                </ul>
                 </li>
             </div>)}
 
@@ -209,7 +213,8 @@ class App extends Component {
           <Route path="/manage_products" component={Productos} />
           <Route path="/register_product" component={RegistrarProducto} />
           <Route path="/search_product" component={ConsultarProducto} />
-          <Route path="/manage_users" component={Usuarios} />
+          <Route path="/consult_clients" component={Clientes} />
+          <Route path="/consult_employees" component={Empleados} />
           <Route path="/welcome" component={Bienvenido} />
           <Route path={["/", "/login"]} component={Inicio} />
         </Switch>
