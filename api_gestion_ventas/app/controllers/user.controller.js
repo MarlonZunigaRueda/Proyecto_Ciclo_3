@@ -96,8 +96,6 @@ exports.update = (req, res) => {
     })
     .then(data => {
 
-
-
       if (!data) {
         res.status(404).send({
           message: `No se puede actualizar el usuario con id=${id}. ¡Quizás no existe el usuario!`,

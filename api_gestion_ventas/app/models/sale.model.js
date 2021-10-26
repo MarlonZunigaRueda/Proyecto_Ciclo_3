@@ -4,8 +4,8 @@ module.exports = mongoose => {
     amount: Number,
     total: Number,
     state: {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: "SaleState"
+      name: String,
+      value: String
     },
     registeredBy: {
       nameEmployee: String,
