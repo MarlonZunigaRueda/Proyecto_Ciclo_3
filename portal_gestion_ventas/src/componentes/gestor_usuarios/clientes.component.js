@@ -40,8 +40,7 @@ class Clientes extends Component{
 				id: '',
 				fullname: '',
 				email: '',
-				state: '',
-				role:  ''
+				state: ''
 			},
 			clients: []
 		};
@@ -125,7 +124,8 @@ class Clientes extends Component{
 			var data = {
 				fullname: client.fullname,
 				email: client.email,
-				state: this.getState(client.state.value)
+				state: client.state,
+				role: client.role
 			};
 
 			UserDataService.update(client.id, data)
@@ -170,8 +170,7 @@ class Clientes extends Component{
 				id: '',
 				fullname: '',
 				email: '',
-				state: '',
-				role: ''
+				state: ''
 			}
 
 		}

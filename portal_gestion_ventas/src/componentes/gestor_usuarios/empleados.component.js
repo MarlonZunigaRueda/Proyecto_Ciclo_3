@@ -7,6 +7,7 @@ import CheckButton from "react-validation/build/button";
 import { isEmail } from "validator";
 
 import UserDataService from '../../services/gestor_usuarios/user.service';
+import AuthDataService from '../../services/gestor_autenticacion/auth.service';
 
 const required = value => {
     if (!value) {
@@ -65,6 +66,10 @@ class Empleados extends Component{
 
 	componentDidMount() {
 		this.fetchEmployees();
+
+		this.setState({
+			userActived : AuthDataService.getCurrentUser()
+		});
 	}
 
 	fetchEmployees() { debugger;
@@ -311,13 +316,13 @@ class Empleados extends Component{
 								{
 									this.state.employees.map(employee => {
 									return (
-										<tr key={employee.i}>
+										<tr key={employee.id}>
 										<td>{employee.fullname}</td>
 										<td>{employee.email}</td>
 										<td>{employee.role.name}</td>
 										<td>{employee.state.name}</td>
 										<td>
-											<button onClick={() => this.retrieveEmployee(employee.id)} className="btn light-blue darken-4" style={{margin: '4px'}}>
+											<button onClick={() => this.retrieveEmployee(employee.id)} disabled={employee.id === this.state.userActived.id} className="btn light-blue darken-4" style={{margin: '4px'}}>
 											<i className="material-icons">Editar</i>
 											</button>
 										</td>
