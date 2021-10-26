@@ -157,105 +157,43 @@ exports.deleteAll = (req, res) => {
 
 // Find all Clients
 exports.findAllClients = (req, res) => {
-
-  Role.findOne({
-      value: "03"
-    },
-    (error, role) => {
-      if (error) {
-        res.status(500).send({
-          message: err,
-          successful: false
-        });
-        return;
-      }
-
-      if (!role) {
-        return res.status(404).send({
-          message: "¡Clientes no encontrados!",
-          successful: false
-        });
-      }
-
-      User.find({
-        role: role._id
-      }, (error, clients) => {
-        if (error) {
-          res.status(500).send({
-            message: err,
-            successful: false
-          });
-          return;
-        }
-
-        if (!clients) {
-          return res.status(404).send({
-            message: "¡Clientes no encontrados!",
-            successful: false
-          });
-        }
-
-        res.send({
-          clients: clients,
-          message: "¡Clientes encontrados!",
-          successful: true
-        });
-      })
-
-    });
+  return this.findAllUsers('03',res);
 };
 
-// Find all Employees
+// Find all Employees ["02", "01"]
 exports.findAllEmployees = (req, res) => {
-  Role.find({
-      value: {
-        $in: ["02", "01"]
-      }
-    },
-    (error, roles) => {
-      if (error) {
-        res.status(500).send({
-          message: err,
-          successful: false
-        });
-        return;
-      }
+  return this.findAllUsers(["02", "01"],res);
+};
 
-      if (!roles) {
-        return res.status(404).send({
-          message: "Empleados no encontrados!",
-          successful: false
-        });
-      }
+exports.findAllUsers = (filter, res) => {
 
-      User.find({
-        role: {
-          $in: roles
-        }
-      }).exec((err, employees) => {
-        if (error) {
-          res.status(500).send({
-            message: err,
-            successful: false
-          });
-          return;
-        }
-
-        if (!employees) {
-          return res.status(404).send({
-            message: "¡Empleados no encontrados!",
-            successful: false
-          });
-        }
-
-        res.send({
-          employees: employees,
-          message: "¡¡Empleados encontrados!",
-          successful: true
-        });
+  User.find({
+    'role.value': {
+      $in: filter
+    }
+  }, (error, users) => {
+    if (error) {
+      res.status(500).send({
+        message: err,
+        successful: false
       });
+      return;
+    }
 
+    if (!users) {
+      return res.status(404).send({
+        message: "¡Usuarios no encontrados!",
+        successful: false
+      });
+    }
+
+    res.send({
+      users: users,
+      message: "¡Usuarios encontrados!",
+      successful: true
     });
+  })
+
 };
 
 

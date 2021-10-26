@@ -43,38 +43,16 @@ class App extends Component {
     const user = AuthDataService.getCurrentUser();
 
     if (user) {
-      UserDataService.getRole(user.role).then(response => {
-          this.setState({
-            currentUser: user,
-            showSellerBoard: this.validateRoleSeller(response.data.role),
-            showAdminBoard: this.validateRoleAdmin(response.data.role),
-            message: response.data.message,
-            successful: response.data.successful
-          });
-          console.log("<------register-------->");
-          console.log(response.data);
-        },
-        error => {
-          const resMessage =
-            (error.response &&
-              error.response.data &&
-              error.response.data.message) ||
-            error.message ||
-            error.toString();
 
-          this.setState({
-            message: resMessage,
-            successful: false
-          });
-        }).catch(e => {
-        console.log(e);
+      this.setState({
+        currentUser: user,
+        showSellerBoard: this.validateRoleSeller(user.role),
+        showAdminBoard: this.validateRoleAdmin(user.role),
+        message: "",
+        successful: true
       });
-
-      if (!this.state.role) {
-        this.setState({
-          successful: false
-        });
-      }
+    }else{
+      this.logOut();
     }
 
     EventBus.on("logout", () => {

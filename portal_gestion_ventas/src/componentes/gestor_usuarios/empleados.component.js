@@ -46,25 +46,22 @@ class Empleados extends Component{
 			employees: []
 		};
 		this.handleFormChange = this.handleFormChange.bind(this);
-		this.getState = this.getState.bind(this);
-		this.getRole = this.getRole.bind(this);
+		this.newEmployee = this.newEmployee.bind(this);
 
     }
 
-	handleFormChange = event => {debugger;
-        let employeeNew = {
-            ...this.state.employee
-        };
-		var property = event.target;
-		if (property.name === 'state') {
-			employeeNew[event.target.name] = this.getState(property.value);
-		}else{
-        	employeeNew[event.target.name] = event.target.value;
-		}
-        this.setState({
-            employee: employeeNew
-        });
-    };
+	handleFormChange = event => {
+
+		let employeeNew = {
+			...this.state.employee
+		};
+
+		employeeNew[event.target.name] = event.target.value;
+
+		this.setState({
+			employee: employeeNew
+		});
+	};
 
 	componentDidMount() {
 		this.fetchEmployees();
@@ -74,12 +71,10 @@ class Empleados extends Component{
 		UserDataService.getAllEmployees()
 			.then(response =>{
 				this.setState({
-					employees: response.data.employees,
+					employees: response.data.users,
 					message: response.data.message,
 					successful: response.data.successful
 				});
-				//this.asignarRoles();
-
 			} , error => {
                 const resMessage =
                     (error.response &&
@@ -100,7 +95,7 @@ class Empleados extends Component{
         UserDataService.get(id)
 		.then(response =>{
 			this.setState({
-				employee: response.data.user,
+				employee: this.newEmployee(response.data.user),
 				message: response.data.message,
 				successful: response.data.successful
 			});
@@ -120,36 +115,6 @@ class Empleados extends Component{
 		});
     };
 
-	getRole(value) {
-		var role = {};
-		switch (value) {
-			case '6170dc196a4177f4a4ae8faa':
-				role = {name:"ADMINISTRADOR",value: "01"};
-				break;
-			case '6170dc196a4177f4a4ae8fab':
-				role = {name:"VENDEDOR",value: "02"};
-				break;
-			default:
-				break;
-		}
-		return role;
-	}
-
-	getState(value) {
-		var state = {};
-		switch (value) {
-			case '01':
-				state = {name:"ACTIVO",value: value};
-				break;
-			case '02':
-				state = {name:"INACTIVO",value: value};
-				break;
-			default:
-				break;
-		}
-		return state;
-	}
-
 	updateEmployee = (event) => {debugger;
 		event.preventDefault();
 
@@ -159,8 +124,8 @@ class Empleados extends Component{
 
 			var data = {
 				fullname: employee.fullname,
-				email: employee.email,
-				state: this.getState(employee.state.value)
+				state: employee.state,
+				role: employee.role
 			};
 
 			UserDataService.update(employee.id, data)
@@ -187,16 +152,30 @@ class Empleados extends Component{
 		}
     };
 
-	newEmployee() {
-		this.setState({
-			employee: {
-				id: '-----',
+	newEmployee(data) {
+
+		var employee ;
+
+		if (data) {
+			employee = {
+					id: data.id,
+					fullname: data.fullname,
+					email: data.email,
+					state: data.state.value,
+					role: data.role.value
+			}
+		}else{
+
+			employee = {
+				id: '',
 				fullname: '',
 				email: '',
 				state: '',
 				role: ''
 			}
-		});
+
+		}
+		return employee
 	}
 
     render(){
@@ -266,11 +245,10 @@ class Empleados extends Component{
 											<Select
 											name="role"
 											onChange={this.handleFormChange}
-											value={this.getRole(this.state.employee.role).value}
+											value={this.state.employee.role}
 											type="text"
 											className="form-control"
 											autoFocus
-											disabled
 											validations={[required]}
 											>
 												<option value = "" ></option>
@@ -286,15 +264,16 @@ class Empleados extends Component{
 											<Select
 											name="state"
 											onChange={this.handleFormChange}
-											value={this.state.employee.state.value}
+											value={this.state.employee.state}
 											type="text"
 											className="form-control"
 											autoFocus
 											validations={[required]}
 											>
 												<option value = "" ></option>
-												<option value = "01" > ACTIVO </option>
-												<option value = "02" > INACTIVO </option>
+												<option value = "01" > AUTORIZADO </option>
+												<option value = "02" > PENDIENTE </option>
+												<option value = "03" > NO AUTORIZADO </option>
 											</Select>
 										</div>
 									</div>
@@ -335,7 +314,7 @@ class Empleados extends Component{
 										<tr key={employee.i}>
 										<td>{employee.fullname}</td>
 										<td>{employee.email}</td>
-										<td>{this.getRole(employee.role).name}</td>
+										<td>{employee.role.name}</td>
 										<td>{employee.state.name}</td>
 										<td>
 											<button onClick={() => this.retrieveEmployee(employee.id)} className="btn light-blue darken-4" style={{margin: '4px'}}>
