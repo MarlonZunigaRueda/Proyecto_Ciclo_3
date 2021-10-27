@@ -120,3 +120,15 @@ body, html, .App, #root, .auth-wrapper {
   height: 100px;
 
 }
+
+.welcome {
+
+  text-align: center;
+
+}
+.welcome img{
+
+  width: auto;
+  height: auto;
+
+}

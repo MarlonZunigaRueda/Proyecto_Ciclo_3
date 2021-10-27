@@ -20,8 +20,6 @@ import Bienvenido from './componentes/welcome/bienvenido.component';
 import Piepagina from './componentes/footer/piepagina.component';
 import EventBus from "./common/event.bus.common";
 import NotFound from "./componentes/error/not.found.component";
-import RegistrarVenta from './componentes/gestor_ventas/registrar.venta.component';
-
 
 class App extends Component {
   constructor(props) {
@@ -138,6 +136,11 @@ class App extends Component {
 
             {currentUser ? (
               <div className="navbar-nav ml-auto">
+              <li className="nav-item">
+                  <Link to={"/contact"} className="nav-link">
+                    Contacto
+                  </Link>
+                </li>
                 <li className="nav-item">
                   <a href="/login" className="nav-link" onClick={this.logOut}>
                     Cerrar sesión
@@ -157,15 +160,14 @@ class App extends Component {
                   Inscribirse
                   </Link>
                 </li>
-              </div>
-            )}
-            <div className="navbar-nav ml-auto">
-              <li className="nav-item">
+
+                <li className="nav-item">
                   <Link to={"/contact"} className="nav-link">
                     Contacto
                   </Link>
                 </li>
-            </div>
+              </div>
+            )}
           </ul>
         </div>
       </nav>
@@ -175,12 +177,11 @@ class App extends Component {
           <Route path="/register" component={Inscripcion} />
           <Route path="/contact" component={Contacto} />
           <Route path="/manage_sales" component={Ventas} />
-          <Route path="/register_sale" component={RegistrarVenta} />
           <Route path="/manage_products" component={Productos} />
           <Route path="/consult_clients" component={Clientes} />
           <Route path="/consult_employees" component={Empleados} />
-          <Route path="/welcome" component={Bienvenido} />
           <Route path={["/login"]} component={Inicio} />
+          <Route path={["/","/welcome"]} component={Bienvenido} />
           <Route path="*" component={NotFound} />
         </Switch>
       </div>

@@ -1,4 +1,5 @@
 import React from 'react';
+import Welcome from '../../componentes/images/imagen4.jpg';
 
 class Bienvenido extends React.Component{
 
@@ -17,7 +18,12 @@ class Bienvenido extends React.Component{
 
     render(){
         return (
-			 <h3>Bienvenido</h3>
+			<div id="no-found" className="welcome">
+            <img src={Welcome} alt="Welcome"/>
+            <div id="info">
+                <h3>Bienvenido a su espacio de trabajo.</h3>
+            </div>
+        </div >
         )
     }
 }
