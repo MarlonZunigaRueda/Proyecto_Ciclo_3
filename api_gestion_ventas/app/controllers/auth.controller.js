@@ -17,11 +17,6 @@ exports.signup = (req, res) => {
         email: req.body.email,
         password: bcrypt.hashSync(req.body.password, 8),
     });
-    const state = new  UserStatus ({name: req.body.state.name, value: req.body.state.value});
-    user.state = {
-        name: state.name,
-        value: state.value,
-    }
 
     user.save((err, user) => {
         if (err) {
@@ -40,22 +35,51 @@ exports.signup = (req, res) => {
                 });
                 return;
             }
+            if (!role) {
+                return res.status(404).send({
+                    message: "Role no encontrado.",
+                    successful: false
+                });
+            }
+            user.role = new Role({
+                name: role.name,
+                value: role.value
+            });
 
-            user.role = role._id;
-            user.save(err => {
+            UserStatus.findOne({
+                value: req.body.state
+            }, (err, state) => {
                 if (err) {
                     res.status(500).send({
                         message: err
                     });
                     return;
                 }
-
-                res.send({
-                    message: "User was registered successfully!"
+                if (!state) {
+                    return res.status(404).send({
+                        message: "Estado no encontrado.",
+                        successful: false
+                    });
+                }
+                user.state = new UserStatus({
+                    name: state.name,
+                    value: state.value
                 });
+
+                user.save(err => {
+                    if (err) {
+                        res.status(500).send({
+                            message: err
+                        });
+                        return;
+                    }
+                    res.send({
+                        message: "¡El usuario se registró correctamente!!"
+                    });
+                });
+
             });
         });
-
     });
 };
 
@@ -91,60 +115,52 @@ exports.signin = (req, res) => {
                     successful: false
                 });
             }
+            if (user.role && (user.role.value === "01" || user.role.value == "02")) {
 
-            Role.find({
-                    _id: user.role
-                },
-                (err, role) => {
-                    if (err) {
-                        res.status(500).send({
-                            message: err,
-                            successful: false
-                        });
-                        return;
-                    }
+                if (user.state && user.state.value !== "01") {
+                    res.status(401).send({
 
-                    if (!role) {
-                        return res.status(404).send({
-                            message: "User Not found.",
-                            successful: false
-                        });
-                    }
-
-                    if (role[0].value === "01" || role[0].value == "02" ) {
-                        var token = jwt.sign({
-                            id: user.id
-                        }, config.secret, {
-                            expiresIn: 86400 // 24 hours
-                        });
-
-                        res.send({
-                            user: {
-                                id: user._id,
-                                fullname: user.fullname,
-                                email: user.email,
-                                role: user.role,
-                                isEmployee: true,
-                                accessToken: token
-                            },message: "El usuario es empleado.",
-                            successful: true
-                        })
-                        return;
-                    } else {
-
-                        res.status(401).send({
-                            user: {
-                                id: user._id,
-                                username: user.username,
-                                email: user.email,
-                                role: user.role,
-                                isEmployee: false
-                            },message: "El usuario no es empleado.",
-                            successful: true
-                        });
-                        return;
-                    }
+                        message: "El empleado no está autorizado.",
+                        successful: false
+                    });
+                    return;
                 }
-            );
+
+                var token = jwt.sign({
+                    id: user.id
+                }, config.secret, {
+                    expiresIn: 86400 // 24 hours
+                });
+
+                res.send({
+                    user: {
+                        id: user._id,
+                        fullname: user.fullname,
+                        email: user.email,
+                        role: user.role,
+                        state: user.state,
+                        isEmployee: true,
+                        accessToken: token
+                    },
+                    message: "El usuario es empleado.",
+                    successful: true
+                })
+                return;
+            } else {
+
+                res.status(401).send({
+                    user: {
+                        id: user._id,
+                        username: user.username,
+                        email: user.email,
+                        role: user.role,
+                        isEmployee: false
+                    },
+                    message: "El usuario no es empleado.",
+                    successful: true
+                });
+                return;
+            }
+
         });
 };

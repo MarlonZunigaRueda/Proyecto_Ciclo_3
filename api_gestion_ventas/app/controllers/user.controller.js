@@ -1,6 +1,7 @@
 const db = require("../models");
 const User = db.users;
 const Role = db.role;
+const UserStatus = db.user_status;
 
 // Create and Save a new User
 exports.create = (req, res) => {
@@ -82,6 +83,7 @@ exports.findOne = (req, res) => {
 
 // Update a User by the id in the request
 exports.update = (req, res) => {
+
   if (!req.body) {
     return res.status(400).send({
       message: "¡Los datos para actualizar no pueden estar vacíos!",
@@ -89,32 +91,74 @@ exports.update = (req, res) => {
     });
   }
 
+  const user = {
+    fullname: req.body.fullname
+  };
+
   const id = req.params.id;
 
-  User.findByIdAndUpdate(id, req.body, {
-      useFindAndModify: false
-    })
-    .then(data => {
-
-
-
-      if (!data) {
-        res.status(404).send({
-          message: `No se puede actualizar el usuario con id=${id}. ¡Quizás no existe el usuario!`,
-          successful: false
-        });
-      } else res.send({
-        message: "¡El usuario se actualizó correctamente!",
-        successful: true
-      });
-    })
-    .catch(err => {
+  Role.findOne({
+    value: req.body.role
+  }, (err, role) => {
+    if (err) {
       res.status(500).send({
-        message: "Error al actualizar el usuario con id=" + id,
+        message: err
+      });
+      return;
+    }
+    if (!role) {
+      return res.status(404).send({
+        message: "Role no encontrado.",
         successful: false
       });
+    }
+    user.role = new Role({
+      name: role.name,
+      value: role.value
     });
 
+    UserStatus.findOne({
+      value: req.body.state
+    }, (err, state) => {
+
+      if (err) {
+        res.status(500).send({
+          message: err
+        });
+        return;
+      }
+      if (!state) {
+        return res.status(404).send({
+          message: "Estado no encontrado.",
+          successful: false
+        });
+      }
+      user.state = new UserStatus({
+        name: state.name,
+        value: state.value
+      });
+
+      User.findByIdAndUpdate(id, user, {
+        useFindAndModify: true
+      }).then(data => {
+
+        if (!data) {
+          res.status(404).send({
+            message: `No se puede actualizar el usuario con id=${id}. ¡Quizás no existe el usuario!`,
+            successful: false
+          });
+        } else res.send({
+          message: "¡El usuario se actualizó correctamente!",
+          successful: true
+        });
+      }).catch(err => {
+        res.status(500).send({
+          message: "Error al actualizar el usuario con id=" + id,
+          successful: false
+        });
+      });
+    })
+  })
 };
 
 // Delete a User with the specified id in the request
@@ -159,105 +203,43 @@ exports.deleteAll = (req, res) => {
 
 // Find all Clients
 exports.findAllClients = (req, res) => {
-
-  Role.findOne({
-      value: "03"
-    },
-    (error, role) => {
-      if (error) {
-        res.status(500).send({
-          message: err,
-          successful: false
-        });
-        return;
-      }
-
-      if (!role) {
-        return res.status(404).send({
-          message: "¡Clientes no encontrados!",
-          successful: false
-        });
-      }
-
-      User.find({
-        role: role._id
-      }, (error, clients) => {
-        if (error) {
-          res.status(500).send({
-            message: err,
-            successful: false
-          });
-          return;
-        }
-
-        if (!clients) {
-          return res.status(404).send({
-            message: "¡Clientes no encontrados!",
-            successful: false
-          });
-        }
-
-        res.send({
-          clients: clients,
-          message: "¡Clientes encontrados!",
-          successful: true
-        });
-      })
-
-    });
+  return this.findAllUsers('03',res);
 };
 
-// Find all Employees
+// Find all Employees ["02", "01"]
 exports.findAllEmployees = (req, res) => {
-  Role.find({
-      value: {
-        $in: ["02", "01"]
-      }
-    },
-    (error, roles) => {
-      if (error) {
-        res.status(500).send({
-          message: err,
-          successful: false
-        });
-        return;
-      }
+  return this.findAllUsers(["02", "01"],res);
+};
 
-      if (!roles) {
-        return res.status(404).send({
-          message: "Empleados no encontrados!",
-          successful: false
-        });
-      }
+exports.findAllUsers = (filter, res) => {
 
-      User.find({
-        role: {
-          $in: roles
-        }
-      }).exec((err, employees) => {
-        if (error) {
-          res.status(500).send({
-            message: err,
-            successful: false
-          });
-          return;
-        }
-
-        if (!employees) {
-          return res.status(404).send({
-            message: "¡Empleados no encontrados!",
-            successful: false
-          });
-        }
-
-        res.send({
-          employees: employees,
-          message: "¡¡Empleados encontrados!",
-          successful: true
-        });
+  User.find({
+    'role.value': {
+      $in: filter
+    }
+  }, (error, users) => {
+    if (error) {
+      res.status(500).send({
+        message: err,
+        successful: false
       });
+      return;
+    }
 
+    if (!users) {
+      return res.status(404).send({
+        message: "¡Usuarios no encontrados!",
+        successful: false
+      });
+    }
+
+    res.send({
+      users: users,
+      message: "¡Usuarios encontrados!",
+      successful: true
     });
+  })
+
 };
 
 

@@ -97,24 +97,35 @@ function initial() {
     if (!err && count === 0) {
       new UserStatus({
         value: "01",
-        name: "ACTIVO"
+        name: "AUTORIZADO"
       }).save(err => {
         if (err) {
           console.log("error", err);
         }
 
-        console.log("added 'ACTIVO' to status collection");
+        console.log("added 'AUTORIZADO' to status collection");
       });
 
       new UserStatus({
         value: "02",
-        name: "INACTIVO"
+        name: "PENDIENTE"
       }).save(err => {
         if (err) {
           console.log("error", err);
         }
 
-        console.log("added 'INACTIVO' to status collection");
+        console.log("added 'PENDIENTE' to status collection");
+      });
+
+      new UserStatus({
+        value: "03",
+        name: "NO AUTORIZADO"
+      }).save(err => {
+        if (err) {
+          console.log("error", err);
+        }
+
+        console.log("added 'NO AUTORIZADO' to status collection");
       });
 
     }
@@ -173,7 +184,7 @@ function initial() {
 
       new SaleStatus({
         value: "03",
-        name: "FINALIZADA"
+        name: "ENTREGADA"
       }).save(err => {
         if (err) {
           console.log("error", err);

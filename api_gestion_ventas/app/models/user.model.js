@@ -8,8 +8,8 @@ module.exports = mongoose => {
       value: String
     },
     role: {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: "Role"
+      name: String,
+      value: String
     },
   }, {
     timestamps: true

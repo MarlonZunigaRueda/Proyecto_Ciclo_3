@@ -40,26 +40,23 @@ class Clientes extends Component{
 				id: '',
 				fullname: '',
 				email: '',
-				state: '',
-				role:  ''
+				state: ''
 			},
 			clients: []
 		};
 		this.handleFormChange = this.handleFormChange.bind(this);
-		this.getState = this.getState.bind(this);
+		this.newClient = this.newClient.bind(this);
 
     }
 
-	handleFormChange = event => {debugger;
+	handleFormChange = event => {
+
         let clientNew = {
             ...this.state.client
         };
-		var property = event.target;
-		if (property.name === 'state') {
-			clientNew[event.target.name] = this.getState(property.value);
-		}else{
-        	clientNew[event.target.name] = event.target.value;
-		}
+
+        clientNew[event.target.name] = event.target.value;
+
         this.setState({
             client: clientNew
         });
@@ -73,7 +70,7 @@ class Clientes extends Component{
 		UserDataService.getAllClients()
 			.then(response =>{
 				this.setState({
-					clients: response.data.clients,
+					clients: response.data.users,
 					message: response.data.message,
 					successful: response.data.successful
 				});
@@ -97,7 +94,7 @@ class Clientes extends Component{
         UserDataService.get(id)
 		.then(response =>{
 			this.setState({
-				client: response.data.user,
+				client: this.newClient(response.data.user),
 				message: response.data.message,
 				successful: response.data.successful
 			});
@@ -117,21 +114,6 @@ class Clientes extends Component{
 		});
     };
 
-	getState(value) {
-		var state = {};
-		switch (value) {
-			case '01':
-				state = {name:"ACTIVO",value: value};
-				break;
-			case '02':
-				state = {name:"INACTIVO",value: value};
-				break;
-			default:
-				break;
-		}
-		return state;
-	}
-
 	updateClient = (event) => {debugger;
 		event.preventDefault();
 
@@ -142,7 +124,8 @@ class Clientes extends Component{
 			var data = {
 				fullname: client.fullname,
 				email: client.email,
-				state: this.getState(client.state.value)
+				state: client.state,
+				role: client.role
 			};
 
 			UserDataService.update(client.id, data)
@@ -169,16 +152,29 @@ class Clientes extends Component{
 		}
     };
 
-	newClient() {
-		this.setState({
-			client: {
-				id: '-----',
+	newClient(data) {
+
+		var client ;
+
+		if (data) {
+			client = {
+					id: data.id,
+					fullname: data.fullname,
+					email: data.email,
+					state: data.state.value,
+					role: data.role.value
+			}
+		}else{
+
+			client = {
+				id: '',
 				fullname: '',
 				email: '',
-				state: '',
-				role: ''
+				state: ''
 			}
-		});
+
+		}
+		return client
 	}
 
     render(){
@@ -248,15 +244,16 @@ class Clientes extends Component{
 											<Select
 											name="state"
 											onChange={this.handleFormChange}
-											value={this.state.client.state.value}
+											value={this.state.client.state}
 											type="text"
 											className="form-control"
 											autoFocus
 											validations={[required]}
 											>
 												<option value = "" ></option>
-												<option value = "01" > ACTIVO </option>
-												<option value = "02" > INACTIVO </option>
+												<option value = "01" > AUTORIZADO </option>
+												<option value = "02" > PENDIENTE </option>
+												<option value = "03" > NO AUTORIZADO </option>
 											</Select>
 										</div>
 									</div>

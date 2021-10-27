@@ -43,10 +43,7 @@ export default class Inscripcion extends Component{
         this.state = {
             user: {
                 fullname: "",
-                state: {
-                    name: "",
-                    value: ""
-                },
+                state: "02",
                 role: "",
                 email: "",
                 password: ""
@@ -85,9 +82,7 @@ export default class Inscripcion extends Component{
 
     if (this.checkBtn.context._errors.length === 0) {
 
-        let user = this.state.user;
-        user.state = {name:"INACTIVO",value:"02"};
-        AuthDataService.register(user)
+        AuthDataService.register(this.state.user)
             .then(response => {
                 this.setState({
                     message: response.data.message,
