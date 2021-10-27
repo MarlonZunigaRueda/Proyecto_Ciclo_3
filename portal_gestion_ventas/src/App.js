@@ -6,23 +6,21 @@ import './componentes/css/Menu.css'
 import Logo from './componentes/images/imagen1.png';
 
 import AuthDataService from './services/gestor_autenticacion/auth.service';
-import UserDataService from './services/gestor_usuarios/user.service';
 
 import Inicio from './componentes/index/inicio.component';
 import Inscripcion from './componentes/index/inscripcion.component';
 import Contacto from './componentes/index/contacto.component';
-import Ventas from './componentes/gestor_ventas/ventas.component';
-import Productos from './componentes/gestor_productos/productos.component';
+
 import Clientes from './componentes/gestor_usuarios/clientes.component';
 import Empleados from './componentes/gestor_usuarios/empleados.component';
-import NotFound from "./componentes/error/not.found.component";
-import RegistrarProducto from './componentes/gestor_productos/registrar.producto.component';
-import ConsultarProducto from './componentes/gestor_productos/consultar.productos';
-import RegistrarVenta from './componentes/gestor_ventas/registrar.venta.component';
-import ConsultarVenta from './componentes/gestor_ventas/consultar.productos';
+import Productos from './componentes/gestor_productos/productos.component';
+import Ventas from './componentes/gestor_ventas/ventas.component';
+
 import Bienvenido from './componentes/welcome/bienvenido.component';
 import Piepagina from './componentes/footer/piepagina.component';
 import EventBus from "./common/event.bus.common";
+import NotFound from "./componentes/error/not.found.component";
+import RegistrarVenta from './componentes/gestor_ventas/registrar.venta.component';
 
 
 class App extends Component {
@@ -108,7 +106,7 @@ class App extends Component {
             {showSellerBoard && (
               <div className="navbar-nav ml-auto">
                 <li className="nav-item active">
-                  <a className="nav-link" >Gestionar ventas</a>
+                  <Link className="nav-link" to={"/manage_sales"} >Gestionar ventas</Link>
                   <ul>
                     <li>
                       <Link className="nav-link" to={"/register_sale"} >Registrar venta</Link>
@@ -120,22 +118,13 @@ class App extends Component {
                 </li>
               </div>
             )}
-
             {showAdminBoard && (
               <div className="navbar-nav ml-auto">
                 <li className="nav-item active">
-                  <a className="nav-link" >Gestionar productos</a>
-                <ul>
-                  <li>
-                    <Link className="nav-link" to={"/register_product"} >Registrar producto</Link>
-                  </li>
-                  <li>
-                    <Link className="nav-link" to={"/search_product"} >Consultar productos</Link>
-                  </li>
-                </ul>
+                  <Link className="nav-link" to={"/manage_products"} >Gestionar productos</Link>
                 </li>
                 <li className="nav-item active">
-                  <a className="nav-link" >Gestionar usuarios</a>
+                  <Link className="nav-link" to={"#"} >Gestionar usuarios</Link>
                 <ul>
                   <li>
                     <Link className="nav-link" to={"/consult_clients"} >Consultar clientes</Link>
@@ -187,14 +176,12 @@ class App extends Component {
           <Route path="/contact" component={Contacto} />
           <Route path="/manage_sales" component={Ventas} />
           <Route path="/register_sale" component={RegistrarVenta} />
-          <Route path="/search_sale" component={ConsultarVenta} />
           <Route path="/manage_products" component={Productos} />
-          <Route path="/register_product" component={RegistrarProducto} />
-          <Route path="/search_product" component={ConsultarProducto} />
           <Route path="/consult_clients" component={Clientes} />
           <Route path="/consult_employees" component={Empleados} />
           <Route path="/welcome" component={Bienvenido} />
-          <Route path={["/", "/login"]} component={Inicio} />
+          <Route path={["/login"]} component={Inicio} />
+          <Route path="*" component={NotFound} />
         </Switch>
       </div>
       </main>
