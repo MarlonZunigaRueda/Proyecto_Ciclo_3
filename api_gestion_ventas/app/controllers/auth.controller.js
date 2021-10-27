@@ -115,7 +115,7 @@ exports.signin = (req, res) => {
                     successful: false
                 });
             }
-            if (user.role && (user.role.value === "01" || user.rolevalue == "02")) {
+            if (user.role && (user.role.value === "01" || user.role.value == "02")) {
 
                 if (user.state && user.state.value !== "01") {
                     res.status(401).send({
