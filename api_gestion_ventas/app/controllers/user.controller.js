@@ -64,7 +64,8 @@ exports.findOne = (req, res) => {
     .then(data => {
       if (!data)
         res.status(404).send({
-          message: "Not found User with id " + id
+          message: "Not found User with id " + id,
+          successful: false
         });
       else res.send({
         user: data,
@@ -76,7 +77,8 @@ exports.findOne = (req, res) => {
       res
         .status(500)
         .send({
-          message: "Error retrieving User with id=" + id
+          message: "Error retrieving User with id=" + id,
+          successful: false
         });
     });
 };
@@ -123,7 +125,8 @@ exports.update = (req, res) => {
 
       if (err) {
         res.status(500).send({
-          message: err
+          message: err,
+          successful: true
         });
         return;
       }
@@ -171,17 +174,20 @@ exports.delete = (req, res) => {
     .then(data => {
       if (!data) {
         res.status(404).send({
-          message: `Cannot delete User with id=${id}. Maybe User was not found!`
+          message: `Cannot delete User with id=${id}. Maybe User was not found!`,
+          successful: false
         });
       } else {
         res.send({
-          message: "User was deleted successfully!"
+          message: "User was deleted successfully!",
+          successful: true
         });
       }
     })
     .catch(err => {
       res.status(500).send({
-        message: "Could not delete User with id=" + id
+        message: "Could not delete User with id=" + id,
+        successful: false
       });
     });
 };
@@ -191,12 +197,14 @@ exports.deleteAll = (req, res) => {
   User.deleteMany({})
     .then(data => {
       res.send({
-        message: `${data.deletedCount} Users were deleted successfully!`
+        message: `${data.deletedCount} Users were deleted successfully!`,
+        successful: true
       });
     })
     .catch(err => {
       res.status(500).send({
-        message: err.message || "Some error occurred while removing all Users."
+        message: err.message || "Some error occurred while removing all Users.",
+        successful: false
       });
     });
 };
@@ -260,7 +268,8 @@ exports.findForContains = (req, res) => {
     })
     .catch(err => {
       res.status(500).send({
-        message: err.message || "Some error occurred while retrieving Users."
+        message: err.message || "Some error occurred while retrieving Users.",
+        successful: false
       });
     });
 };
