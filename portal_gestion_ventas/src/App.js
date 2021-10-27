@@ -138,6 +138,11 @@ class App extends Component {
 
             {currentUser ? (
               <div className="navbar-nav ml-auto">
+              <li className="nav-item">
+                  <Link to={"/contact"} className="nav-link">
+                    Contacto
+                  </Link>
+                </li>
                 <li className="nav-item">
                   <a href="/login" className="nav-link" onClick={this.logOut}>
                     Cerrar sesión
@@ -157,15 +162,14 @@ class App extends Component {
                   Inscribirse
                   </Link>
                 </li>
-              </div>
-            )}
-            <div className="navbar-nav ml-auto">
-              <li className="nav-item">
+
+                <li className="nav-item">
                   <Link to={"/contact"} className="nav-link">
                     Contacto
                   </Link>
                 </li>
-            </div>
+              </div>
+            )}
           </ul>
         </div>
       </nav>

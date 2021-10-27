@@ -8,12 +8,12 @@ module.exports = mongoose => {
       value: String
     },
     registeredBy: {
-      nameEmployee: String,
-      idEmployee: String
+      name: String,
+      value: String
     },
     boughtBy: {
-      nameClient: String,
-      idClient: String
+      name: String,
+      value: String
     },
     productsBox: [{
       type: mongoose.Schema.Types.ObjectId,

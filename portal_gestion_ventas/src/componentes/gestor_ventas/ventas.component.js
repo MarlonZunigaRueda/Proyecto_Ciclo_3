@@ -238,22 +238,28 @@ class Ventas extends Component {
 									<br/>
 									<div className="row">
 										<div className="form-group">
-											<label>Descripción:</label>
-											<Input
-											name="description"
+											<label>Lista de productos:</label>
+											<Select
+											name="state"
 											onChange={this.handleFormChange}
-											value={this.state.product.description}
+											value={this.state.product.state}
 											type="text"
 											className="form-control"
-											validations={[required]}
 											autoFocus
-											/>
+											validations={[required]}
+											disabled={this.state.product.id}
+											multiple={true}
+											>
+												<option value = "" ></option>
+												<option value = "01" > DISPONIBLE </option>
+												<option value = "02" > NO DISPONIBLE </option>
+											</Select>
 										</div>
 									</div>
 									<br/>
 									<div className="row">
 										<div className="form-group">
-											<label>Valor Unitario</label>
+											<label>Cantidad de productos</label>
 											<Input
 											name="unitValue"
 											onChange={this.handleFormChange}
@@ -261,6 +267,7 @@ class Ventas extends Component {
 											type="number"
 											className="form-control"
 											autoFocus
+											disabled
 											validations={[required]}
 											/>
 										</div>
@@ -268,7 +275,7 @@ class Ventas extends Component {
 									<br/>
 									<div className="row">
 										<div className="form-group">
-											<label>Cantidad:</label>
+											<label>Total:</label>
 											<Input
 											name="amount"
 											onChange={this.handleFormChange}
@@ -276,6 +283,7 @@ class Ventas extends Component {
 											type="number"
 											className="form-control"
 											autoFocus
+											disabled
 											validations={[required]}
 											/>
 										</div>
@@ -300,6 +308,27 @@ class Ventas extends Component {
 										</div>
 									</div>
 									<br/>
+									<div className="row">
+										<div className="form-group">
+											<label>Cliente:</label>
+											<Select
+											name="state"
+											onChange={this.handleFormChange}
+											value={this.state.product.state}
+											type="text"
+											className="form-control"
+											autoFocus
+											validations={[required]}
+											disabled={this.state.product.id}
+											>
+												<option value = "" ></option>
+												<option value = "01" > DISPONIBLE </option>
+												<option value = "02" > NO DISPONIBLE </option>
+											</Select>
+										</div>
+									</div>
+									<br/>
+
 									<div className="sign-in">
                             			<button type="submit" value="Inscripcion" >Guardar datos</button>
                         			</div>
@@ -322,10 +351,12 @@ class Ventas extends Component {
 							<table>
 								<thead>
 								<tr>
-									<th>Descripción</th>
-									<th>Cantidad</th>
-									<th>Valor Unitario</th>
+									<th>Fecha de la venta</th>
+									<th>Cantidad de productos</th>
+									<th>Valor total</th>
 									<th>Estado</th>
+									<th>Cliente</th>
+									<th>Vendedor</th>
 									<th></th>
 								</tr>
 								</thead>
@@ -337,6 +368,8 @@ class Ventas extends Component {
 										<td>{product.description}</td>
 										<td>{product.amount}</td>
 										<td>{product.unitValue}</td>
+										<td>{product.state.name}</td>
+										<td>{product.state.name}</td>
 										<td>{product.state.name}</td>
 										<td>
 											<button onClick={() => this.retrieveProduct(product.id)} className="btn light-blue darken-4" style={{margin: '4px'}}>
